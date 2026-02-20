@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -21,26 +21,51 @@
 
 <div class="container">
   <div class="dashboard-grid">
-  <div class="card">
-    <h2>Wallet Balance</h2>
-    <h1 id="balance">₵0</h1>
-  </div>
 
-  <div class="card">
-    <h2>Commission Earned</h2>
-    <h1 id="commission">₵0</h1>
-  </div>
+    <div class="card">
+      <h2>Wallet Balance</h2>
+      <h1 id="balance">₵0</h1>
+    </div>
 
-  <div class="card">
-    <h2>Daily Sales</h2>
-    <canvas id="salesChart"></canvas>
+    <div class="card">
+      <h2>Commission Earned</h2>
+      <h1 id="commission">₵0</h1>
+    </div>
+
+    <div class="card">
+      <h2>Daily Sales</h2>
+      <canvas id="salesChart"></canvas>
+    </div>
+
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="app.js"></script>
+
 <script>
-loadChart();
+  // Load user data when page opens
+  window.onload = function() {
+
+    const currentUserEmail = localStorage.getItem("currentUser");
+
+    if (!currentUserEmail) {
+      window.location.href = "index.html";
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem(currentUserEmail));
+
+    if (!user) {
+      window.location.href = "index.html";
+      return;
+    }
+
+    document.getElementById("balance").innerText = "₵" + user.balance;
+    document.getElementById("commission").innerText = "₵" + user.commission;
+
+    loadChart();
+  };
 </script>
 
 </body>
