@@ -10,13 +10,30 @@
 <div class="container">
   <div class="card">
     <h2>Login</h2>
-    <input id="loginEmail" placeholder="Email">
-    <input id="loginPassword" type="password" placeholder="Password">
+
+    <input id="loginEmail" type="email" placeholder="Email" required>
+    <input id="loginPassword" type="password" placeholder="Password" required>
+
     <button onclick="login()">Login</button>
-    <p>Don't have account? <a href="signup.html">Sign up</a></p>
+
+    <p>
+      Don't have an account? 
+      <a href="signup.html">Sign up</a>
+    </p>
   </div>
 </div>
 
 <script src="app.js"></script>
+
+<script>
+  // Redirect to dashboard if already logged in
+  window.onload = function () {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      window.location.href = "dashboard.html";
+    }
+  };
+</script>
+
 </body>
 </html>
