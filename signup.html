@@ -10,12 +10,15 @@
 <div class="container">
   <div class="card">
     <h2>Create Account</h2>
+
     <input id="name" placeholder="Full Name">
     <input id="phone" placeholder="Phone">
-    <input id="email" placeholder="Email">
+    <input id="email" type="email" placeholder="Email">
     <input id="password" type="password" placeholder="Password">
     <input id="referral" placeholder="Referral Code">
+
     <button onclick="signup()">Register</button>
+
     <p>Already have account? <a href="index.html">Login</a></p>
   </div>
 </div>
@@ -25,9 +28,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { 
   getAuth, 
-  createUserWithEmailAndPassword, 
-  sendEmailVerification 
+  createUserWithEmailAndPassword,
+  sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+import { 
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCEEpCoEL6oHm0gvtbm6AP7fb0jtgpr_MA",
@@ -40,22 +49,41 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 window.signup = async function () {
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const referral = document.getElementById("referral").value.trim();
 
-  if (!email || !password) {
-    alert("Please fill all fields");
+  if (!name || !phone || !email || !password) {
+    alert("Please fill all required fields");
     return;
   }
 
   try {
+
+    // Create user in Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+    // Save user profile in Firestore
+    await setDoc(doc(db, "users", userCredential.user.uid), {
+      name: name,
+      phone: phone,
+      email: email,
+      referral: referral,
+      balance: 0,
+      commission: 0,
+      createdAt: new Date()
+    });
+
+    // Send verification email
     await sendEmailVerification(userCredential.user);
 
-    alert("Verification email sent! Check your inbox.");
+    alert("Account created! Verification email sent.");
     window.location.href = "index.html";
 
   } catch (error) {
