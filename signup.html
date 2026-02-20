@@ -20,9 +20,6 @@
   </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -33,13 +30,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCEEpCoEL6oHm0gvtbm6AP7fb0jtgpr_MA",_MA",
+  apiKey: "YOUR_API_KEY_HERE",
   authDomain: "amg-data-hub.firebaseapp.com",
   projectId: "amg-data-hub",
   storageBucket: "amg-data-hub.firebasestorage.app",
   messagingSenderId: "822674254731",
-  appId: "1:822674254731:web:c0c6d1e7826918c0d3dd8e",
-  measurementId: "G-QCXWQZCR6B"
+  appId: "1:822674254731:web:c0c6d1e7826918c0d3dd8e"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -57,7 +53,6 @@ window.signup = async function () {
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
     await sendEmailVerification(userCredential.user);
 
     alert("Verification email sent! Check your inbox.");
@@ -70,8 +65,5 @@ window.signup = async function () {
 };
 
 </script>
-
-<button onclick="register()">Register</button>
-
 </body>
 </html>
