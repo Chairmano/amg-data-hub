@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AMG Admin Panel</title>
   <link rel="stylesheet" href="style.css">
-css">
 
   <script>
     const password = prompt("Enter Admin Password:");
@@ -13,7 +12,7 @@ css">
       window.location.href = "index.html";
     }
   </script>
-  
+
 </head>
 <body>
 
@@ -46,8 +45,14 @@ css">
 </div>
 
 <script src="app.js"></script>
+
 <script>
-loadUsers();
+  // Wait until page loads before calling function
+  window.onload = function() {
+    if (typeof loadUsers === "function") {
+      loadUsers();
+    }
+  };
 </script>
 
 </body>
