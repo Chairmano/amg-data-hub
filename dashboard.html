@@ -540,7 +540,7 @@ body.dark .profile-modal{
 
 .simple-page{
   text-align:center;
-  padding-top:80px;
+  padding-top:50px;
 }
 
 .simple-page i{
@@ -724,14 +724,8 @@ body.dark .profile-modal{
   text-decoration:none;
 
   z-index:99999;
-}
 
-@media(max-width:500px){
-
-  .network-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
+  cursor:grab;
 }
 
 </style>
@@ -862,7 +856,7 @@ id="overlay"
 onclick="closeAll()"
 ></div>
 
-<!-- PROFILE MODAL -->
+<!-- PROFILE -->
 
 <div
 class="profile-modal"
@@ -894,51 +888,13 @@ user@gmail.com
 <div class="profile-grid">
 
 <div class="profile-card">
-
-<h3 id="totalDeposits">
-GH₵0
-</h3>
-
-<p>
-Total Deposits
-</p>
-
+<h3 id="userRole">Customer</h3>
+<p>Role</p>
 </div>
 
 <div class="profile-card">
-
-<h3 id="totalOrders">
-0
-</h3>
-
-<p>
-Total Orders
-</p>
-
-</div>
-
-<div class="profile-card">
-
-<h3 id="totalSpent">
-GH₵0
-</h3>
-
-<p>
-Total Spent
-</p>
-
-</div>
-
-<div class="profile-card">
-
-<h3 id="userRole">
-Customer
-</h3>
-
-<p>
-Role
-</p>
-
+<h3 id="activeDays">0</h3>
+<p>Active Days</p>
 </div>
 
 </div>
@@ -949,10 +905,6 @@ Role
 📞 Phone:
 </div>
 
-<div id="activeDays">
-📅 Active Days:
-</div>
-
 <div id="registeredDate">
 🗓 Registered:
 </div>
@@ -961,7 +913,7 @@ Role
 
 </div>
 
-<!-- DASHBOARD PAGE -->
+<!-- DASHBOARD -->
 
 <div
 class="page active"
@@ -1065,10 +1017,7 @@ class="network-card"
 onclick="showPage('mtnPage')"
 >
 
-<img
-src="mtn.png"
-alt="MTN Logo"
->
+<img src="mtn.png">
 
 <p>MTN</p>
 
@@ -1079,10 +1028,7 @@ class="network-card"
 onclick="showPage('telecelPage')"
 >
 
-<img
-src="telecel.png"
-alt="Telecel Logo"
->
+<img src="telecel.png">
 
 <p>Telecel</p>
 
@@ -1093,10 +1039,7 @@ class="network-card"
 onclick="showPage('airtelPage')"
 >
 
-<img
-src="airteltigo.png"
-alt="AirtelTigo Logo"
->
+<img src="airteltigo.png">
 
 <p>AirtelTigo</p>
 
@@ -1144,69 +1087,137 @@ GH₵0.00
 
 </div>
 
-<!-- QUICK ACTIONS -->
-
-<div class="card">
-
-<div class="section-title">
-Quick Actions
 </div>
 
-<div class="quick-grid">
+<!-- MTN PAGE -->
 
 <div
-class="quick-card"
-onclick="showPage('walletPage')"
+class="page"
+id="mtnPage"
 >
 
-<div class="quick-icon">
-<i class="fa-solid fa-wallet"></i>
+<div class="simple-header">
+
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
+
+<h2>MTN Data</h2>
+
 </div>
 
-<p>Wallet</p>
+<div class="simple-page">
+
+<i class="fa-solid fa-wifi"></i>
+
+<h1>
+MTN Data Bundles
+</h1>
 
 </div>
+
+</div>
+
+<!-- TELECEL PAGE -->
 
 <div
-class="quick-card"
-onclick="showPage('historyPage')"
+class="page"
+id="telecelPage"
 >
 
-<div class="quick-icon">
-<i class="fa-solid fa-clock-rotate-left"></i>
-</div>
+<div class="simple-header">
 
-<p>History</p>
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
 
-</div>
-
-<div class="quick-card">
-
-<div class="quick-icon">
-<i class="fa-solid fa-users"></i>
-</div>
-
-<p>Referrals</p>
+<h2>Telecel Data</h2>
 
 </div>
 
-<div class="quick-card">
+<div class="simple-page">
 
-<div class="quick-icon">
-<i class="fa-solid fa-chart-line"></i>
-</div>
+<i class="fa-solid fa-globe"></i>
 
-<p>Reports</p>
+<h1>
+Telecel Data Bundles
+</h1>
 
 </div>
 
 </div>
 
-</div>
+<!-- AIRTEL PAGE -->
+
+<div
+class="page"
+id="airtelPage"
+>
+
+<div class="simple-header">
+
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
+
+<h2>AirtelTigo Data</h2>
 
 </div>
 
-<!-- WALLET PAGE -->
+<div class="simple-page">
+
+<i class="fa-solid fa-signal"></i>
+
+<h1>
+AirtelTigo Data Bundles
+</h1>
+
+</div>
+
+</div>
+
+<!-- RESULTS -->
+
+<div
+class="page"
+id="resultsPage"
+>
+
+<div class="simple-header">
+
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
+
+<h2>Results Checkers</h2>
+
+</div>
+
+<div class="simple-page">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h1>
+Results Checkers
+</h1>
+
+</div>
+
+</div>
+
+<!-- WALLET -->
 
 <div
 class="page"
@@ -1244,12 +1255,7 @@ class="wallet-logo"
 <div class="wallet-chip"></div>
 
 <div class="wallet-number">
-
-AMG-
-<span id="walletId">
-000000001
-</span>
-
+AMG-928374652
 </div>
 
 <div class="wallet-user">
@@ -1271,10 +1277,7 @@ Wallet Balance
 </small>
 
 <h1>
-GH₵
-<span id="walletBalance">
-0.00
-</span>
+GH₵0.00
 </h1>
 
 </div>
@@ -1290,7 +1293,7 @@ Deposit Money
 
 </div>
 
-<!-- DEPOSIT PAGE -->
+<!-- DEPOSIT -->
 
 <div
 class="page"
@@ -1312,10 +1315,6 @@ onclick="showPage('dashboardPage')"
 
 <div class="card">
 
-<div class="section-title">
-Fund Wallet
-</div>
-
 <input
 type="number"
 placeholder="Enter Amount"
@@ -1329,7 +1328,7 @@ Select Payment Method
 </option>
 
 <option>
-MTN Mobile Money
+MTN MOMO
 </option>
 
 <option>
@@ -1387,7 +1386,7 @@ No transaction yet
 </div>
 
 <div class="trans-date">
-Your transactions appear here
+Transactions appear here
 </div>
 
 </div>
@@ -1404,43 +1403,16 @@ GH₵0.00
 
 </div>
 
-<!-- OTHER PAGES -->
-
-<div class="page" id="mtnPage">
-<div class="simple-page">
-<i class="fa-solid fa-wifi"></i>
-<h1>MTN Data</h1>
-</div>
-</div>
-
-<div class="page" id="airtelPage">
-<div class="simple-page">
-<i class="fa-solid fa-signal"></i>
-<h1>AirtelTigo Data</h1>
-</div>
-</div>
-
-<div class="page" id="telecelPage">
-<div class="simple-page">
-<i class="fa-solid fa-globe"></i>
-<h1>Telecel Data</h1>
-</div>
-</div>
-
-<div class="page" id="resultsPage">
-<div class="simple-page">
-<i class="fa-solid fa-graduation-cap"></i>
-<h1>Results Checkers</h1>
-</div>
-</div>
-
 <!-- WHATSAPP -->
 
 <a
 href="https://wa.me/233241895999"
 class="whatsapp"
+id="dragWhatsapp"
 >
+
 <i class="fa-brands fa-whatsapp"></i>
+
 </a>
 
 <script>
@@ -1460,33 +1432,8 @@ phone:"0240000000",
 registrationDate:
 new Date().toLocaleDateString(),
 
-totalDeposits:0,
-
-totalOrders:0,
-
-totalSpent:0,
-
 activeDays:0
 };
-
-/* ROLE */
-
-let role = "Customer";
-
-if(
-currentUser.email ===
-"chairmanoamg@gmail.com"
-){
-role = "Admin";
-}
-
-else if(
-currentUser.email.includes("agent")
-){
-role = "Agent";
-}
-
-/* DISPLAY USER */
 
 document.getElementById(
 "menuUserName"
@@ -1510,43 +1457,36 @@ document.getElementById(
 currentUser.phone;
 
 document.getElementById(
-"activeDays"
-).innerHTML =
-"📅 Active Days: " +
-currentUser.activeDays;
-
-document.getElementById(
 "registeredDate"
 ).innerHTML =
 "🗓 Registered: " +
 currentUser.registrationDate;
 
 document.getElementById(
-"userRole"
-).innerHTML =
-role;
-
-/* WALLET */
-
-document.getElementById(
 "walletUserName"
 ).innerHTML =
 currentUser.fullName;
 
-document.getElementById(
-"walletBalance"
-).innerHTML =
-currentUser.totalDeposits;
+/* ROLE */
 
-const uniqueId =
-Math.floor(
-100000000 + Math.random() * 900000000
-);
+let role = "Customer";
+
+if(
+currentUser.email ===
+"chairmanoamg@gmail.com"
+){
+role = "Admin";
+}
 
 document.getElementById(
-"walletId"
+"userRole"
 ).innerHTML =
-uniqueId;
+role;
+
+document.getElementById(
+"activeDays"
+).innerHTML =
+currentUser.activeDays;
 
 /* MENU */
 
@@ -1616,8 +1556,6 @@ document
 .getElementById(pageId)
 .classList.add("active");
 
-/* SAVE ACTIVE PAGE */
-
 localStorage.setItem(
 "activePage",
 pageId
@@ -1626,7 +1564,7 @@ pageId
 closeMenu();
 }
 
-/* RESTORE PAGE AFTER REFRESH */
+/* RESTORE PAGE */
 
 window.onload = function(){
 
@@ -1667,6 +1605,82 @@ localStorage.removeItem(
 
 window.location.href =
 "index.html";
+}
+
+/* DRAG WHATSAPP */
+
+const dragItem =
+document.getElementById(
+"dragWhatsapp"
+);
+
+let active = false;
+
+let currentX;
+let currentY;
+
+let initialX;
+let initialY;
+
+dragItem.addEventListener(
+"touchstart",
+dragStart,
+false
+);
+
+dragItem.addEventListener(
+"touchmove",
+drag,
+false
+);
+
+dragItem.addEventListener(
+"touchend",
+dragEnd,
+false
+);
+
+function dragStart(e){
+
+initialX =
+e.touches[0].clientX -
+dragItem.offsetLeft;
+
+initialY =
+e.touches[0].clientY -
+dragItem.offsetTop;
+
+active = true;
+}
+
+function drag(e){
+
+if(active){
+
+e.preventDefault();
+
+currentX =
+e.touches[0].clientX -
+initialX;
+
+currentY =
+e.touches[0].clientY -
+initialY;
+
+dragItem.style.left =
+currentX + "px";
+
+dragItem.style.top =
+currentY + "px";
+
+dragItem.style.bottom =
+"auto";
+}
+
+}
+
+function dragEnd(){
+active = false;
 }
 
 </script>
