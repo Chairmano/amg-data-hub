@@ -10,7 +10,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 />
 
-<title>AMG Data Hub Dashboard</title>
+<title>AMG Data Hub</title>
 
 <link
 rel="stylesheet"
@@ -26,131 +26,39 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 }
 
 body{
-  background:#000b2c;
-  color:white;
+
   font-family:Arial,sans-serif;
-  padding:18px;
-  overflow-x:hidden;
-  transition:0.3s;
-}
 
-body.dark{
-  background:#050505;
-}
+  min-height:100vh;
 
-/* SIDE MENU */
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-.side-menu{
+  overflow:hidden;
 
-  position:fixed;
-
-  top:0;
-  left:-300px;
-
-  width:280px;
-  height:100vh;
-
-  background:#08143c;
-
-  z-index:99999;
+  position:relative;
 
   padding:20px;
 
-  overflow-y:auto;
-
-  transition:0.3s;
-
-  border-right:
-  1px solid rgba(255,255,255,0.08);
+  color:white;
 }
 
-body.dark .side-menu{
-  background:#111111;
+/* BACKGROUND */
+
+.bg-image{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  z-index:-2;
 }
-
-.side-menu.active{
-  left:0;
-}
-
-.menu-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
-}
-
-.menu-title{
-  font-size:24px;
-  color:#facc15;
-  font-weight:bold;
-}
-
-.close-btn{
-  font-size:24px;
-  cursor:pointer;
-}
-
-.profile-box{
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  margin-bottom:25px;
-
-  cursor:pointer;
-}
-
-.profile-box h3{
-  margin-bottom:6px;
-}
-
-.profile-box p{
-  color:#cbd5e1;
-  font-size:14px;
-}
-
-.menu-section-title{
-  color:#facc15;
-  margin-top:20px;
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.menu-item{
-
-  background:rgba(255,255,255,0.04);
-
-  padding:16px;
-
-  border-radius:18px;
-
-  margin-bottom:12px;
-
-  display:flex;
-  align-items:center;
-
-  gap:12px;
-
-  cursor:pointer;
-
-  transition:0.3s;
-}
-
-.menu-item:hover{
-  background:#facc15;
-  color:#000b2c;
-}
-
-.sub-card{
-  background:rgba(255,255,255,0.03);
-  border-radius:18px;
-  padding:10px;
-}
-
-/* OVERLAY */
 
 .overlay{
 
@@ -158,533 +66,187 @@ body.dark .side-menu{
 
   inset:0;
 
-  background:rgba(0,0,0,0.6);
+  background:
+  rgba(0,0,0,0.65);
 
-  display:none;
-
-  z-index:9990;
+  z-index:-1;
 }
 
-.overlay.active{
-  display:block;
+/* CONTAINER */
+
+.container{
+  width:100%;
+  max-width:430px;
 }
 
-/* HEADER */
+/* LOGO */
 
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-
-.left-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.menu-btn,
-.profile-btn{
-
-  width:50px;
-  height:50px;
-
-  border-radius:16px;
-
-  background:rgba(255,255,255,0.05);
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:22px;
-
-  cursor:pointer;
+.logo-section{
+  text-align:center;
+  margin-bottom:18px;
 }
 
 .logo{
-  width:55px;
+  width:120px;
 }
 
-.brand{
-  font-size:22px;
-  font-weight:bold;
+.tagline{
+  margin-top:8px;
+  color:#e5e7eb;
+  font-size:15px;
 }
 
-.brand span{
-  color:#facc15;
-}
+/* SKIP CARD */
 
-/* PROFILE MODAL */
+.skip-card{
 
-.profile-modal{
-
-  position:fixed;
-
-  top:50%;
-  left:50%;
-
-  transform:
-  translate(-50%,-50%) scale(0.9);
-
-  width:92%;
-  max-width:420px;
-
-  background:#08143c;
-
-  border-radius:28px;
-
-  padding:22px;
-
-  z-index:999999;
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transition:0.3s;
-}
-
-body.dark .profile-modal{
-  background:#111111;
-}
-
-.profile-modal.active{
-  opacity:1;
-  pointer-events:auto;
-  transform:
-  translate(-50%,-50%) scale(1);
-}
-
-.profile-header{
-  text-align:center;
-  margin-bottom:22px;
-}
-
-.avatar{
-
-  width:80px;
-  height:80px;
-
-  background:#facc15;
-
-  color:#000b2c;
-
-  border-radius:50%;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  margin:auto;
-  margin-bottom:12px;
-
-  font-size:34px;
-}
-
-.profile-name{
-  font-size:24px;
-  font-weight:bold;
-}
-
-.profile-email{
-  color:#cbd5e1;
-  margin-top:4px;
-}
-
-.profile-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.profile-card{
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:16px;
-}
-
-.profile-card h3{
-  color:#facc15;
-  margin-bottom:5px;
-}
-
-.profile-card p{
-  font-size:13px;
-  color:#d1d5db;
-}
-
-.extra-info{
-
-  margin-top:18px;
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:16px;
-}
-
-.extra-info div{
-  margin-bottom:12px;
-}
-
-/* PAGE */
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-/* CARD */
-
-.card{
-
-  background:rgba(255,255,255,0.04);
+  background:
+  rgba(255,255,255,0.08);
 
   border:
   1px solid rgba(255,255,255,0.08);
 
-  border-radius:28px;
+  border-radius:24px;
 
-  padding:22px;
+  padding:20px;
 
   margin-bottom:22px;
-}
 
-/* WELCOME */
-
-.balance-box{
-
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:22px;
-
-  padding:18px;
-
-  margin-top:18px;
-}
-
-.balance{
-  font-size:32px;
-  font-weight:bold;
-}
-
-.action-buttons{
   display:flex;
-  gap:12px;
-  margin-top:18px;
-}
+  justify-content:space-between;
+  align-items:center;
 
-.action-buttons button{
-  flex:1;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.deposit{
-  background:#facc15;
-}
-
-.history{
-  background:rgba(255,255,255,0.08);
-  color:white;
-}
-
-/* SECTION */
-
-.section-title{
-  font-size:22px;
-  margin-bottom:18px;
-}
-
-/* NETWORKS */
-
-.network-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.network-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px 10px;
-
-  text-align:center;
+  backdrop-filter:blur(10px);
 
   cursor:pointer;
 
   transition:0.3s;
 }
 
-.network-card:hover{
-  transform:translateY(-5px);
+.skip-card:hover{
+  transform:translateY(-3px);
 }
 
-.network-card img{
-
-  width:75px;
-  height:75px;
-
-  object-fit:contain;
-
-  margin-bottom:10px;
+.skip-left h2{
+  font-size:18px;
+  margin-bottom:6px;
 }
 
-.network-card p{
-  font-weight:bold;
-}
-
-/* TRANSACTIONS */
-
-.transaction-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.trans-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.trans-icon{
-
-  width:50px;
-  height:50px;
-
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:16px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.trans-date{
-  color:#9ca3af;
-  font-size:13px;
-}
-
-/* QUICK ACTIONS */
-
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.quick-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  text-align:center;
-
-  cursor:pointer;
-}
-
-.quick-icon{
-
-  width:55px;
-  height:55px;
-
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:18px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  margin:auto;
-  margin-bottom:12px;
-}
-
-/* SIMPLE PAGE */
-
-.simple-page{
-  text-align:center;
-  padding-top:50px;
-}
-
-.simple-page i{
-  font-size:70px;
+.skip-left p{
   color:#facc15;
-  margin-bottom:18px;
+  font-size:14px;
 }
 
-.simple-page h1{
-  margin-bottom:12px;
+.skip-arrow{
+  font-size:34px;
+  color:#facc15;
 }
 
-/* SIMPLE HEADER */
+/* LOGIN CARD */
 
-.simple-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:22px;
-}
-
-.back-btn{
-
-  width:45px;
-  height:45px;
-
-  border:none;
-
-  border-radius:14px;
-
-  background:#facc15;
-
-  color:#000b2c;
-
-  font-size:20px;
-
-  cursor:pointer;
-}
-
-/* WALLET */
-
-.wallet-card-ui{
+.login-card{
 
   background:
-  linear-gradient(
-  135deg,
-  #facc15,
-  #f59e0b
-  );
+  rgba(255,255,255,0.08);
 
-  color:#111827;
+  border:
+  1px solid rgba(255,255,255,0.08);
 
   border-radius:30px;
 
   padding:24px;
 
+  backdrop-filter:blur(12px);
+}
+
+.login-card h1{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.sub{
+  color:#d1d5db;
   margin-bottom:24px;
-}
-
-.wallet-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-
-.wallet-logo{
-  width:60px;
-}
-
-.wallet-flag{
-  font-size:38px;
-}
-
-.wallet-chip{
-
-  width:55px;
-  height:40px;
-
-  background:#fff3;
-
-  border-radius:10px;
-
-  margin-bottom:30px;
-}
-
-.wallet-number{
-
-  font-size:24px;
-
-  letter-spacing:2px;
-
-  margin-bottom:30px;
-
-  font-weight:bold;
-}
-
-.wallet-user{
-  margin-bottom:20px;
-}
-
-.wallet-balance h1{
-  font-size:34px;
+  font-size:15px;
 }
 
 /* INPUT */
 
-.input-field{
+.input-box{
+  margin-bottom:18px;
+  position:relative;
+}
+
+.input-box input{
 
   width:100%;
 
-  padding:18px;
-
-  border:none;
+  padding:17px;
 
   border-radius:18px;
 
+  border:
+  1px solid rgba(255,255,255,0.1);
+
   background:
-  rgba(255,255,255,0.08);
+  rgba(255,255,255,0.06);
 
   color:white;
 
-  margin-bottom:18px;
-
   outline:none;
 
-  font-size:16px;
+  font-size:15px;
 }
 
-.input-field option{
-  color:black;
+.input-box input::placeholder{
+  color:#d1d5db;
+}
+
+/* PASSWORD TOGGLE */
+
+.toggle-password{
+
+  position:absolute;
+
+  right:18px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  cursor:pointer;
+
+  color:#d1d5db;
+}
+
+/* OPTIONS */
+
+.options{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:24px;
+
+  font-size:14px;
+}
+
+.options a{
+  color:#facc15;
+  text-decoration:none;
 }
 
 /* BUTTON */
 
-.big-btn{
+.login-btn{
 
   width:100%;
 
-  padding:18px;
+  padding:17px;
 
   border:none;
 
-  border-radius:18px;
+  border-radius:20px;
 
   background:#facc15;
 
@@ -695,6 +257,26 @@ body.dark .profile-modal{
   font-weight:bold;
 
   cursor:pointer;
+
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  opacity:0.9;
+}
+
+/* SIGNUP */
+
+.signup{
+  text-align:center;
+  margin-top:24px;
+  color:#d1d5db;
+}
+
+.signup a{
+  color:#facc15;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 /* WHATSAPP */
@@ -706,8 +288,8 @@ body.dark .profile-modal{
   left:12px;
   bottom:18px;
 
-  width:58px;
-  height:58px;
+  width:55px;
+  height:55px;
 
   border-radius:50%;
 
@@ -719,13 +301,26 @@ body.dark .profile-modal{
   justify-content:center;
   align-items:center;
 
-  font-size:28px;
+  font-size:26px;
 
   text-decoration:none;
 
-  z-index:99999;
+  z-index:9999;
 
   cursor:grab;
+
+  box-shadow:
+  0 0 20px rgba(37,211,102,0.5);
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .login-card h1{
+    font-size:28px;
+  }
+
 }
 
 </style>
@@ -734,668 +329,132 @@ body.dark .profile-modal{
 
 <body>
 
-<!-- SIDE MENU -->
+<!-- BACKGROUND -->
 
-<div
-class="side-menu"
-id="sideMenu"
+<img
+src="background.jpg"
+class="bg-image"
 >
 
-<div class="menu-header">
+<div class="overlay"></div>
 
-<div class="menu-title">
-☰ Menu
-</div>
+<div class="container">
 
-<div
-class="close-btn"
-onclick="closeMenu()"
->
-✕
-</div>
+<!-- LOGO -->
 
-</div>
-
-<div
-class="profile-box"
-onclick="openProfile()"
->
-
-<h3 id="menuUserName">
-User Name
-</h3>
-
-<p>
-View Profile
-</p>
-
-</div>
-
-<div class="menu-section-title">
-DASHBOARD
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('dashboardPage')"
->
-🏠 Dashboard
-</div>
-
-<div class="menu-section-title">
-BUY DATA
-</div>
-
-<div class="sub-card">
-
-<div
-class="menu-item"
-onclick="showPage('mtnPage')"
->
-📶 MTN Data
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('airtelPage')"
->
-🔴 AirtelTigo Data
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('telecelPage')"
->
-🔺 Telecel Data
-</div>
-
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('resultsPage')"
->
-🎓 Results Checkers
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('walletPage')"
->
-💳 Wallet
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('historyPage')"
->
-📜 History
-</div>
-
-<div
-class="menu-item"
-onclick="toggleDarkMode()"
->
-🌙 Dark Mode
-</div>
-
-<div
-class="menu-item"
-onclick="logout()"
->
-🚪 Sign Out
-</div>
-
-</div>
-
-<!-- OVERLAY -->
-
-<div
-class="overlay"
-id="overlay"
-onclick="closeAll()"
-></div>
-
-<!-- PROFILE -->
-
-<div
-class="profile-modal"
-id="profileModal"
->
-
-<div class="profile-header">
-
-<div class="avatar">
-<i class="fa-solid fa-user"></i>
-</div>
-
-<div
-class="profile-name"
-id="profileName"
->
-User Name
-</div>
-
-<div
-class="profile-email"
-id="profileEmail"
->
-user@gmail.com
-</div>
-
-</div>
-
-<div class="profile-grid">
-
-<div class="profile-card">
-<h3 id="userRole">Customer</h3>
-<p>Role</p>
-</div>
-
-<div class="profile-card">
-<h3 id="activeDays">0</h3>
-<p>Active Days</p>
-</div>
-
-</div>
-
-<div class="extra-info">
-
-<div id="userPhone">
-📞 Phone:
-</div>
-
-<div id="registeredDate">
-🗓 Registered:
-</div>
-
-</div>
-
-</div>
-
-<!-- DASHBOARD -->
-
-<div
-class="page active"
-id="dashboardPage"
->
-
-<div class="header">
-
-<div class="left-header">
-
-<div
-class="menu-btn"
-onclick="openMenu()"
->
-<i class="fa-solid fa-bars"></i>
-</div>
+<div class="logo-section">
 
 <img
 src="logo.png"
 class="logo"
+alt="AMG Logo"
 >
 
-<div class="brand">
-AMG <span>DATA HUB</span>
-</div>
-
-</div>
-
-<div
-class="profile-btn"
-onclick="openProfile()"
->
-<i class="fa-regular fa-user"></i>
-</div>
-
-</div>
-
-<!-- WELCOME -->
-
-<div class="card">
-
-<h2>
-Welcome back 👋
-</h2>
-
-<p
-style="
-margin-top:10px;
-color:#cbd5e1;
-"
->
-Manage your wallet,
-buy affordable data bundles
-and track transactions.
+<p class="tagline">
+Secure • Fast • Reliable
 </p>
 
-<div class="balance-box">
-
-<div>
-Wallet Balance
 </div>
 
-<div class="balance">
-GH₵ 0.00
-</div>
-
-</div>
-
-<div class="action-buttons">
-
-<button
-class="deposit"
-onclick="showPage('depositPage')"
->
-Deposit
-</button>
-
-<button
-class="history"
-onclick="showPage('historyPage')"
->
-History
-</button>
-
-</div>
-
-</div>
-
-<!-- BUY DATA -->
-
-<div class="card">
-
-<div class="section-title">
-Buy Data Bundles
-</div>
-
-<div class="network-grid">
+<!-- SKIP -->
 
 <div
-class="network-card"
-onclick="showPage('mtnPage')"
+class="skip-card"
+onclick="window.location.href='shop.html'"
 >
 
-<img src="mtn.png">
+<div class="skip-left">
 
-<p>MTN</p>
+<h2>
+Want to buy now?
+</h2>
 
-</div>
-
-<div
-class="network-card"
-onclick="showPage('telecelPage')"
->
-
-<img src="telecel.png">
-
-<p>Telecel</p>
+<p>
+Skip login and purchase directly
+</p>
 
 </div>
 
-<div
-class="network-card"
-onclick="showPage('airtelPage')"
->
-
-<img src="airteltigo.png">
-
-<p>AirtelTigo</p>
-
+<div class="skip-arrow">
+→
 </div>
 
 </div>
 
-</div>
+<!-- LOGIN -->
 
-<!-- RECENT ORDERS -->
-
-<div class="card">
-
-<div class="section-title">
-Recent Orders
-</div>
-
-<div class="transaction-card">
-
-<div class="trans-left">
-
-<div class="trans-icon">
-<i class="fa-solid fa-wifi"></i>
-</div>
-
-<div>
-
-<div>
-No order yet
-</div>
-
-<div class="trans-date">
-Orders placed today appear here
-</div>
-
-</div>
-
-</div>
-
-<div>
-GH₵0.00
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- MTN PAGE -->
-
-<div
-class="page"
-id="mtnPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>MTN Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-wifi"></i>
+<div class="login-card">
 
 <h1>
-MTN Data Bundles
+Welcome back 👋
 </h1>
 
-</div>
-
-</div>
-
-<!-- TELECEL PAGE -->
-
-<div
-class="page"
-id="telecelPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Telecel Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-globe"></i>
-
-<h1>
-Telecel Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- AIRTEL PAGE -->
-
-<div
-class="page"
-id="airtelPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>AirtelTigo Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-signal"></i>
-
-<h1>
-AirtelTigo Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- RESULTS -->
-
-<div
-class="page"
-id="resultsPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Results Checkers</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h1>
-Results Checkers
-</h1>
-
-</div>
-
-</div>
-
-<!-- WALLET -->
-
-<div
-class="page"
-id="walletPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Wallet</h2>
-
-</div>
-
-<div class="wallet-card-ui">
-
-<div class="wallet-top">
-
-<img
-src="logo.png"
-class="wallet-logo"
->
-
-<div class="wallet-flag">
-🇬🇭
-</div>
-
-</div>
-
-<div class="wallet-chip"></div>
-
-<div class="wallet-number">
-AMG-928374652
-</div>
-
-<div class="wallet-user">
-
-<small>
-Card Holder
-</small>
-
-<h3 id="walletUserName">
-User Name
-</h3>
-
-</div>
-
-<div class="wallet-balance">
-
-<small>
-Wallet Balance
-</small>
-
-<h1>
-GH₵0.00
-</h1>
-
-</div>
-
-</div>
-
-<button
-class="big-btn"
-onclick="showPage('depositPage')"
->
-Deposit Money
-</button>
-
-</div>
-
-<!-- DEPOSIT -->
-
-<div
-class="page"
-id="depositPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Deposit</h2>
-
-</div>
-
-<div class="card">
+<p class="sub">
+Sign in to continue
+</p>
+
+<div class="input-box">
 
 <input
-type="number"
-placeholder="Enter Amount"
-class="input-field"
+id="email"
+type="email"
+placeholder="Enter Email"
 >
-
-<select class="input-field">
-
-<option>
-Select Payment Method
-</option>
-
-<option>
-MTN MOMO
-</option>
-
-<option>
-Telecel Cash
-</option>
-
-<option>
-AirtelTigo Money
-</option>
-
-</select>
-
-<button class="big-btn">
-Continue Deposit
-</button>
 
 </div>
 
-</div>
+<div class="input-box">
 
-<!-- HISTORY -->
-
-<div
-class="page"
-id="historyPage"
+<input
+id="password"
+type="password"
+placeholder="Enter Password"
 >
 
-<div class="simple-header">
+<span
+class="toggle-password"
+onclick="togglePassword()"
+>
+
+<i
+class="fa-solid fa-eye"
+id="eyeIcon"
+></i>
+
+</span>
+
+</div>
+
+<div class="options">
+
+<label>
+
+<input type="checkbox">
+
+ Remember me
+
+</label>
+
+<a href="#">
+Forgot Password?
+</a>
+
+</div>
 
 <button
-class="back-btn"
-onclick="showPage('dashboardPage')"
+class="login-btn"
+onclick="goDashboard()"
 >
-←
+Sign In
 </button>
 
-<h2>Transaction History</h2>
+<div class="signup">
 
-</div>
+Don’t have an account?
 
-<div class="card">
-
-<div class="transaction-card">
-
-<div class="trans-left">
-
-<div class="trans-icon">
-<i class="fa-solid fa-clock-rotate-left"></i>
-</div>
-
-<div>
-
-<div>
-No transaction yet
-</div>
-
-<div class="trans-date">
-Transactions appear here
-</div>
-
-</div>
-
-</div>
-
-<div>
-GH₵0.00
-</div>
+<a href="signup.html">
+Sign Up
+</a>
 
 </div>
 
@@ -1417,194 +476,85 @@ id="dragWhatsapp"
 
 <script>
 
-/* USER */
+/* PASSWORD TOGGLE */
 
-const currentUser = JSON.parse(
-localStorage.getItem("amgUser")
-) || {
+function togglePassword(){
 
-fullName:"Guest User",
+const password =
+document.getElementById(
+"password"
+);
 
-email:"guest@gmail.com",
+const eyeIcon =
+document.getElementById(
+"eyeIcon"
+);
 
-phone:"0240000000",
+if(password.type === "password"){
 
-registrationDate:
+password.type = "text";
+
+eyeIcon.classList.remove(
+"fa-eye"
+);
+
+eyeIcon.classList.add(
+"fa-eye-slash"
+);
+
+}else{
+
+password.type = "password";
+
+eyeIcon.classList.remove(
+"fa-eye-slash"
+);
+
+eyeIcon.classList.add(
+"fa-eye"
+);
+
+}
+
+}
+
+/* LOGIN */
+
+function goDashboard(){
+
+const userData = {
+
+fullName : "AMG User",
+
+email :
+document.getElementById(
+"email"
+).value || "user@gmail.com",
+
+phone : "0240000000",
+
+registrationDate :
 new Date().toLocaleDateString(),
 
-activeDays:0
+activeDays : 1
+
 };
 
-document.getElementById(
-"menuUserName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-"profileName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-"profileEmail"
-).innerHTML =
-currentUser.email;
-
-document.getElementById(
-"userPhone"
-).innerHTML =
-"📞 Phone: " +
-currentUser.phone;
-
-document.getElementById(
-"registeredDate"
-).innerHTML =
-"🗓 Registered: " +
-currentUser.registrationDate;
-
-document.getElementById(
-"walletUserName"
-).innerHTML =
-currentUser.fullName;
-
-/* ROLE */
-
-let role = "Customer";
-
-if(
-currentUser.email ===
-"chairmanoamg@gmail.com"
-){
-role = "Admin";
-}
-
-document.getElementById(
-"userRole"
-).innerHTML =
-role;
-
-document.getElementById(
-"activeDays"
-).innerHTML =
-currentUser.activeDays;
-
-/* MENU */
-
-function openMenu(){
-
-sideMenu.classList.add(
-"active"
+localStorage.setItem(
+"amgUser",
+JSON.stringify(userData)
 );
 
-overlay.classList.add(
-"active"
-);
-}
-
-function closeMenu(){
-
-sideMenu.classList.remove(
-"active"
-);
-
-overlay.classList.remove(
-"active"
-);
-}
-
-/* PROFILE */
-
-function openProfile(){
-
-profileModal.classList.add(
-"active"
-);
-
-overlay.classList.add(
-"active"
-);
-}
-
-function closeAll(){
-
-closeMenu();
-
-profileModal.classList.remove(
-"active"
-);
-
-overlay.classList.remove(
-"active"
-);
-}
-
-/* PAGES */
-
-function showPage(pageId){
-
-document
-.querySelectorAll(".page")
-.forEach(page=>{
-
-page.classList.remove(
-"active"
-);
-
-});
-
-document
-.getElementById(pageId)
-.classList.add("active");
+/* ALWAYS OPEN DASHBOARD PAGE */
 
 localStorage.setItem(
 "activePage",
-pageId
-);
-
-closeMenu();
-}
-
-/* RESTORE PAGE */
-
-window.onload = function(){
-
-const savedPage =
-localStorage.getItem(
-"activePage"
-);
-
-if(savedPage){
-
-showPage(savedPage);
-
-}
-
-};
-
-/* DARK MODE */
-
-function toggleDarkMode(){
-
-document.body.classList.toggle(
-"dark"
-);
-
-}
-
-/* LOGOUT */
-
-function logout(){
-
-localStorage.removeItem(
-"amgUser"
-);
-
-localStorage.removeItem(
-"activePage"
+"dashboardPage"
 );
 
 window.location.href =
-"index.html";
+"dashboard.html";
+
 }
 
 /* DRAG WHATSAPP */
@@ -1675,6 +625,7 @@ currentY + "px";
 
 dragItem.style.bottom =
 "auto";
+
 }
 
 }
