@@ -26,6 +26,7 @@ body{
   color:white;
   min-height:100vh;
   padding:20px;
+  overflow-x:hidden;
 }
 
 .container{
@@ -43,14 +44,14 @@ body{
 
 .logo{
   width:140px;
-  border-radius:30px;
-  box-shadow:0 0 30px rgba(0,255,255,0.2);
+  border-radius:0px;
+  box-shadow:0 0 20px rgba(0,255,255,0.2);
 }
 
 .tagline{
-  margin-top:20px;
+  margin-top:12px;
   color:#b8c1ec;
-  font-size:18px;
+  font-size:17px;
 }
 
 /* SKIP CARD */
@@ -65,6 +66,12 @@ body{
   justify-content:space-between;
   align-items:center;
   box-shadow:0 0 30px rgba(0,255,255,0.1);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.skip-card:hover{
+  transform:scale(1.01);
 }
 
 .skip-left h2{
@@ -78,7 +85,7 @@ body{
 }
 
 .skip-arrow{
-  font-size:40px;
+  font-size:35px;
   color:#27e49b;
 }
 
@@ -92,13 +99,15 @@ body{
 }
 
 .login-card h1{
-  font-size:45px;
+  font-size:34px;
   margin-bottom:10px;
+  font-weight:bold;
 }
 
 .login-card .sub{
   color:#9ca3af;
   margin-bottom:30px;
+  font-size:16px;
 }
 
 /* INPUTS */
@@ -130,6 +139,14 @@ body{
   align-items:center;
   margin-bottom:30px;
   font-size:15px;
+  gap:10px;
+}
+
+.options label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#cbd5e1;
 }
 
 .options a{
@@ -146,10 +163,11 @@ body{
   border-radius:20px;
   background:#2f5bff;
   color:white;
-  font-size:24px;
+  font-size:22px;
   font-weight:bold;
   cursor:pointer;
   box-shadow:0 0 30px rgba(47,91,255,0.5);
+  transition:0.3s;
 }
 
 .login-btn:hover{
@@ -162,6 +180,7 @@ body{
   text-align:center;
   margin-top:30px;
   color:#9ca3af;
+  font-size:16px;
 }
 
 .signup a{
@@ -176,22 +195,35 @@ body{
   position:fixed;
   right:20px;
   bottom:20px;
-  width:70px;
-  height:70px;
+  width:55px;
+  height:55px;
   background:#25d366;
   border-radius:50%;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:35px;
+  font-size:26px;
   text-decoration:none;
-  box-shadow:0 0 40px rgba(37,211,102,0.5);
+  box-shadow:0 0 25px rgba(37,211,102,0.5);
+  z-index:999;
+  cursor:grab;
+  user-select:none;
 }
+
+/* MOBILE */
 
 @media(max-width:500px){
 
+  .login-card{
+    padding:24px;
+  }
+
   .login-card h1{
-    font-size:38px;
+    font-size:30px;
+  }
+
+  .skip-left h2{
+    font-size:18px;
   }
 
 }
@@ -214,7 +246,7 @@ body{
     >
 
     <p class="tagline">
-      Secure • Fast • Reliable 
+      Secure • Fast • Reliable
     </p>
 
   </div>
@@ -226,11 +258,13 @@ body{
   >
 
     <div class="skip-left">
+
       <h2>Want to buy now?</h2>
 
       <p>
         Skip login and purchase directly
       </p>
+
     </div>
 
     <div class="skip-arrow">
@@ -249,19 +283,23 @@ body{
     </p>
 
     <div class="input-box">
+
       <input
         id="email"
         type="email"
         placeholder="Email"
       >
+
     </div>
 
     <div class="input-box">
+
       <input
         id="password"
         type="password"
         placeholder="Password"
       >
+
     </div>
 
     <div class="options">
@@ -285,10 +323,13 @@ body{
     </button>
 
     <div class="signup">
+
       Don’t have an account?
+
       <a href="signup.html">
         Sign Up
       </a>
+
     </div>
 
   </div>
@@ -330,6 +371,48 @@ window.login = async function(){
   }
 
 };
+
+</script>
+
+<!-- DRAGGABLE WHATSAPP -->
+
+<script>
+
+const whatsapp = document.querySelector(".whatsapp");
+
+let isDragging = false;
+
+let offsetX, offsetY;
+
+whatsapp.addEventListener("touchstart", (e) => {
+
+  isDragging = true;
+
+  offsetX =
+    e.touches[0].clientX - whatsapp.offsetLeft;
+
+  offsetY =
+    e.touches[0].clientY - whatsapp.offsetTop;
+
+});
+
+document.addEventListener("touchmove", (e) => {
+
+  if(!isDragging) return;
+
+  whatsapp.style.left =
+    (e.touches[0].clientX - offsetX) + "px";
+
+  whatsapp.style.top =
+    (e.touches[0].clientY - offsetY) + "px";
+
+});
+
+document.addEventListener("touchend", () => {
+
+  isDragging = false;
+
+});
 
 </script>
 
