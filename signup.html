@@ -1,97 +1,487 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMG Data Hub - Sign Up</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Create Account • AMG Data Hub</title>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f3f4f6;
+  font-family:Arial, sans-serif;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* TOP BAR */
+
+.top-bar{
+  background:#2563eb;
+  height:85px;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* CARD */
+
+.signup-card{
+  background:white;
+  max-width:430px;
+  margin:70px auto;
+  border-radius:35px;
+  padding:30px 22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+
+.signup-card h1{
+  font-size:28px;
+  color:#0f172a;
+  margin-bottom:10px;
+}
+
+.sub{
+  color:#6b7280;
+  margin-bottom:30px;
+  font-size:16px;
+}
+
+/* GOOGLE BUTTON */
+
+.google-btn{
+  width:100%;
+  padding:18px;
+  border-radius:18px;
+  border:2px solid #e5e7eb;
+  background:white;
+  font-size:17px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.google-btn i{
+  color:#ea4335;
+  font-size:22px;
+}
+
+/* DIVIDER */
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.divider hr{
+  flex:1;
+  border:none;
+  height:1px;
+  background:#e5e7eb;
+}
+
+.divider span{
+  color:#9ca3af;
+}
+
+/* INPUTS */
+
+.input-group{
+  position:relative;
+  margin-bottom:18px;
+}
+
+.input-group i{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#9ca3af;
+  font-size:18px;
+}
+
+.input-group input{
+  width:100%;
+  padding:18px 18px 18px 52px;
+  border-radius:18px;
+  border:2px solid #e5e7eb;
+  font-size:16px;
+  outline:none;
+  background:#f9fafb;
+}
+
+.input-group input::placeholder{
+  color:#9ca3af;
+}
+
+.eye{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#9ca3af;
+  cursor:pointer;
+}
+
+/* BUTTON */
+
+.signup-btn{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:18px;
+  background:#facc15;
+  color:black;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.signup-btn:hover{
+  opacity:0.95;
+}
+
+/* LOGIN */
+
+.login-link{
+  text-align:center;
+  margin-top:28px;
+  color:#6b7280;
+  font-size:17px;
+}
+
+.login-link a{
+  color:#eab308;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* FLOAT BUTTONS */
+
+.whatsapp{
+  position:fixed;
+  left:18px;
+  bottom:20px;
+  width:65px;
+  height:65px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:34px;
+  text-decoration:none;
+  box-shadow:0 0 25px rgba(37,211,102,0.4);
+}
+
+.chat{
+  position:fixed;
+  right:18px;
+  bottom:20px;
+  width:65px;
+  height:65px;
+  background:#6d28d9;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:30px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  margin-top:-30px;
+  color:#9ca3af;
+  font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .signup-card{
+    padding:28px 18px;
+  }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-  <div class="card">
-    <h2>Create Account</h2>
+<div class="top-bar"></div>
 
-    <input id="name" placeholder="Full Name">
-    <input id="phone" placeholder="Phone">
-    <input id="email" type="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
-    <input id="referral" placeholder="Referral Code">
+<div class="signup-card">
 
-    <button onclick="signup()">Register</button>
+  <h1>Create account</h1>
 
-    <p>Already have account? <a href="index.html">Login</a></p>
+  <p class="sub">
+    Join thousands of resellers
+  </p>
+
+  <!-- GOOGLE -->
+  <button class="google-btn">
+
+    <i class="fa-brands fa-google"></i>
+
+    Continue with Google
+
+  </button>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+
+    <hr>
+
+    <span>or</span>
+
+    <hr>
+
   </div>
+
+  <!-- FULLNAME -->
+  <div class="input-group">
+
+    <i class="fa-regular fa-user"></i>
+
+    <input
+      id="fullname"
+      type="text"
+      placeholder="Full Name"
+    >
+
+  </div>
+
+  <!-- EMAIL -->
+  <div class="input-group">
+
+    <i class="fa-regular fa-envelope"></i>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Email"
+    >
+
+  </div>
+
+  <!-- PHONE -->
+  <div class="input-group">
+
+    <i class="fa-solid fa-phone"></i>
+
+    <input
+      id="phone"
+      type="tel"
+      placeholder="Phone (0XX XXX XXXX)"
+    >
+
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="input-group">
+
+    <i class="fa-solid fa-lock"></i>
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Password (min 6 chars)"
+    >
+
+    <span
+      class="eye"
+      onclick="togglePassword('password')"
+    >
+      <i class="fa-regular fa-eye"></i>
+    </span>
+
+  </div>
+
+  <!-- CONFIRM -->
+  <div class="input-group">
+
+    <i class="fa-solid fa-lock"></i>
+
+    <input
+      id="confirmPassword"
+      type="password"
+      placeholder="Confirm Password"
+    >
+
+    <span
+      class="eye"
+      onclick="togglePassword('confirmPassword')"
+    >
+      <i class="fa-regular fa-eye"></i>
+    </span>
+
+  </div>
+
+  <!-- REFERRAL -->
+  <div class="input-group">
+
+    <i class="fa-solid fa-gift"></i>
+
+    <input
+      id="referral"
+      type="text"
+      placeholder="Referral Code (optional)"
+    >
+
+  </div>
+
+  <!-- BUTTON -->
+  <button
+    class="signup-btn"
+    onclick="signup()"
+  >
+    Create Account →
+  </button>
+
+  <!-- LOGIN -->
+  <div class="login-link">
+
+    Already have an account?
+
+    <a href="index.html">
+      Sign In
+    </a>
+
+  </div>
+
+</div>
+
+<!-- FLOATING BUTTONS -->
+
+<a
+  href="https://wa.me/233241895999"
+  class="whatsapp"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a
+  href="#"
+  class="chat"
+>
+  <i class="fa-regular fa-comment"></i>
+</a>
+
+<!-- FOOTER -->
+
+<div class="footer">
+  © 2026 AMG Data Hub
 </div>
 
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword,
-  sendEmailVerification
+import { auth, db } from "./firebase.js";
+
+import {
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-import { 
-  getFirestore,
+import {
   doc,
   setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCEEpCoEL6oHm0gvtbm6AP7fb0jtgpr_MA",
-  authDomain: "amg-data-hub.firebaseapp.com",
-  projectId: "amg-data-hub",
-  storageBucket: "amg-data-hub.firebasestorage.app",
-  messagingSenderId: "822674254731",
-  appId: "1:822674254731:web:c0c6d1e7826918c0d3dd8e"
-};
+window.signup = async function(){
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+  if(password.value !== confirmPassword.value){
 
-window.signup = async function () {
+    alert("Passwords do not match");
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const referral = document.getElementById("referral").value.trim();
-
-  if (!name || !phone || !email || !password) {
-    alert("Please fill all required fields");
     return;
+
   }
 
-  try {
+  try{
 
-    // Create user in Firebase Auth
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential =
+      await createUserWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+      );
 
-    // Save user profile in Firestore
-    await setDoc(doc(db, "users", userCredential.user.uid), {
-      name: name,
-      phone: phone,
-      email: email,
-      referral: referral,
-      balance: 0,
-      commission: 0,
-      createdAt: new Date()
-    });
+    await setDoc(
+      doc(db, "users", userCredential.user.uid),
+      {
+        fullname: fullname.value,
+        phone: phone.value,
+        email: email.value,
+        referral: referral.value,
+        wallet: 0,
+        createdAt: new Date()
+      }
+    );
 
-    // Send verification email
-    await sendEmailVerification(userCredential.user);
+    alert("Account created successfully!");
 
-    alert("Account created! Verification email sent.");
-    window.location.href = "index.html";
+    window.location.href = "dashboard.html";
 
-  } catch (error) {
+  }catch(error){
+
     alert(error.message);
+
+  }
+
+};
+
+window.togglePassword = function(id){
+
+  const input = document.getElementById(id);
+
+  if(input.type === "password"){
+
+    input.type = "text";
+
+  }else{
+
+    input.type = "password";
+
   }
 
 };
 
 </script>
+
 </body>
 </html>
