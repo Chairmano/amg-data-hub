@@ -256,16 +256,23 @@ body{
   text-decoration:none;
 }
 
-/* FLOATING BUTTONS */
+/* WHATSAPP */
 
-.whatsapp,
-.chat{
+.whatsapp{
+
   position:fixed;
 
-  width:55px;
-  height:55px;
+  left:15px;
+  bottom:18px;
+
+  width:58px;
+  height:58px;
 
   border-radius:50%;
+
+  background:#25d366;
+
+  color:white;
 
   display:flex;
   justify-content:center;
@@ -273,28 +280,20 @@ body{
 
   text-decoration:none;
 
-  font-size:24px;
+  font-size:28px;
 
-  z-index:100;
-}
+  z-index:9999;
 
-.whatsapp{
-  left:15px;
-  bottom:18px;
-
-  background:#25d366;
-  color:white;
+  cursor:grab;
 
   box-shadow:
   0 0 25px rgba(37,211,102,0.45);
+
+  transition:0.2s;
 }
 
-.chat{
-  right:15px;
-  bottom:18px;
-
-  background:#6d28d9;
-  color:white;
+.whatsapp:active{
+  cursor:grabbing;
 }
 
 /* FOOTER */
@@ -508,20 +507,14 @@ body{
 <a
   href="https://wa.me/233241895999"
   class="whatsapp"
+  id="dragWhatsapp"
 >
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- CHAT -->
-
-<a
-  href="#"
-  class="chat"
->
-  <i class="fa-regular fa-comment"></i>
-</a>
-
 <script>
+
+/* TOGGLE PASSWORD */
 
 function togglePassword(id){
 
@@ -538,6 +531,81 @@ function togglePassword(id){
 
   }
 
+}
+
+/* DRAG WHATSAPP */
+
+const dragItem =
+document.getElementById("dragWhatsapp");
+
+let active = false;
+
+let currentX;
+let currentY;
+
+let initialX;
+let initialY;
+
+dragItem.addEventListener(
+  "touchstart",
+  dragStart,
+  false
+);
+
+dragItem.addEventListener(
+  "touchmove",
+  drag,
+  false
+);
+
+dragItem.addEventListener(
+  "touchend",
+  dragEnd,
+  false
+);
+
+function dragStart(e){
+
+  initialX =
+    e.touches[0].clientX -
+    dragItem.offsetLeft;
+
+  initialY =
+    e.touches[0].clientY -
+    dragItem.offsetTop;
+
+  active = true;
+}
+
+function drag(e){
+
+  if(active){
+
+    e.preventDefault();
+
+    currentX =
+      e.touches[0].clientX -
+      initialX;
+
+    currentY =
+      e.touches[0].clientY -
+      initialY;
+
+    dragItem.style.left =
+      currentX + "px";
+
+    dragItem.style.top =
+      currentY + "px";
+
+    dragItem.style.bottom =
+      "auto";
+  }
+
+}
+
+function dragEnd(){
+
+  active = false;
 }
 
 </script>
