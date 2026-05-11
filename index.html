@@ -1,39 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMG Data Hub - Login</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <div class="container">
-  <div class="card">
-    <h2>Login</h2>
 
-    <input id="loginEmail" type="email" placeholder="Email" required>
-    <input id="loginPassword" type="password" placeholder="Password" required>
+  <!-- LOGO -->
+  <div class="logo-box">
+    <h1 class="logo">AMG DATA HUB</h1>
+  </div>
+
+  <!-- WELCOME TEXT -->
+  <div class="welcome-text">
+    <h2>Welcome Back 👋</h2>
+    <p>
+      Login to continue managing your data business,
+      wallet and transactions securely.
+    </p>
+  </div>
+
+  <!-- LOGIN CARD -->
+  <div class="card">
+
+    <h3>Login to Your Account</h3>
+
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
 
     <button onclick="login()">Login</button>
 
-    <p>
-      Don't have an account? 
+    <p class="signup-text">
+      Don't have an account?
       <a href="signup.html">Sign up</a>
     </p>
+
   </div>
+
+  <!-- FOOTER MESSAGE -->
+  <div class="info-card">
+    <h3>🚀 Welcome to AMG Data Hub</h3>
+    <p>
+      Buy affordable data bundles, earn commissions,
+      and grow your digital business in Ghana.
+    </p>
+  </div>
+
 </div>
-
-<script src="app.js"></script>
-
-<script>
-  // Redirect to dashboard if already logged in
-  window.onload = function () {
-    const currentUser = localStorage.getItem("currentUser");
-    if (currentUser) {
-      window.location.href = "dashboard.html";
-    }
-  };
-</script>
-
-</body>
-</html>
