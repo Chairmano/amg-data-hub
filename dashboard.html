@@ -20,712 +20,578 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-  background:#000b2c;
-  color:white;
-  font-family:Arial,sans-serif;
-  padding:18px;
-  overflow-x:hidden;
-  transition:0.3s;
+background:#000b2c;
+color:white;
+font-family:Arial,sans-serif;
+padding:18px;
+overflow-x:hidden;
+transition:0.3s;
 }
 
 body.dark{
-  background:#050505;
+background:#050505;
 }
 
 /* SIDE MENU */
 
 .side-menu{
-
-  position:fixed;
-
-  top:0;
-  left:-300px;
-
-  width:280px;
-  height:100vh;
-
-  background:#08143c;
-
-  z-index:99999;
-
-  padding:20px;
-
-  overflow-y:auto;
-
-  transition:0.3s;
-
-  border-right:
-  1px solid rgba(255,255,255,0.08);
+position:fixed;
+top:0;
+left:-300px;
+width:280px;
+height:100vh;
+background:#08143c;
+z-index:99999;
+padding:20px;
+overflow-y:auto;
+transition:0.3s;
+border-right:
+1px solid rgba(255,255,255,0.08);
 }
 
 body.dark .side-menu{
-  background:#111111;
+background:#111111;
 }
 
 .side-menu.active{
-  left:0;
+left:0;
 }
 
 .menu-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
 }
 
 .menu-title{
-  font-size:24px;
-  color:#facc15;
-  font-weight:bold;
+font-size:24px;
+color:#facc15;
+font-weight:bold;
 }
 
 .close-btn{
-  font-size:24px;
-  cursor:pointer;
+font-size:24px;
+cursor:pointer;
 }
 
 .profile-box{
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  margin-bottom:25px;
-
-  cursor:pointer;
+background:rgba(255,255,255,0.05);
+border-radius:22px;
+padding:18px;
+margin-bottom:25px;
+cursor:pointer;
 }
 
 .profile-box h3{
-  margin-bottom:6px;
+margin-bottom:6px;
 }
 
 .profile-box p{
-  color:#cbd5e1;
-  font-size:14px;
+color:#cbd5e1;
+font-size:14px;
 }
 
 .menu-section-title{
-  color:#facc15;
-  margin-top:20px;
-  margin-bottom:10px;
-  font-size:14px;
+color:#facc15;
+margin-top:20px;
+margin-bottom:10px;
+font-size:14px;
 }
 
 .menu-item{
-
-  background:rgba(255,255,255,0.04);
-
-  padding:16px;
-
-  border-radius:18px;
-
-  margin-bottom:12px;
-
-  display:flex;
-  align-items:center;
-
-  gap:12px;
-
-  cursor:pointer;
-
-  transition:0.3s;
+background:rgba(255,255,255,0.04);
+padding:16px;
+border-radius:18px;
+margin-bottom:12px;
+display:flex;
+align-items:center;
+gap:12px;
+cursor:pointer;
+transition:0.3s;
 }
 
 .menu-item:hover{
-  background:#facc15;
-  color:#000b2c;
+background:#facc15;
+color:#000b2c;
 }
 
 .sub-card{
-  background:rgba(255,255,255,0.03);
-  border-radius:18px;
-  padding:10px;
+background:rgba(255,255,255,0.03);
+border-radius:18px;
+padding:10px;
 }
 
 /* OVERLAY */
 
 .overlay{
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,0.6);
-
-  display:none;
-
-  z-index:9990;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+display:none;
+z-index:9990;
 }
 
 .overlay.active{
-  display:block;
+display:block;
 }
 
 /* HEADER */
 
 .header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
 }
 
 .left-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 .menu-btn,
 .profile-btn{
-
-  width:50px;
-  height:50px;
-
-  border-radius:16px;
-
-  background:rgba(255,255,255,0.05);
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:22px;
-
-  cursor:pointer;
+width:50px;
+height:50px;
+border-radius:16px;
+background:rgba(255,255,255,0.05);
+border:
+1px solid rgba(255,255,255,0.08);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+cursor:pointer;
 }
 
 .logo{
-  width:55px;
+width:55px;
 }
 
 .brand{
-  font-size:22px;
-  font-weight:bold;
+font-size:22px;
+font-weight:bold;
 }
 
 .brand span{
-  color:#facc15;
+color:#facc15;
 }
 
 /* PROFILE MODAL */
 
 .profile-modal{
-
-  position:fixed;
-
-  top:50%;
-  left:50%;
-
-  transform:
-  translate(-50%,-50%) scale(0.9);
-
-  width:92%;
-  max-width:420px;
-
-  background:#08143c;
-
-  border-radius:28px;
-
-  padding:22px;
-
-  z-index:999999;
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transition:0.3s;
+position:fixed;
+top:50%;
+left:50%;
+transform:
+translate(-50%,-50%) scale(0.9);
+width:92%;
+max-width:420px;
+background:#08143c;
+border-radius:28px;
+padding:22px;
+z-index:999999;
+opacity:0;
+pointer-events:none;
+transition:0.3s;
 }
 
 body.dark .profile-modal{
-  background:#111111;
+background:#111111;
 }
 
 .profile-modal.active{
-  opacity:1;
-  pointer-events:auto;
-  transform:
-  translate(-50%,-50%) scale(1);
+opacity:1;
+pointer-events:auto;
+transform:
+translate(-50%,-50%) scale(1);
 }
 
 .profile-header{
-  text-align:center;
-  margin-bottom:22px;
+text-align:center;
+margin-bottom:22px;
 }
 
 .avatar{
-
-  width:80px;
-  height:80px;
-
-  background:#facc15;
-
-  color:#000b2c;
-
-  border-radius:50%;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  margin:auto;
-  margin-bottom:12px;
-
-  font-size:34px;
+width:80px;
+height:80px;
+background:#facc15;
+color:#000b2c;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+margin-bottom:12px;
+font-size:34px;
 }
 
 .profile-name{
-  font-size:24px;
-  font-weight:bold;
+font-size:24px;
+font-weight:bold;
 }
 
 .profile-email{
-  color:#cbd5e1;
-  margin-top:4px;
+color:#cbd5e1;
+margin-top:4px;
 }
 
 .profile-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
 }
 
 .profile-card{
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:16px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:16px;
 }
 
 .profile-card h3{
-  color:#facc15;
-  margin-bottom:5px;
+color:#facc15;
+margin-bottom:5px;
 }
 
 .profile-card p{
-  font-size:13px;
-  color:#d1d5db;
+font-size:13px;
+color:#d1d5db;
 }
 
 .extra-info{
-
-  margin-top:18px;
-
-  background:rgba(255,255,255,0.05);
-
-  border-radius:20px;
-
-  padding:16px;
+margin-top:18px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:16px;
 }
 
 .extra-info div{
-  margin-bottom:12px;
+margin-bottom:12px;
 }
 
 /* PAGE */
 
 .page{
-  display:none;
+display:none;
 }
 
 .page.active{
-  display:block;
+display:block;
 }
 
 /* CARD */
 
 .card{
-
-  background:rgba(255,255,255,0.04);
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-
-  border-radius:28px;
-
-  padding:22px;
-
-  margin-bottom:22px;
+background:rgba(255,255,255,0.04);
+border:
+1px solid rgba(255,255,255,0.08);
+border-radius:28px;
+padding:22px;
+margin-bottom:22px;
 }
 
 /* WELCOME */
 
 .balance-box{
+background:#facc15;
+color:#111827;
+border-radius:18px;
+padding:14px;
+margin-top:18px;
+cursor:pointer;
+width:220px;
+transition:0.3s;
+}
 
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:22px;
-
-  padding:18px;
-
-  margin-top:18px;
+.balance-box:hover{
+transform:scale(1.03);
 }
 
 .balance{
-  font-size:32px;
-  font-weight:bold;
+font-size:24px;
+font-weight:bold;
+margin-top:4px;
 }
 
 .action-buttons{
-  display:flex;
-  gap:12px;
-  margin-top:18px;
+display:flex;
+gap:12px;
+margin-top:18px;
 }
 
 .action-buttons button{
-  flex:1;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  font-weight:bold;
-  cursor:pointer;
+flex:1;
+padding:14px;
+border:none;
+border-radius:16px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .deposit{
-  background:#facc15;
+background:#facc15;
 }
 
 .history{
-  background:rgba(255,255,255,0.08);
-  color:white;
+background:rgba(255,255,255,0.08);
+color:white;
 }
 
 /* SECTION */
 
 .section-title{
-  font-size:22px;
-  margin-bottom:18px;
+font-size:22px;
+margin-bottom:18px;
 }
 
 /* NETWORKS */
 
 .network-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
 }
 
 .network-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px 10px;
-
-  text-align:center;
-
-  cursor:pointer;
-
-  transition:0.3s;
+background:rgba(255,255,255,0.04);
+border-radius:22px;
+padding:18px 10px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
 }
 
 .network-card:hover{
-  transform:translateY(-5px);
+transform:translateY(-5px);
 }
 
 .network-card img{
-
-  width:75px;
-  height:75px;
-
-  object-fit:contain;
-
-  margin-bottom:10px;
+width:75px;
+height:75px;
+object-fit:contain;
+margin-bottom:10px;
 }
 
 .network-card p{
-  font-weight:bold;
+font-weight:bold;
 }
 
 /* TRANSACTIONS */
 
 .transaction-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+background:rgba(255,255,255,0.04);
+border-radius:22px;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .trans-left{
-  display:flex;
-  align-items:center;
-  gap:14px;
+display:flex;
+align-items:center;
+gap:14px;
 }
 
 .trans-icon{
-
-  width:50px;
-  height:50px;
-
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:16px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
+width:50px;
+height:50px;
+background:#facc15;
+color:#111827;
+border-radius:16px;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .trans-date{
-  color:#9ca3af;
-  font-size:13px;
+color:#9ca3af;
+font-size:13px;
 }
 
 /* QUICK ACTIONS */
 
 .quick-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
 }
 
 .quick-card{
+background:rgba(255,255,255,0.04);
+border-radius:22px;
+padding:18px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
 
-  background:rgba(255,255,255,0.04);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  text-align:center;
-
-  cursor:pointer;
+.quick-card:hover{
+transform:translateY(-5px);
 }
 
 .quick-icon{
-
-  width:55px;
-  height:55px;
-
-  background:#facc15;
-
-  color:#111827;
-
-  border-radius:18px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  margin:auto;
-  margin-bottom:12px;
+width:55px;
+height:55px;
+background:#facc15;
+color:#111827;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+margin-bottom:12px;
 }
 
 /* SIMPLE PAGE */
 
 .simple-page{
-  text-align:center;
-  padding-top:50px;
+text-align:center;
+padding-top:50px;
 }
 
 .simple-page i{
-  font-size:70px;
-  color:#facc15;
-  margin-bottom:18px;
+font-size:70px;
+color:#facc15;
+margin-bottom:18px;
 }
 
 .simple-page h1{
-  margin-bottom:12px;
+margin-bottom:12px;
 }
 
 /* SIMPLE HEADER */
 
 .simple-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:22px;
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:22px;
 }
 
 .back-btn{
-
-  width:45px;
-  height:45px;
-
-  border:none;
-
-  border-radius:14px;
-
-  background:#facc15;
-
-  color:#000b2c;
-
-  font-size:20px;
-
-  cursor:pointer;
+width:45px;
+height:45px;
+border:none;
+border-radius:14px;
+background:#facc15;
+color:#000b2c;
+font-size:20px;
+cursor:pointer;
 }
 
 /* WALLET */
 
 .wallet-card-ui{
-
-  background:
-  linear-gradient(
-  135deg,
-  #facc15,
-  #f59e0b
-  );
-
-  color:#111827;
-
-  border-radius:30px;
-
-  padding:24px;
-
-  margin-bottom:24px;
+background:
+linear-gradient(
+135deg,
+#facc15,
+#f59e0b
+);
+color:#111827;
+border-radius:30px;
+padding:24px;
+margin-bottom:24px;
 }
 
 .wallet-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
 }
 
 .wallet-logo{
-  width:60px;
+width:60px;
 }
 
 .wallet-flag{
-  font-size:38px;
+font-size:38px;
 }
 
 .wallet-chip{
-
-  width:55px;
-  height:40px;
-
-  background:#fff3;
-
-  border-radius:10px;
-
-  margin-bottom:30px;
+width:55px;
+height:40px;
+background:#fff3;
+border-radius:10px;
+margin-bottom:30px;
 }
 
 .wallet-number{
-
-  font-size:24px;
-
-  letter-spacing:2px;
-
-  margin-bottom:30px;
-
-  font-weight:bold;
+font-size:24px;
+letter-spacing:2px;
+margin-bottom:30px;
+font-weight:bold;
 }
 
 .wallet-user{
-  margin-bottom:20px;
+margin-bottom:20px;
 }
 
 .wallet-balance h1{
-  font-size:34px;
+font-size:34px;
 }
 
 /* INPUT */
 
 .input-field{
-
-  width:100%;
-
-  padding:18px;
-
-  border:none;
-
-  border-radius:18px;
-
-  background:
-  rgba(255,255,255,0.08);
-
-  color:white;
-
-  margin-bottom:18px;
-
-  outline:none;
-
-  font-size:16px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:
+rgba(255,255,255,0.08);
+color:white;
+margin-bottom:18px;
+outline:none;
+font-size:16px;
 }
 
 .input-field option{
-  color:black;
+color:black;
 }
 
 /* BUTTON */
 
 .big-btn{
-
-  width:100%;
-
-  padding:18px;
-
-  border:none;
-
-  border-radius:18px;
-
-  background:#facc15;
-
-  color:#000b2c;
-
-  font-size:18px;
-
-  font-weight:bold;
-
-  cursor:pointer;
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:#facc15;
+color:#000b2c;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-
-  position:fixed;
-
-  left:12px;
-  bottom:18px;
-
-  width:58px;
-  height:58px;
-
-  border-radius:50%;
-
-  background:#25d366;
-
-  color:white;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:28px;
-
-  text-decoration:none;
-
-  z-index:99999;
-
-  cursor:grab;
+position:fixed;
+left:12px;
+bottom:18px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25d366;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+text-decoration:none;
+z-index:99999;
+cursor:grab;
 }
 
 </style>
@@ -970,7 +836,10 @@ buy affordable data bundles
 and track transactions.
 </p>
 
-<div class="balance-box">
+<div
+class="balance-box"
+onclick="showPage('walletPage')"
+>
 
 <div>
 Wallet Balance
@@ -1086,6 +955,7 @@ GH₵0.00
 </div>
 
 </div>
+
 <!-- QUICK ACTIONS -->
 
 <div class="card">
@@ -1159,319 +1029,6 @@ Results
 </div>
 
 </div>
-</div>
-
-<!-- MTN PAGE -->
-
-<div
-class="page"
-id="mtnPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>MTN Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-wifi"></i>
-
-<h1>
-MTN Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- TELECEL PAGE -->
-
-<div
-class="page"
-id="telecelPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Telecel Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-globe"></i>
-
-<h1>
-Telecel Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- AIRTEL PAGE -->
-
-<div
-class="page"
-id="airtelPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>AirtelTigo Data</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-signal"></i>
-
-<h1>
-AirtelTigo Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- RESULTS -->
-
-<div
-class="page"
-id="resultsPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Results Checkers</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h1>
-Results Checkers
-</h1>
-
-</div>
-
-</div>
-
-<!-- WALLET -->
-
-<div
-class="page"
-id="walletPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Wallet</h2>
-
-</div>
-
-<div class="wallet-card-ui">
-
-<div class="wallet-top">
-
-<img
-src="logo.png"
-class="wallet-logo"
->
-
-<div class="wallet-flag">
-🇬🇭
-</div>
-
-</div>
-
-<div class="wallet-chip"></div>
-
-<div class="wallet-number">
-AMG-928374652
-</div>
-
-<div class="wallet-user">
-
-<small>
-Card Holder
-</small>
-
-<h3 id="walletUserName">
-User Name
-</h3>
-
-</div>
-
-<div class="wallet-balance">
-
-<small>
-Wallet Balance
-</small>
-
-<h1>
-GH₵0.00
-</h1>
-
-</div>
-
-</div>
-
-<button
-class="big-btn"
-onclick="showPage('depositPage')"
->
-Deposit Money
-</button>
-
-</div>
-
-<!-- DEPOSIT -->
-
-<div
-class="page"
-id="depositPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Deposit</h2>
-
-</div>
-
-<div class="card">
-
-<input
-type="number"
-placeholder="Enter Amount"
-class="input-field"
->
-
-<select class="input-field">
-
-<option>
-Select Payment Method
-</option>
-
-<option>
-MTN MOMO
-</option>
-
-<option>
-Telecel Cash
-</option>
-
-<option>
-AirtelTigo Money
-</option>
-
-</select>
-
-<button class="big-btn">
-Continue Deposit
-</button>
-
-</div>
-
-</div>
-
-<!-- HISTORY -->
-
-<div
-class="page"
-id="historyPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Transaction History</h2>
-
-</div>
-
-<div class="card">
-
-<div class="transaction-card">
-
-<div class="trans-left">
-
-<div class="trans-icon">
-<i class="fa-solid fa-clock-rotate-left"></i>
-</div>
-
-<div>
-
-<div>
-No transaction yet
-</div>
-
-<div class="trans-date">
-Transactions appear here
-</div>
-
-</div>
-
-</div>
-
-<div>
-GH₵0.00
-</div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -1533,32 +1090,6 @@ document.getElementById(
 ).innerHTML =
 "🗓 Registered: " +
 currentUser.registrationDate;
-
-document.getElementById(
-"walletUserName"
-).innerHTML =
-currentUser.fullName;
-
-/* ROLE */
-
-let role = "Customer";
-
-if(
-currentUser.email ===
-"chairmanoamg@gmail.com"
-){
-role = "Admin";
-}
-
-document.getElementById(
-"userRole"
-).innerHTML =
-role;
-
-document.getElementById(
-"activeDays"
-).innerHTML =
-currentUser.activeDays;
 
 /* MENU */
 
@@ -1624,16 +1155,25 @@ page.classList.remove(
 
 });
 
-document
-.getElementById(pageId)
-.classList.add("active");
+const selectedPage =
+document.getElementById(pageId);
+
+if(selectedPage){
+
+selectedPage.classList.add(
+"active"
+);
 
 localStorage.setItem(
 "activePage",
 pageId
 );
 
+}
+
 closeMenu();
+
+window.scrollTo(0,0);
 }
 
 /* RESTORE PAGE */
@@ -1645,9 +1185,16 @@ localStorage.getItem(
 "activePage"
 );
 
-if(savedPage){
+if(
+savedPage &&
+document.getElementById(savedPage)
+){
 
 showPage(savedPage);
+
+}else{
+
+showPage("dashboardPage");
 
 }
 
@@ -1712,7 +1259,27 @@ dragEnd,
 false
 );
 
+dragItem.addEventListener(
+"mousedown",
+dragStart,
+false
+);
+
+document.addEventListener(
+"mousemove",
+drag,
+false
+);
+
+document.addEventListener(
+"mouseup",
+dragEnd,
+false
+);
+
 function dragStart(e){
+
+if(e.type === "touchstart"){
 
 initialX =
 e.touches[0].clientX -
@@ -1721,6 +1288,18 @@ dragItem.offsetLeft;
 initialY =
 e.touches[0].clientY -
 dragItem.offsetTop;
+
+}else{
+
+initialX =
+e.clientX -
+dragItem.offsetLeft;
+
+initialY =
+e.clientY -
+dragItem.offsetTop;
+
+}
 
 active = true;
 }
@@ -1731,6 +1310,8 @@ if(active){
 
 e.preventDefault();
 
+if(e.type === "touchmove"){
+
 currentX =
 e.touches[0].clientX -
 initialX;
@@ -1738,6 +1319,18 @@ initialX;
 currentY =
 e.touches[0].clientY -
 initialY;
+
+}else{
+
+currentX =
+e.clientX -
+initialX;
+
+currentY =
+e.clientY -
+initialY;
+
+}
 
 dragItem.style.left =
 currentX + "px";
@@ -1752,7 +1345,9 @@ dragItem.style.bottom =
 }
 
 function dragEnd(){
+
 active = false;
+
 }
 
 </script>
