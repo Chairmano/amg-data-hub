@@ -50,7 +50,7 @@ body{
 }
 
 .logo{
-  width:60px;
+  width:58px;
 }
 
 .brand{
@@ -78,7 +78,7 @@ body{
   border:1px solid rgba(255,255,255,0.08);
 }
 
-/* WELCOME */
+/* WELCOME CARD */
 
 .welcome-card{
 
@@ -127,8 +127,6 @@ body{
   font-size:32px;
   font-weight:bold;
 }
-
-/* ACTION BUTTONS */
 
 .action-buttons{
   display:flex;
@@ -201,14 +199,16 @@ body{
 }
 
 .network-card img{
-  width:55px;
-  height:55px;
+  width:70px;
+  height:70px;
   object-fit:contain;
   margin-bottom:10px;
+  border-radius:50%;
 }
 
 .network-card p{
   font-weight:bold;
+  font-size:15px;
 }
 
 /* QUICK ACTIONS */
@@ -376,8 +376,6 @@ body{
   0 0 25px rgba(37,211,102,0.45);
 }
 
-/* MOBILE */
-
 @media(max-width:500px){
 
   .network-grid{
@@ -458,7 +456,7 @@ body{
 
 </div>
 
-<!-- BUY DATA BUNDLE -->
+<!-- BUY DATA -->
 
 <div class="section">
 
@@ -468,43 +466,66 @@ body{
 
   <div class="network-grid">
 
-    <!-- MTN -->
-
     <div class="network-card">
 
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg"
-        alt="MTN"
-      >
+      <img src="mtn.png">
 
       <p>MTN</p>
 
     </div>
 
-    <!-- AIRTELTIGO -->
+    <div class="network-card">
+
+      <img src="telecel.png">
+
+      <p>Telecel</p>
+
+    </div>
 
     <div class="network-card">
 
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/AirtelTigo_Ghana.svg/512px-AirtelTigo_Ghana.svg.png"
-        alt="AirtelTigo"
-      >
+      <img src="airteltigo.png">
 
       <p>AirtelTigo</p>
 
     </div>
 
-    <!-- TELECEL -->
+  </div>
 
-    <div class="network-card">
+</div>
 
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Telecel_logo.svg/512px-Telecel_logo.svg.png"
-        alt="Telecel"
-      >
+<!-- RECENT ORDERS -->
 
-      <p>Telecel</p>
+<div class="section">
 
+  <div class="section-title">
+    Recent Orders
+  </div>
+
+  <div class="transaction-card">
+
+    <div class="trans-left">
+
+      <div class="trans-icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+
+      <div>
+
+        <div class="trans-name">
+          No Order Yet
+        </div>
+
+        <div class="trans-date">
+          Orders placed today will appear here
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="trans-amount">
+      GH₵0.00
     </div>
 
   </div>
@@ -569,44 +590,6 @@ body{
 
       <p>Reports</p>
 
-    </div>
-
-  </div>
-
-</div>
-
-<!-- RECENT TRANSACTIONS -->
-
-<div class="section">
-
-  <div class="section-title">
-    Recent Transactions
-  </div>
-
-  <div class="transaction-card">
-
-    <div class="trans-left">
-
-      <div class="trans-icon">
-        <i class="fa-solid fa-wifi"></i>
-      </div>
-
-      <div>
-
-        <div class="trans-name">
-          MTN Data Purchase
-        </div>
-
-        <div class="trans-date">
-          No recent transaction
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="trans-amount">
-      GH₵0.00
     </div>
 
   </div>
