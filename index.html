@@ -3,166 +3,200 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
 
-  <title>AMG DATA HUB</title>
+<title>AMG Data Hub</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      background:#020817;
-      font-family:Arial, sans-serif;
-      color:white;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-    }
+body{
+  background:#020b3d;
+  font-family:Arial, sans-serif;
+  color:white;
+  min-height:100vh;
+  padding:20px;
+}
 
-    .container{
-      width:100%;
-      max-width:450px;
-    }
+.container{
+  max-width:450px;
+  margin:auto;
+}
 
-    .logo-box{
-      text-align:center;
-      margin-bottom:10px;
-    }
+/* LOGO */
 
-    .logo-image{
-      width:100%;
-      max-width:280px;
-      object-fit:contain;
-    }
+.logo-section{
+  text-align:center;
+  margin-top:40px;
+  margin-bottom:30px;
+}
 
-    .small-badge{
-      text-align:center;
-      color:#22d3ee;
-      margin-bottom:20px;
-      font-size:15px;
-      letter-spacing:1px;
-    }
+.logo{
+  width:140px;
+  border-radius:30px;
+  box-shadow:0 0 30px rgba(0,255,255,0.2);
+}
 
-    .welcome-text{
-      text-align:center;
-      margin-bottom:25px;
-    }
+.tagline{
+  margin-top:20px;
+  color:#b8c1ec;
+  font-size:18px;
+}
 
-    .welcome-text h2{
-      font-size:34px;
-      margin-bottom:12px;
-    }
+/* SKIP CARD */
 
-    .welcome-text p{
-      color:#cbd5e1;
-      line-height:1.6;
-      font-size:16px;
-    }
+.skip-card{
+  background:#02192f;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:25px;
+  padding:25px;
+  margin-bottom:30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 0 30px rgba(0,255,255,0.1);
+}
 
-    .card{
-      background:#111827;
-      padding:25px;
-      border-radius:20px;
-      border:1px solid #1e293b;
-      margin-bottom:20px;
-      box-shadow:0 0 25px rgba(0,0,0,0.4);
-    }
+.skip-left h2{
+  font-size:20px;
+  margin-bottom:10px;
+}
 
-    .card h3{
-      margin-bottom:20px;
-      font-size:24px;
-    }
+.skip-left p{
+  color:#27e49b;
+  font-size:15px;
+}
 
-    input{
-      width:100%;
-      padding:16px;
-      margin-bottom:15px;
-      border-radius:14px;
-      border:1px solid #334155;
-      background:#020617;
-      color:white;
-      font-size:16px;
-      outline:none;
-    }
+.skip-arrow{
+  font-size:40px;
+  color:#27e49b;
+}
 
-    input::placeholder{
-      color:#94a3b8;
-    }
+/* LOGIN CARD */
 
-    button{
-      width:100%;
-      padding:16px;
-      border:none;
-      border-radius:14px;
-      background:#22d3ee;
-      color:black;
-      font-size:18px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.login-card{
+  background:#111c55;
+  border-radius:30px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
-    button:hover{
-      opacity:0.9;
-    }
+.login-card h1{
+  font-size:45px;
+  margin-bottom:10px;
+}
 
-    .signup-text{
-      margin-top:20px;
-      text-align:center;
-      color:#cbd5e1;
-    }
+.login-card .sub{
+  color:#9ca3af;
+  margin-bottom:30px;
+}
 
-    .signup-text a{
-      color:#9333ea;
-      text-decoration:none;
-      font-weight:bold;
-    }
+/* INPUTS */
 
-    .info-card{
-      background:#111827;
-      padding:20px;
-      border-radius:18px;
-      border:1px solid #1e293b;
-    }
+.input-box{
+  margin-bottom:20px;
+}
 
-    .info-card h3{
-      margin-bottom:10px;
-    }
+.input-box input{
+  width:100%;
+  padding:18px;
+  border-radius:18px;
+  border:2px solid rgba(255,255,255,0.15);
+  background:transparent;
+  color:white;
+  font-size:16px;
+  outline:none;
+}
 
-    .info-card p{
-      color:#cbd5e1;
-      line-height:1.5;
-    }
+.input-box input::placeholder{
+  color:#9ca3af;
+}
 
-    @media(max-width:500px){
+/* OPTIONS */
 
-      .welcome-text h2{
-        font-size:28px;
-      }
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+  font-size:15px;
+}
 
-      .card{
-        padding:20px;
-      }
+.options a{
+  color:#3b82f6;
+  text-decoration:none;
+}
 
-      .logo-image{
-        max-width:220px;
-      }
+/* BUTTON */
 
-    }
+.login-btn{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:20px;
+  background:#2f5bff;
+  color:white;
+  font-size:24px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(47,91,255,0.5);
+}
 
-  </style>
+.login-btn:hover{
+  opacity:0.9;
+}
+
+/* SIGNUP */
+
+.signup{
+  text-align:center;
+  margin-top:30px;
+  color:#9ca3af;
+}
+
+.signup a{
+  color:#2f5bff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:70px;
+  height:70px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:35px;
+  text-decoration:none;
+  box-shadow:0 0 40px rgba(37,211,102,0.5);
+}
+
+@media(max-width:500px){
+
+  .login-card h1{
+    font-size:38px;
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -171,75 +205,103 @@
 <div class="container">
 
   <!-- LOGO -->
-  <div class="logo-box">
+  <div class="logo-section">
 
     <img
       src="logo.png"
-      alt="AMG DATA HUB"
-      class="logo-image"
+      class="logo"
+      alt="AMG Logo"
     >
 
-  </div>
-
-  <!-- BADGE -->
-  <p class="small-badge">
-    Secure • Fast • Reliable
-  </p>
-
-  <!-- WELCOME -->
-  <div class="welcome-text">
-
-    <h2>Welcome Back 👋</h2>
-
-    <p>
-      Login to continue managing your data business,
-      wallet and transactions securely.
+    <p class="tagline">
+      Your Premium Data Partner
     </p>
 
   </div>
 
-  <!-- LOGIN CARD -->
-  <div class="card">
+  <!-- SKIP LOGIN -->
+  <div
+    class="skip-card"
+    onclick="window.location.href='shop.html'"
+  >
 
-    <h3>Login to Your Account</h3>
+    <div class="skip-left">
+      <h2>Want to buy now?</h2>
 
-    <input
-      id="email"
-      type="email"
-      placeholder="Enter your email"
+      <p>
+        Skip login and purchase directly
+      </p>
+    </div>
+
+    <div class="skip-arrow">
+      →
+    </div>
+
+  </div>
+
+  <!-- LOGIN -->
+  <div class="login-card">
+
+    <h1>Welcome back</h1>
+
+    <p class="sub">
+      Sign in to your account
+    </p>
+
+    <div class="input-box">
+      <input
+        id="email"
+        type="email"
+        placeholder="Email"
+      >
+    </div>
+
+    <div class="input-box">
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+      >
+    </div>
+
+    <div class="options">
+
+      <label>
+        <input type="checkbox">
+        Remember me
+      </label>
+
+      <a href="#">
+        Forgot password?
+      </a>
+
+    </div>
+
+    <button
+      class="login-btn"
+      onclick="login()"
     >
-
-    <input
-      id="password"
-      type="password"
-      placeholder="Enter your password"
-    >
-
-    <button onclick="login()">
-      Login
+      Sign In
     </button>
 
-    <p class="signup-text">
-      Don't have an account?
-      <a href="signup.html">Sign up</a>
-    </p>
-
-  </div>
-
-  <!-- INFO -->
-  <div class="info-card">
-
-    <h3>🚀 Welcome to AMG Data Hub</h3>
-
-    <p>
-      Buy affordable data bundles,
-      earn commissions and grow your
-      digital business in Ghana.
-    </p>
+    <div class="signup">
+      Don’t have an account?
+      <a href="signup.html">
+        Sign Up
+      </a>
+    </div>
 
   </div>
 
 </div>
+
+<!-- WHATSAPP -->
+<a
+  href="https://wa.me/233241895999"
+  class="whatsapp"
+>
+  💬
+</a>
 
 <script type="module">
 
@@ -249,9 +311,9 @@ import {
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-window.login = async function () {
+window.login = async function(){
 
-  try {
+  try{
 
     await signInWithEmailAndPassword(
       auth,
@@ -261,7 +323,7 @@ window.login = async function () {
 
     window.location.href = "dashboard.html";
 
-  } catch(error) {
+  }catch(error){
 
     alert(error.message);
 
