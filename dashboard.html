@@ -1,71 +1,734 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Dashboard</title>
-<link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
+
+<title>AMG Data Hub Dashboard</title>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f3f4f6;
+  font-family:Arial, sans-serif;
+  padding-bottom:120px;
+  color:#111827;
+}
+
+/* HEADER */
+
+.header{
+  background:white;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:58px;
+}
+
+.logo-text{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.logo-text span{
+  color:#facc15;
+}
+
+.header-icons{
+  display:flex;
+  gap:12px;
+}
+
+.icon-btn{
+  width:55px;
+  height:55px;
+  border-radius:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+}
+
+.dark{
+  background:#14213d;
+  color:#facc15;
+}
+
+.light{
+  background:#eef2f7;
+  color:#14213d;
+}
+
+.yellow{
+  background:#facc15;
+  color:#111827;
+}
+
+/* HERO */
+
+.hero{
+  background:#facc15;
+  margin:18px;
+  border-radius:30px;
+  padding:28px 22px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hero h1{
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.badge{
+  display:inline-block;
+  background:black;
+  color:white;
+  padding:10px 18px;
+  border-radius:50px;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+/* ACTIONS */
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.action-btn{
+  background:#14213d;
+  color:#facc15;
+  border:none;
+  padding:15px 20px;
+  border-radius:18px;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.deposit{
+  background:#10b981;
+  color:white;
+}
+
+/* STATUS */
+
+.status-card{
+  background:#14213d;
+  color:white;
+  margin:18px;
+  border-radius:25px;
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.status-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.dot{
+  width:14px;
+  height:14px;
+  background:#22c55e;
+  border-radius:50%;
+}
+
+.status-title{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.status-time{
+  opacity:0.8;
+  margin-top:5px;
+}
+
+.help-arrow{
+  font-size:28px;
+  color:#facc15;
+}
+
+/* NETWORKS */
+
+.section-card{
+  background:white;
+  margin:18px;
+  border-radius:28px;
+  padding:22px;
+  box-shadow:0 5px 18px rgba(0,0,0,0.05);
+}
+
+.section-title{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.network-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.network{
+  border-radius:20px;
+  padding:18px 10px;
+  text-align:center;
+}
+
+.network img{
+  width:55px;
+  height:55px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
+
+.network p{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.mtn{
+  background:#fff9db;
+}
+
+.at{
+  background:#eef2ff;
+}
+
+.telecel{
+  background:#fff1f2;
+}
+
+.checkers{
+  background:#ecfdf5;
+}
+
+/* STATS */
+
+.stats-card{
+  background:#facc15;
+  margin:18px;
+  border-radius:30px;
+  padding:28px 22px;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.stat{
+  text-align:center;
+}
+
+.stat-icon{
+  width:80px;
+  height:80px;
+  background:#14213d;
+  color:#facc15;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  margin-bottom:14px;
+  font-size:30px;
+}
+
+.stat h2{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.stat p{
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* QUICK ACTIONS */
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.quick{
+  background:#f9f7e8;
+  border-radius:18px;
+  padding:18px 10px;
+  text-align:center;
+}
+
+.quick-icon{
+  width:60px;
+  height:60px;
+  background:#14213d;
+  color:#facc15;
+  border-radius:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  margin-bottom:12px;
+  font-size:24px;
+}
+
+.quick p{
+  font-size:14px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.footer img{
+  width:80px;
+  margin-bottom:15px;
+}
+
+.footer p{
+  color:#4b5563;
+  line-height:1.7;
+  font-size:18px;
+}
+
+/* FLOATING BUTTONS */
+
+.whatsapp{
+  position:fixed;
+  left:15px;
+  bottom:20px;
+  width:65px;
+  height:65px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:34px;
+  text-decoration:none;
+  box-shadow:0 0 25px rgba(37,211,102,0.5);
+}
+
+.chat{
+  position:fixed;
+  right:15px;
+  bottom:20px;
+  width:65px;
+  height:65px;
+  background:#5b21b6;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .network-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+<!-- HEADER -->
 
-<div class="sidebar" id="sidebar">
-  <h3>Menu</h3>
-  <p>Wallet</p>
-  <p>Buy Data</p>
-  <p>Transactions</p>
-  <p>Referrals</p>
-  <p>Deposit History</p>
-  <p onclick="logout()">Logout</p>
-</div>
+<div class="header">
 
-<div class="container">
-  <div class="dashboard-grid">
+  <div class="logo-area">
 
-    <div class="card">
-      <h2>Wallet Balance</h2>
-      <h1 id="balance">₵0</h1>
-    </div>
+    <img
+      src="logo.png"
+      class="logo"
+    >
 
-    <div class="card">
-      <h2>Commission Earned</h2>
-      <h1 id="commission">₵0</h1>
-    </div>
-
-    <div class="card">
-      <h2>Daily Sales</h2>
-      <canvas id="salesChart"></canvas>
+    <div class="logo-text">
+      AMG <span>DATA HUB</span>
     </div>
 
   </div>
+
+  <div class="header-icons">
+
+    <div class="icon-btn dark">
+      <i class="fa-regular fa-credit-card"></i>
+    </div>
+
+    <div class="icon-btn light">
+      <i class="fa-regular fa-user"></i>
+    </div>
+
+    <div class="icon-btn yellow">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+  </div>
+
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js"></script>
+<!-- HERO -->
 
-<script>
-  // Load user data when page opens
-  window.onload = function() {
+<div class="hero">
 
-    const currentUserEmail = localStorage.getItem("currentUser");
+  <h1 id="welcomeName">
+    Welcome 👋
+  </h1>
 
-    if (!currentUserEmail) {
-      window.location.href = "index.html";
-      return;
+  <p>
+    Fast, reliable and affordable data bundles in Ghana.
+  </p>
+
+  <div class="badge">
+    Where Resellers Meet
+  </div>
+
+  <div class="hero-actions">
+
+    <button class="action-btn deposit">
+      Deposit Now
+    </button>
+
+    <button class="action-btn">
+      Orders
+    </button>
+
+    <button class="action-btn">
+      Transactions
+    </button>
+
+    <button class="action-btn">
+      Bulk SMS
+    </button>
+
+  </div>
+
+</div>
+
+<!-- STATUS -->
+
+<div class="status-card">
+
+  <div class="status-left">
+
+    <div class="dot"></div>
+
+    <div>
+
+      <div class="status-title">
+        System Online 24/7
+      </div>
+
+      <div class="status-time">
+        Always Available
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="help-arrow">
+    →
+  </div>
+
+</div>
+
+<!-- NETWORKS -->
+
+<div class="section-card">
+
+  <div class="section-title">
+    Place New Order
+  </div>
+
+  <div class="network-grid">
+
+    <div class="network mtn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg">
+      <p>MTN</p>
+    </div>
+
+    <div class="network at">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/AirtelTigo_logo.png">
+      <p>ATigo</p>
+    </div>
+
+    <div class="network telecel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Telecel_logo.png">
+      <p>Telecel</p>
+    </div>
+
+    <div class="network checkers">
+      <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png">
+      <p>Checkers</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats-card">
+
+  <div class="stats-grid">
+
+    <div class="stat">
+
+      <div class="stat-icon">
+        <i class="fa-solid fa-wallet"></i>
+      </div>
+
+      <h2>Balance</h2>
+
+      <p>GH₵0.00</p>
+
+    </div>
+
+    <div class="stat">
+
+      <div class="stat-icon">
+        <i class="fa-solid fa-box"></i>
+      </div>
+
+      <h2>Orders Today</h2>
+
+      <p>0</p>
+
+    </div>
+
+    <div class="stat">
+
+      <div class="stat-icon">
+        <i class="fa-solid fa-database"></i>
+      </div>
+
+      <h2>GB Sold</h2>
+
+      <p>0 GB</p>
+
+    </div>
+
+    <div class="stat">
+
+      <div class="stat-icon">
+        <i class="fa-solid fa-dollar-sign"></i>
+      </div>
+
+      <h2>Revenue</h2>
+
+      <p>GH₵0.00</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- QUICK ACTIONS -->
+
+<div class="section-card">
+
+  <div class="section-title">
+    Quick Actions
+  </div>
+
+  <div class="quick-grid">
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-solid fa-box"></i>
+      </div>
+      <p>Order</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+      <p>Reports</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-solid fa-database"></i>
+      </div>
+      <p>Data</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon" style="background:#facc15;color:#111827;">
+        <i class="fa-regular fa-credit-card"></i>
+      </div>
+      <p>Deposit</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-regular fa-file-lines"></i>
+      </div>
+      <p>Trans</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <p>Report</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon">
+        <i class="fa-solid fa-store"></i>
+      </div>
+      <p>Store</p>
+    </div>
+
+    <div class="quick">
+      <div class="quick-icon" style="background:#facc15;color:#111827;">
+        <i class="fa-solid fa-layer-group"></i>
+      </div>
+      <p>Bulk</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+  <img src="logo.png">
+
+  <p>
+    Your trusted source for affordable data bundles in Ghana.
+    Fast, reliable and secure.
+  </p>
+
+</div>
+
+<!-- FLOATING BUTTONS -->
+
+<a
+  href="https://wa.me/233241895999"
+  class="whatsapp"
+>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a
+  href="#"
+  class="chat"
+>
+  <i class="fa-regular fa-comment"></i>
+</a>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+onAuthStateChanged(auth, async(user)=>{
+
+  if(user){
+
+    const docRef =
+      doc(db, "users", user.uid);
+
+    const docSnap =
+      await getDoc(docRef);
+
+    if(docSnap.exists()){
+
+      const data = docSnap.data();
+
+      document.getElementById(
+        "welcomeName"
+      ).innerHTML =
+      `Welcome back, ${data.fullname} 👋`;
+
     }
 
-    const user = JSON.parse(localStorage.getItem(currentUserEmail));
+  }else{
 
-    if (!user) {
-      window.location.href = "index.html";
-      return;
-    }
+    window.location.href = "index.html";
 
-    document.getElementById("balance").innerText = "₵" + user.balance;
-    document.getElementById("commission").innerText = "₵" + user.commission;
+  }
 
-    loadChart();
-  };
+});
+
 </script>
 
 </body>
