@@ -36,23 +36,23 @@
       max-width:450px;
     }
 
+    .logo-box{
+      text-align:center;
+      margin-bottom:10px;
+    }
+
+    .logo-image{
+      width:100%;
+      max-width:280px;
+      object-fit:contain;
+    }
+
     .small-badge{
       text-align:center;
       color:#22d3ee;
-      margin-bottom:20px;
-      font-size:14px;
-    }
-
-    .logo-box{
-      text-align:center;
-      margin-bottom:25px;
-    }
-
-    .logo{
-      color:#22d3ee;
-      font-size:38px;
-      font-weight:bold;
-      line-height:1.2;
+      margin-bottom:30px;
+      font-size:15px;
+      letter-spacing:1px;
     }
 
     .welcome-text{
@@ -148,16 +148,16 @@
 
     @media(max-width:500px){
 
-      .logo{
-        font-size:30px;
-      }
-
       .welcome-text h2{
         font-size:28px;
       }
 
       .card{
         padding:20px;
+      }
+
+      .logo-image{
+        max-width:220px;
       }
 
     }
@@ -170,23 +170,35 @@
 
 <div class="container">
 
+  <!-- LOGO -->
+  <div class="logo-box">
+
+    <img
+      src="logo.png"
+      alt="AMG DATA HUB"
+      class="logo-image"
+    >
+
+  </div>
+
+  <!-- BADGE -->
   <p class="small-badge">
     Secure • Fast • Reliable
   </p>
 
-  <div class="logo-box">
-    <h1 class="logo">AMG DATA HUB</h1>
-  </div>
-
+  <!-- WELCOME -->
   <div class="welcome-text">
+
     <h2>Welcome Back 👋</h2>
 
     <p>
       Login to continue managing your data business,
       wallet and transactions securely.
     </p>
+
   </div>
 
+  <!-- LOGIN CARD -->
   <div class="card">
 
     <h3>Login to Your Account</h3>
@@ -214,6 +226,7 @@
 
   </div>
 
+  <!-- INFO -->
   <div class="info-card">
 
     <h3>🚀 Welcome to AMG Data Hub</h3>
