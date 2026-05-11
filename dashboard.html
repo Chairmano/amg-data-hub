@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 />
 
 <title>AMG Data Hub Dashboard</title>
@@ -431,6 +431,8 @@ body.dark .profile-modal{
   padding:18px 10px;
 
   text-align:center;
+
+  cursor:pointer;
 }
 
 .network-card img{
@@ -503,6 +505,8 @@ body.dark .profile-modal{
   padding:18px;
 
   text-align:center;
+
+  cursor:pointer;
 }
 
 .quick-icon{
@@ -539,6 +543,144 @@ body.dark .profile-modal{
 
 .simple-page h1{
   margin-bottom:12px;
+}
+
+/* SIMPLE HEADER */
+
+.simple-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.back-btn{
+
+  width:45px;
+  height:45px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#facc15;
+
+  color:#000b2c;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+/* WALLET */
+
+.wallet-card-ui{
+
+  background:
+  linear-gradient(
+  135deg,
+  #facc15,
+  #f59e0b
+  );
+
+  color:#111827;
+
+  border-radius:30px;
+
+  padding:24px;
+
+  margin-bottom:24px;
+}
+
+.wallet-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:35px;
+}
+
+.wallet-logo{
+  width:60px;
+}
+
+.wallet-chip{
+
+  width:55px;
+  height:40px;
+
+  background:#fff3;
+
+  border-radius:10px;
+}
+
+.wallet-number{
+
+  font-size:24px;
+
+  letter-spacing:2px;
+
+  margin-bottom:30px;
+
+  font-weight:bold;
+}
+
+.wallet-user{
+  margin-bottom:20px;
+}
+
+.wallet-balance h1{
+  font-size:34px;
+}
+
+/* INPUT */
+
+.input-field{
+
+  width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  color:white;
+
+  margin-bottom:18px;
+
+  outline:none;
+
+  font-size:16px;
+}
+
+.input-field option{
+  color:black;
+}
+
+/* BIG BUTTON */
+
+.big-btn{
+
+  width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:#facc15;
+
+  color:#000b2c;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  cursor:pointer;
 }
 
 /* WHATSAPP */
@@ -583,96 +725,110 @@ class="side-menu"
 id="sideMenu"
 >
 
-  <div class="menu-header">
+<div class="menu-header">
 
-    <div class="menu-title">
-      ☰ Menu
-    </div>
+<div class="menu-title">
+☰ Menu
+</div>
 
-    <div
-      class="close-btn"
-      onclick="closeMenu()"
-    >
-      ✕
-    </div>
+<div
+class="close-btn"
+onclick="closeMenu()"
+>
+✕
+</div>
 
-  </div>
+</div>
 
-  <div
-    class="profile-box"
-    onclick="openProfile()"
-  >
+<div
+class="profile-box"
+onclick="openProfile()"
+>
 
-    <h3 id="menuUserName">
-      User Name
-    </h3>
+<h3 id="menuUserName">
+User Name
+</h3>
 
-    <p>
-      View Profile
-    </p>
+<p>
+View Profile
+</p>
 
-  </div>
+</div>
 
-  <div class="menu-section-title">
-    DASHBOARD
-  </div>
+<div class="menu-section-title">
+DASHBOARD
+</div>
 
-  <div
-    class="menu-item"
-    onclick="showPage('dashboardPage')"
-  >
-    🏠 Dashboard
-  </div>
+<div
+class="menu-item"
+onclick="showPage('dashboardPage')"
+>
+🏠 Dashboard
+</div>
 
-  <div class="menu-section-title">
-    BUY DATA
-  </div>
+<div class="menu-section-title">
+BUY DATA
+</div>
 
-  <div class="sub-card">
+<div class="sub-card">
 
-    <div
-      class="menu-item"
-      onclick="showPage('mtnPage')"
-    >
-      📶 MTN Data
-    </div>
+<div
+class="menu-item"
+onclick="showPage('mtnPage')"
+>
+📶 MTN Data
+</div>
 
-    <div
-      class="menu-item"
-      onclick="showPage('airtelPage')"
-    >
-      🔴 AirtelTigo Data
-    </div>
+<div
+class="menu-item"
+onclick="showPage('airtelPage')"
+>
+🔴 AirtelTigo Data
+</div>
 
-    <div
-      class="menu-item"
-      onclick="showPage('telecelPage')"
-    >
-      🔺 Telecel Data
-    </div>
+<div
+class="menu-item"
+onclick="showPage('telecelPage')"
+>
+🔺 Telecel Data
+</div>
 
-  </div>
+</div>
 
-  <div
-    class="menu-item"
-    onclick="showPage('resultsPage')"
-  >
-    🎓 Results Checkers
-  </div>
+<div
+class="menu-item"
+onclick="showPage('resultsPage')"
+>
+🎓 Results Checkers
+</div>
 
-  <div
-    class="menu-item"
-    onclick="toggleDarkMode()"
-  >
-    🌙 Dark Mode
-  </div>
+<div
+class="menu-item"
+onclick="showPage('walletPage')"
+>
+💳 Wallet
+</div>
 
-  <div
-    class="menu-item"
-    onclick="logout()"
-  >
-    🚪 Sign Out
-  </div>
+<div
+class="menu-item"
+onclick="showPage('historyPage')"
+>
+📜 History
+</div>
+
+<div
+class="menu-item"
+onclick="toggleDarkMode()"
+>
+🌙 Dark Mode
+</div>
+
+<div
+class="menu-item"
+onclick="logout()"
+>
+🚪 Sign Out
+</div>
 
 </div>
 
@@ -682,413 +838,556 @@ id="overlay"
 onclick="closeAll()"
 ></div>
 
-<!-- PROFILE MODAL -->
+<!-- PROFILE -->
 
 <div
 class="profile-modal"
 id="profileModal"
 >
 
-  <div class="profile-header">
+<div class="profile-header">
 
-    <div class="avatar">
-      <i class="fa-solid fa-user"></i>
-    </div>
+<div class="avatar">
+<i class="fa-solid fa-user"></i>
+</div>
 
-    <div
-      class="profile-name"
-      id="profileName"
-    >
-      User Name
-    </div>
+<div
+class="profile-name"
+id="profileName"
+>
+User Name
+</div>
 
-    <div
-      class="profile-email"
-      id="profileEmail"
-    >
-      user@gmail.com
-    </div>
-
-  </div>
-
-  <div class="profile-grid">
-
-    <div class="profile-card">
-
-      <h3 id="totalDeposits">
-        GH₵0
-      </h3>
-
-      <p>
-        Total Deposits<br>
-        <small>
-          0 deposits
-        </small>
-      </p>
-
-    </div>
-
-    <div class="profile-card">
-
-      <h3 id="totalOrders">
-        0
-      </h3>
-
-      <p>
-        Total Orders<br>
-        <small>
-          0 successful orders
-        </small>
-      </p>
-
-    </div>
-
-    <div class="profile-card">
-
-      <h3 id="totalSpent">
-        GH₵0
-      </h3>
-
-      <p>
-        Total Spent<br>
-        <small>
-          0 successful orders
-        </small>
-      </p>
-
-    </div>
-
-    <div class="profile-card">
-
-      <h3 id="userRole">
-        Customer
-      </h3>
-
-      <p>
-        Role<br>
-        <small>
-          User account
-        </small>
-      </p>
-
-    </div>
-
-  </div>
-
-  <div class="extra-info">
-
-    <div id="userPhone">
-      📞 Phone:
-    </div>
-
-    <div id="activeDays">
-      📅 Active Days:
-    </div>
-
-    <div id="registeredDate">
-      🗓 Registered:
-    </div>
-
-  </div>
+<div
+class="profile-email"
+id="profileEmail"
+>
+user@gmail.com
+</div>
 
 </div>
 
-<!-- DASHBOARD PAGE -->
+<div class="profile-grid">
+
+<div class="profile-card">
+
+<h3 id="totalDeposits">
+GH₵0
+</h3>
+
+<p>
+Total Deposits
+</p>
+
+</div>
+
+<div class="profile-card">
+
+<h3 id="totalOrders">
+0
+</h3>
+
+<p>
+Total Orders
+</p>
+
+</div>
+
+<div class="profile-card">
+
+<h3 id="totalSpent">
+GH₵0
+</h3>
+
+<p>
+Total Spent
+</p>
+
+</div>
+
+<div class="profile-card">
+
+<h3 id="userRole">
+Customer
+</h3>
+
+<p>
+Role
+</p>
+
+</div>
+
+</div>
+
+<div class="extra-info">
+
+<div id="userPhone">
+📞 Phone:
+</div>
+
+<div id="activeDays">
+📅 Active Days:
+</div>
+
+<div id="registeredDate">
+🗓 Registered:
+</div>
+
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
 
 <div
 class="page active"
 id="dashboardPage"
 >
 
-  <div class="header">
-
-    <div class="left-header">
-
-      <div
-        class="menu-btn"
-        onclick="openMenu()"
-      >
-        <i class="fa-solid fa-bars"></i>
-      </div>
-
-      <img
-        src="logo.png"
-        class="logo"
-      >
-
-      <div class="brand">
-        AMG <span>DATA HUB</span>
-      </div>
-
-    </div>
-
-    <div
-      class="profile-btn"
-      onclick="openProfile()"
-    >
-      <i class="fa-regular fa-user"></i>
-    </div>
-
-  </div>
-
-  <!-- WELCOME -->
-
-  <div class="card">
-
-    <h2>
-      Welcome back 👋
-    </h2>
-
-    <p
-      style="
-      margin-top:10px;
-      color:#cbd5e1;
-      "
-    >
-      Buy affordable data bundles
-      and manage transactions.
-    </p>
-
-    <div class="balance-box">
-
-      <div>
-        Wallet Balance
-      </div>
-
-      <div class="balance">
-        GH₵ 0.00
-      </div>
-
-    </div>
-
-    <div class="action-buttons">
-
-      <button class="deposit">
-        Deposit
-      </button>
-
-      <button class="history">
-        History
-      </button>
-
-    </div>
-
-  </div>
-
-  <!-- BUY DATA -->
-
-  <div class="card">
-
-    <div class="section-title">
-      Buy Data Bundles
-    </div>
-
-    <div class="network-grid">
-
-      <div class="network-card">
-
-        <img src="mtn.png">
-
-        <p>MTN</p>
-
-      </div>
-
-      <div class="network-card">
-
-        <img src="telecel.png">
-
-        <p>Telecel</p>
-
-      </div>
-
-      <div class="network-card">
-
-        <img src="airteltigo.png">
-
-        <p>AirtelTigo</p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- RECENT ORDERS -->
-
-  <div class="card">
-
-    <div class="section-title">
-      Recent Orders
-    </div>
-
-    <div class="transaction-card">
-
-      <div class="trans-left">
-
-        <div class="trans-icon">
-          <i class="fa-solid fa-wifi"></i>
-        </div>
-
-        <div>
-
-          <div>
-            No order yet
-          </div>
-
-          <div class="trans-date">
-            Orders placed today appear here
-          </div>
-
-        </div>
-
-      </div>
-
-      <div>
-        GH₵0.00
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- QUICK ACTIONS -->
-
-  <div class="card">
-
-    <div class="section-title">
-      Quick Actions
-    </div>
-
-    <div class="quick-grid">
-
-      <div class="quick-card">
-
-        <div class="quick-icon">
-          <i class="fa-solid fa-wallet"></i>
-        </div>
-
-        <p>Wallet</p>
-
-      </div>
-
-      <div class="quick-card">
-
-        <div class="quick-icon">
-          <i class="fa-solid fa-users"></i>
-        </div>
-
-        <p>Referrals</p>
-
-      </div>
-
-      <div class="quick-card">
-
-        <div class="quick-icon">
-          <i class="fa-solid fa-clock-rotate-left"></i>
-        </div>
-
-        <p>History</p>
-
-      </div>
-
-      <div class="quick-card">
-
-        <div class="quick-icon">
-          <i class="fa-solid fa-chart-line"></i>
-        </div>
-
-        <p>Reports</p>
-
-      </div>
-
-    </div>
-
-  </div>
+<div class="header">
+
+<div class="left-header">
+
+<div
+class="menu-btn"
+onclick="openMenu()"
+>
+<i class="fa-solid fa-bars"></i>
+</div>
+
+<img
+src="logo.png"
+class="logo"
+>
+
+<div class="brand">
+AMG <span>DATA HUB</span>
+</div>
 
 </div>
 
-<!-- MTN PAGE -->
-
 <div
-class="page"
-id="mtnPage"
+class="profile-btn"
+onclick="openProfile()"
 >
-
-  <div class="simple-page">
-
-    <i class="fa-solid fa-wifi"></i>
-
-    <h1>MTN Data</h1>
-
-    <p>
-      Buy MTN bundles here
-    </p>
-
-  </div>
+<i class="fa-regular fa-user"></i>
+</div>
 
 </div>
 
-<!-- AIRTEL PAGE -->
+<div class="card">
 
-<div
-class="page"
-id="airtelPage"
+<h2>
+Welcome back 👋
+</h2>
+
+<p
+style="
+margin-top:10px;
+color:#cbd5e1;
+"
 >
+Buy affordable data bundles
+and manage transactions.
+</p>
 
-  <div class="simple-page">
+<div class="balance-box">
 
-    <i class="fa-solid fa-signal"></i>
+<div>
+Wallet Balance
+</div>
 
-    <h1>AirtelTigo Data</h1>
-
-    <p>
-      Buy AirtelTigo bundles here
-    </p>
-
-  </div>
+<div class="balance">
+GH₵ 0.00
+</div>
 
 </div>
 
-<!-- TELECEL PAGE -->
+<div class="action-buttons">
 
-<div
-class="page"
-id="telecelPage"
+<button
+class="deposit"
+onclick="showPage('depositPage')"
 >
+Deposit
+</button>
 
-  <div class="simple-page">
-
-    <i class="fa-solid fa-globe"></i>
-
-    <h1>Telecel Data</h1>
-
-    <p>
-      Buy Telecel bundles here
-    </p>
-
-  </div>
+<button
+class="history"
+onclick="showPage('historyPage')"
+>
+History
+</button>
 
 </div>
 
-<!-- RESULTS PAGE -->
+</div>
+
+<!-- BUY DATA -->
+
+<div class="card">
+
+<div class="section-title">
+Buy Data Bundles
+</div>
+
+<div class="network-grid">
+
+<div
+class="network-card"
+onclick="showPage('mtnPage')"
+>
+
+<img src="mtn.png">
+
+<p>MTN</p>
+
+</div>
+
+<div
+class="network-card"
+onclick="showPage('telecelPage')"
+>
+
+<img src="telecel.png">
+
+<p>Telecel</p>
+
+</div>
+
+<div
+class="network-card"
+onclick="showPage('airtelPage')"
+>
+
+<img src="airteltigo.png">
+
+<p>AirtelTigo</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RECENT ORDERS -->
+
+<div class="card">
+
+<div class="section-title">
+Recent Orders
+</div>
+
+<div class="transaction-card">
+
+<div class="trans-left">
+
+<div class="trans-icon">
+<i class="fa-solid fa-wifi"></i>
+</div>
+
+<div>
+
+<div>
+No order yet
+</div>
+
+<div class="trans-date">
+Orders placed today appear here
+</div>
+
+</div>
+
+</div>
+
+<div>
+GH₵0.00
+</div>
+
+</div>
+
+</div>
+
+<!-- QUICK ACTIONS -->
+
+<div class="card">
+
+<div class="section-title">
+Quick Actions
+</div>
+
+<div class="quick-grid">
+
+<div
+class="quick-card"
+onclick="showPage('walletPage')"
+>
+
+<div class="quick-icon">
+<i class="fa-solid fa-wallet"></i>
+</div>
+
+<p>Wallet</p>
+
+</div>
+
+<div
+class="quick-card"
+onclick="showPage('historyPage')"
+>
+
+<div class="quick-icon">
+<i class="fa-solid fa-clock-rotate-left"></i>
+</div>
+
+<p>History</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="quick-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+
+<p>Referrals</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="quick-icon">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+
+<p>Reports</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WALLET PAGE -->
 
 <div
 class="page"
-id="resultsPage"
+id="walletPage"
 >
 
-  <div class="simple-page">
+<div class="simple-header">
 
-    <i class="fa-solid fa-graduation-cap"></i>
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
 
-    <h1>Results Checkers</h1>
+<h2>Wallet</h2>
 
-    <p>
-      Buy results checkers here
-    </p>
+</div>
 
-  </div>
+<div class="wallet-card-ui">
 
+<div class="wallet-top">
+
+<img
+src="logo.png"
+class="wallet-logo"
+>
+
+<div class="wallet-chip"></div>
+
+</div>
+
+<div class="wallet-number">
+
+AMG-
+<span id="walletId">
+000000001
+</span>
+
+</div>
+
+<div class="wallet-user">
+
+<small>Card Holder</small>
+
+<h3 id="walletUserName">
+User Name
+</h3>
+
+</div>
+
+<div class="wallet-balance">
+
+<small>Wallet Balance</small>
+
+<h1>
+GH₵
+<span id="walletBalance">
+0.00
+</span>
+</h1>
+
+</div>
+
+</div>
+
+<button
+class="big-btn"
+onclick="showPage('depositPage')"
+>
+Deposit Money
+</button>
+
+</div>
+
+<!-- DEPOSIT PAGE -->
+
+<div
+class="page"
+id="depositPage"
+>
+
+<div class="simple-header">
+
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
+
+<h2>Deposit</h2>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
+Fund Wallet
+</div>
+
+<input
+type="number"
+placeholder="Enter Amount"
+class="input-field"
+>
+
+<select class="input-field">
+
+<option>
+Select Payment Method
+</option>
+
+<option>
+MTN Mobile Money
+</option>
+
+<option>
+Telecel Cash
+</option>
+
+<option>
+AirtelTigo Money
+</option>
+
+</select>
+
+<button class="big-btn">
+Continue Deposit
+</button>
+
+</div>
+
+</div>
+
+<!-- HISTORY -->
+
+<div
+class="page"
+id="historyPage"
+>
+
+<div class="simple-header">
+
+<button
+class="back-btn"
+onclick="showPage('dashboardPage')"
+>
+←
+</button>
+
+<h2>Transaction History</h2>
+
+</div>
+
+<div class="card">
+
+<div class="transaction-card">
+
+<div class="trans-left">
+
+<div class="trans-icon">
+<i class="fa-solid fa-clock-rotate-left"></i>
+</div>
+
+<div>
+
+<div>
+No transaction yet
+</div>
+
+<div class="trans-date">
+Your transactions appear here
+</div>
+
+</div>
+
+</div>
+
+<div>
+GH₵0.00
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- OTHER PAGES -->
+
+<div class="page" id="mtnPage">
+<div class="simple-page">
+<i class="fa-solid fa-wifi"></i>
+<h1>MTN Data</h1>
+</div>
+</div>
+
+<div class="page" id="airtelPage">
+<div class="simple-page">
+<i class="fa-solid fa-signal"></i>
+<h1>AirtelTigo Data</h1>
+</div>
+</div>
+
+<div class="page" id="telecelPage">
+<div class="simple-page">
+<i class="fa-solid fa-globe"></i>
+<h1>Telecel Data</h1>
+</div>
+</div>
+
+<div class="page" id="resultsPage">
+<div class="simple-page">
+<i class="fa-solid fa-graduation-cap"></i>
+<h1>Results Checkers</h1>
+</div>
 </div>
 
 <!-- WHATSAPP -->
@@ -1102,33 +1401,31 @@ class="whatsapp"
 
 <script>
 
-/* USER DATA */
+/* USER */
 
 const currentUser = JSON.parse(
 localStorage.getItem("amgUser")
 ) || {
 
-  fullName:"Guest User",
+fullName:"Guest User",
 
-  email:"guest@gmail.com",
+email:"guest@gmail.com",
 
-  phone:"0240000000",
+phone:"0240000000",
 
-  registrationDate:
-  new Date().toLocaleDateString(),
+registrationDate:
+new Date().toLocaleDateString(),
 
-  totalDeposits:0,
+totalDeposits:0,
 
-  totalOrders:0,
+totalOrders:0,
 
-  totalSpent:0,
+totalSpent:0,
 
-  successfulOrders:0,
-
-  activeDays:0
+activeDays:0
 };
 
-/* ROLE SYSTEM */
+/* ROLE */
 
 let role = "Customer";
 
@@ -1136,16 +1433,16 @@ if(
 currentUser.email ===
 "chairmanoamg@gmail.com"
 ){
-  role = "Admin";
+role = "Admin";
 }
 
 else if(
 currentUser.email.includes("agent")
 ){
-  role = "Agent";
+role = "Agent";
 }
 
-/* DISPLAY USER INFO */
+/* DISPLAY */
 
 document.getElementById(
 "menuUserName"
@@ -1163,28 +1460,6 @@ document.getElementById(
 currentUser.email;
 
 document.getElementById(
-"totalDeposits"
-).innerHTML =
-"GH₵" +
-currentUser.totalDeposits;
-
-document.getElementById(
-"totalOrders"
-).innerHTML =
-currentUser.totalOrders;
-
-document.getElementById(
-"totalSpent"
-).innerHTML =
-"GH₵" +
-currentUser.totalSpent;
-
-document.getElementById(
-"userRole"
-).innerHTML =
-role;
-
-document.getElementById(
 "userPhone"
 ).innerHTML =
 "📞 Phone: " +
@@ -1194,8 +1469,7 @@ document.getElementById(
 "activeDays"
 ).innerHTML =
 "📅 Active Days: " +
-currentUser.activeDays +
-" Days";
+currentUser.activeDays;
 
 document.getElementById(
 "registeredDate"
@@ -1203,95 +1477,122 @@ document.getElementById(
 "🗓 Registered: " +
 currentUser.registrationDate;
 
+document.getElementById(
+"userRole"
+).innerHTML =
+role;
+
+/* WALLET */
+
+document.getElementById(
+"walletUserName"
+).innerHTML =
+currentUser.fullName;
+
+document.getElementById(
+"walletBalance"
+).innerHTML =
+currentUser.totalDeposits;
+
+const uniqueId =
+Math.floor(
+100000000 + Math.random() * 900000000
+);
+
+document.getElementById(
+"walletId"
+).innerHTML =
+uniqueId;
+
 /* MENU */
 
 function openMenu(){
 
-  sideMenu.classList.add(
-    "active"
-  );
+sideMenu.classList.add(
+"active"
+);
 
-  overlay.classList.add(
-    "active"
-  );
+overlay.classList.add(
+"active"
+);
 }
 
 function closeMenu(){
 
-  sideMenu.classList.remove(
-    "active"
-  );
+sideMenu.classList.remove(
+"active"
+);
 
-  overlay.classList.remove(
-    "active"
-  );
+overlay.classList.remove(
+"active"
+);
 }
 
 /* PROFILE */
 
 function openProfile(){
 
-  profileModal.classList.add(
-    "active"
-  );
+profileModal.classList.add(
+"active"
+);
 
-  overlay.classList.add(
-    "active"
-  );
+overlay.classList.add(
+"active"
+);
 }
 
 function closeAll(){
 
-  closeMenu();
+closeMenu();
 
-  profileModal.classList.remove(
-    "active"
-  );
+profileModal.classList.remove(
+"active"
+);
 
-  overlay.classList.remove(
-    "active"
-  );
+overlay.classList.remove(
+"active"
+);
 }
 
-/* PAGES */
+/* PAGE */
 
 function showPage(pageId){
 
-  document
-  .querySelectorAll(".page")
-  .forEach(page=>{
+document
+.querySelectorAll(".page")
+.forEach(page=>{
 
-    page.classList.remove(
-      "active"
-    );
-  });
+page.classList.remove(
+"active"
+);
+});
 
-  document
-  .getElementById(pageId)
-  .classList.add("active");
+document
+.getElementById(pageId)
+.classList.add("active");
 
-  closeMenu();
+closeMenu();
 }
 
 /* DARK MODE */
 
 function toggleDarkMode(){
 
-  document.body.classList.toggle(
-    "dark"
-  );
+document.body.classList.toggle(
+"dark"
+);
 }
 
 /* LOGOUT */
 
 function logout(){
 
-  localStorage.removeItem(
-    "amgUser"
-  );
+localStorage.removeItem(
+"amgUser"
+);
 
-  window.location.href =
-  "index.html";
+window.location.href =
+"index.html";
 }
 
 </script>
