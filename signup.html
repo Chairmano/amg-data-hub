@@ -27,41 +27,36 @@
 
 body{
   min-height:100vh;
-
   background:#000b2c;
-
   font-family:Arial, sans-serif;
-
   overflow-x:hidden;
-
-  padding:20px;
+  padding:16px;
 }
 
 /* CONTAINER */
 
 .container{
   position:relative;
-  z-index:1;
-  max-width:430px;
+  max-width:400px;
   margin:auto;
-  padding-top:20px;
+  padding-top:10px;
 }
 
 /* LOGO */
 
 .logo-section{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:18px;
 }
 
 .logo{
-  width:95px;
-  margin-bottom:12px;
+  width:80px;
+  margin-bottom:8px;
 }
 
 .brand{
   color:white;
-  font-size:28px;
+  font-size:24px;
   font-weight:bold;
 }
 
@@ -71,8 +66,8 @@ body{
 
 .tagline{
   color:#cbd5e1;
-  margin-top:8px;
-  font-size:15px;
+  margin-top:5px;
+  font-size:13px;
 }
 
 /* CARD */
@@ -81,48 +76,49 @@ body{
 
   background:rgba(255,255,255,0.04);
 
-  backdrop-filter:blur(18px);
+  backdrop-filter:blur(15px);
 
   border:1px solid rgba(255,255,255,0.08);
 
-  border-radius:35px;
+  border-radius:28px;
 
-  padding:30px 22px;
+  padding:22px 18px;
 
   box-shadow:
-  0 10px 40px rgba(0,0,0,0.35);
+  0 8px 30px rgba(0,0,0,0.35);
 }
 
 /* TITLE */
 
 .signup-card h1{
   color:white;
-  font-size:30px;
-  margin-bottom:10px;
+  font-size:24px;
+  margin-bottom:8px;
 }
 
 .sub{
   color:#cbd5e1;
-  margin-bottom:28px;
-  line-height:1.5;
+  margin-bottom:20px;
+  line-height:1.4;
+  font-size:14px;
 }
 
 /* GOOGLE BUTTON */
 
 .google-btn{
   width:100%;
-  padding:17px;
+  padding:14px;
   border:none;
-  border-radius:18px;
+  border-radius:15px;
   background:white;
-  font-size:17px;
+  font-size:15px;
   font-weight:bold;
   cursor:pointer;
 
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:10px;
 
   transition:0.3s;
 }
@@ -133,7 +129,7 @@ body{
 
 .google-btn i{
   color:#ea4335;
-  font-size:22px;
+  font-size:20px;
 }
 
 /* DIVIDER */
@@ -141,8 +137,8 @@ body{
 .divider{
   display:flex;
   align-items:center;
-  gap:12px;
-  margin:25px 0;
+  gap:10px;
+  margin:18px 0;
 }
 
 .divider hr{
@@ -154,29 +150,30 @@ body{
 
 .divider span{
   color:#cbd5e1;
+  font-size:13px;
 }
 
 /* INPUTS */
 
 .input-group{
   position:relative;
-  margin-bottom:18px;
+  margin-bottom:14px;
 }
 
 .input-group i{
   position:absolute;
-  left:18px;
+  left:15px;
   top:50%;
   transform:translateY(-50%);
   color:#94a3b8;
-  font-size:18px;
+  font-size:16px;
 }
 
 .input-group input{
   width:100%;
-  padding:18px 18px 18px 52px;
+  padding:15px 15px 15px 45px;
 
-  border-radius:18px;
+  border-radius:15px;
 
   border:1px solid rgba(255,255,255,0.1);
 
@@ -184,7 +181,7 @@ body{
 
   color:white;
 
-  font-size:16px;
+  font-size:14px;
 
   outline:none;
 
@@ -196,7 +193,7 @@ body{
   border-color:#facc15;
 
   box-shadow:
-  0 0 0 4px rgba(250,204,21,0.15);
+  0 0 0 4px rgba(250,204,21,0.12);
 
 }
 
@@ -206,31 +203,32 @@ body{
 
 .eye{
   position:absolute;
-  right:18px;
+  right:15px;
   top:50%;
   transform:translateY(-50%);
   color:#94a3b8;
   cursor:pointer;
+  font-size:15px;
 }
 
 /* BUTTON */
 
 .signup-btn{
   width:100%;
-  padding:18px;
+  padding:15px;
   border:none;
-  border-radius:18px;
+  border-radius:15px;
 
   background:#facc15;
 
   color:#111827;
 
-  font-size:20px;
+  font-size:18px;
   font-weight:bold;
 
   cursor:pointer;
 
-  margin-top:10px;
+  margin-top:6px;
 
   transition:0.3s;
 }
@@ -239,15 +237,16 @@ body{
   transform:translateY(-2px);
 
   box-shadow:
-  0 10px 25px rgba(250,204,21,0.35);
+  0 10px 20px rgba(250,204,21,0.30);
 }
 
 /* LOGIN */
 
 .login-link{
   text-align:center;
-  margin-top:28px;
+  margin-top:20px;
   color:#cbd5e1;
+  font-size:14px;
 }
 
 .login-link a{
@@ -262,11 +261,11 @@ body{
 
   position:fixed;
 
-  left:15px;
-  bottom:18px;
+  left:12px;
+  bottom:16px;
 
-  width:58px;
-  height:58px;
+  width:54px;
+  height:54px;
 
   border-radius:50%;
 
@@ -280,14 +279,14 @@ body{
 
   text-decoration:none;
 
-  font-size:28px;
+  font-size:26px;
 
   z-index:9999;
 
   cursor:grab;
 
   box-shadow:
-  0 0 25px rgba(37,211,102,0.45);
+  0 0 22px rgba(37,211,102,0.45);
 
   transition:0.2s;
 }
@@ -300,21 +299,17 @@ body{
 
 .footer{
   text-align:center;
-  margin-top:25px;
+  margin-top:20px;
   color:#94a3b8;
-  font-size:14px;
+  font-size:13px;
 }
 
 /* MOBILE */
 
 @media(max-width:500px){
 
-  .signup-card{
-    padding:28px 18px;
-  }
-
-  .signup-card h1{
-    font-size:26px;
+  .container{
+    max-width:100%;
   }
 
 }
@@ -354,8 +349,8 @@ body{
     <h1>Create Account</h1>
 
     <p class="sub">
-      Join thousands of resellers and
-      start buying affordable data bundles.
+      Join thousands of resellers and start
+      buying affordable data bundles.
     </p>
 
     <!-- GOOGLE -->
