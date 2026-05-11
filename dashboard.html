@@ -173,11 +173,49 @@ body{
   margin-bottom:18px;
 }
 
+/* NETWORKS */
+
+.network-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.network-card{
+
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:22px;
+
+  padding:18px 10px;
+
+  text-align:center;
+
+  transition:0.3s;
+}
+
+.network-card:hover{
+  transform:translateY(-5px);
+}
+
+.network-card img{
+  width:55px;
+  height:55px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
+
+.network-card p{
+  font-weight:bold;
+}
+
 /* QUICK ACTIONS */
 
 .quick-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
 }
 
@@ -194,6 +232,12 @@ body{
   text-align:center;
 
   backdrop-filter:blur(12px);
+
+  transition:0.3s;
+}
+
+.quick-card:hover{
+  transform:translateY(-5px);
 }
 
 .quick-icon{
@@ -220,38 +264,6 @@ body{
 .quick-card p{
   font-size:13px;
   color:#e5e7eb;
-}
-
-/* NETWORKS */
-
-.network-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.network-card{
-
-  background:rgba(255,255,255,0.04);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  border-radius:22px;
-
-  padding:18px 10px;
-
-  text-align:center;
-}
-
-.network-card img{
-  width:55px;
-  height:55px;
-  object-fit:contain;
-  margin-bottom:10px;
-}
-
-.network-card p{
-  font-weight:bold;
 }
 
 /* TRANSACTION */
@@ -368,6 +380,10 @@ body{
 
 @media(max-width:500px){
 
+  .network-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
   .quick-grid{
     grid-template-columns:repeat(3,1fr);
   }
@@ -442,6 +458,50 @@ body{
 
 </div>
 
+<!-- BUY DATA BUNDLE -->
+
+<div class="section">
+
+  <div class="section-title">
+    Buy Data Bundles
+  </div>
+
+  <div class="network-grid">
+
+    <div class="network-card">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg"
+      >
+
+      <p>MTN</p>
+
+    </div>
+
+    <div class="network-card">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/AirtelTigo_logo.png"
+      >
+
+      <p>AirtelTigo</p>
+
+    </div>
+
+    <div class="network-card">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/72/Telecel_logo.png"
+      >
+
+      <p>Telecel</p>
+
+    </div>
+
+  </div>
+
+</div>
+
 <!-- QUICK ACTIONS -->
 
 <div class="section">
@@ -495,84 +555,10 @@ body{
     <div class="quick-card">
 
       <div class="quick-icon">
-        <i class="fa-solid fa-signal"></i>
-      </div>
-
-      <p>Airtime</p>
-
-    </div>
-
-    <div class="quick-card">
-
-      <div class="quick-icon">
-        <i class="fa-solid fa-paper-plane"></i>
-      </div>
-
-      <p>Bulk SMS</p>
-
-    </div>
-
-    <div class="quick-card">
-
-      <div class="quick-icon">
         <i class="fa-solid fa-chart-line"></i>
       </div>
 
       <p>Reports</p>
-
-    </div>
-
-    <div class="quick-card">
-
-      <div class="quick-icon">
-        <i class="fa-solid fa-store"></i>
-      </div>
-
-      <p>Store</p>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- NETWORKS -->
-
-<div class="section">
-
-  <div class="section-title">
-    Buy Data Bundle
-  </div>
-
-  <div class="network-grid">
-
-    <div class="network-card">
-
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg"
-      >
-
-      <p>MTN</p>
-
-    </div>
-
-    <div class="network-card">
-
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/AirtelTigo_logo.png"
-      >
-
-      <p>AirtelTigo</p>
-
-    </div>
-
-    <div class="network-card">
-
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/7/72/Telecel_logo.png"
-      >
-
-      <p>Telecel</p>
 
     </div>
 
