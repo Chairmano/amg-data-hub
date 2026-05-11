@@ -27,11 +27,42 @@
 
 body{
   background:#000b2c;
-  font-family:Arial, sans-serif;
   color:white;
+  font-family:Arial,sans-serif;
   padding:18px;
   padding-bottom:120px;
+  transition:0.3s;
   overflow-x:hidden;
+}
+
+/* DARK MODE */
+
+body.light-mode{
+  background:#f4f7fb;
+  color:#111827;
+}
+
+body.light-mode .welcome-card,
+body.light-mode .network-card,
+body.light-mode .quick-card,
+body.light-mode .transaction-card,
+body.light-mode .profile-btn,
+body.light-mode .menu-btn,
+body.light-mode .side-menu{
+  background:white;
+  color:#111827;
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode p,
+body.light-mode .trans-date,
+body.light-mode .view-profile{
+  color:#374151;
+}
+
+body.light-mode .menu-links a{
+  background:#f3f4f6;
+  color:#111827;
 }
 
 /* SIDEMENU */
@@ -50,39 +81,63 @@ body{
 
   z-index:99999;
 
-  padding:25px 20px;
+  padding:25px 18px;
+
+  overflow-y:auto;
 
   transition:0.35s;
 
   border-right:
   1px solid rgba(255,255,255,0.08);
-
-  overflow-y:auto;
 }
 
 .side-menu.active{
   left:0;
 }
 
-.menu-top{
-  margin-bottom:28px;
+.overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.45);
+
+  z-index:9990;
+
+  display:none;
+}
+
+.overlay.active{
+  display:block;
 }
 
 .menu-user{
-  font-size:20px;
+  font-size:21px;
   font-weight:bold;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .view-profile{
   color:#facc15;
   font-size:14px;
+  margin-bottom:22px;
+  display:block;
+  text-decoration:none;
+}
+
+.menu-title{
+  margin-top:15px;
+  margin-bottom:12px;
+  color:#facc15;
+  font-size:14px;
+  font-weight:bold;
 }
 
 .menu-links{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:12px;
 }
 
 .menu-links a{
@@ -99,9 +154,7 @@ body{
 
   display:flex;
   align-items:center;
-  gap:14px;
-
-  font-size:15px;
+  gap:12px;
 
   transition:0.3s;
 }
@@ -111,32 +164,13 @@ body{
   color:#111827;
 }
 
-/* OVERLAY */
-
-.overlay{
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,0.5);
-
-  z-index:9990;
-
-  display:none;
-}
-
-.overlay.active{
-  display:block;
-}
-
 /* HEADER */
 
 .header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:25px;
+  margin-bottom:24px;
 }
 
 .left-header{
@@ -176,7 +210,7 @@ body{
 }
 
 .brand{
-  font-size:21px;
+  font-size:22px;
   font-weight:bold;
 }
 
@@ -187,17 +221,18 @@ body{
 .profile-btn{
   width:50px;
   height:50px;
+
   border-radius:16px;
 
   background:rgba(255,255,255,0.06);
+
+  border:1px solid rgba(255,255,255,0.08);
 
   display:flex;
   justify-content:center;
   align-items:center;
 
   font-size:22px;
-
-  border:1px solid rgba(255,255,255,0.08);
 }
 
 /* WELCOME */
@@ -212,9 +247,9 @@ body{
 
   padding:22px;
 
-  margin-bottom:22px;
-
   backdrop-filter:blur(12px);
+
+  margin-bottom:24px;
 }
 
 .welcome-card h2{
@@ -233,21 +268,21 @@ body{
 
   color:#111827;
 
-  margin-top:20px;
+  padding:20px;
 
   border-radius:22px;
 
-  padding:20px;
+  margin-top:18px;
 }
 
 .balance-title{
   font-size:14px;
-  margin-bottom:8px;
 }
 
 .balance{
   font-size:32px;
   font-weight:bold;
+  margin-top:6px;
 }
 
 .action-buttons{
@@ -264,8 +299,6 @@ body{
   border:none;
 
   border-radius:16px;
-
-  font-size:15px;
 
   font-weight:bold;
 
@@ -289,7 +322,7 @@ body{
 }
 
 .section-title{
-  font-size:20px;
+  font-size:21px;
   margin-bottom:18px;
 }
 
@@ -324,15 +357,15 @@ body{
   width:70px;
   height:70px;
   object-fit:contain;
-  margin-bottom:10px;
   border-radius:50%;
+  margin-bottom:10px;
 }
 
 .network-card p{
   font-weight:bold;
 }
 
-/* TRANSACTIONS */
+/* TRANSACTION */
 
 .transaction-card{
 
@@ -410,8 +443,6 @@ body{
 
   text-align:center;
 
-  backdrop-filter:blur(12px);
-
   transition:0.3s;
 }
 
@@ -442,7 +473,6 @@ body{
 
 .quick-card p{
   font-size:13px;
-  color:#e5e7eb;
 }
 
 /* FOOTER */
@@ -501,10 +531,7 @@ body{
 
 @media(max-width:500px){
 
-  .network-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
+  .network-grid,
   .quick-grid{
     grid-template-columns:repeat(3,1fr);
   }
@@ -532,49 +559,66 @@ body{
   id="sideMenu"
 >
 
-  <div class="menu-top">
+  <div class="menu-user">
+    👤 Username
+  </div>
 
-    <div class="menu-user">
-      👤 Username
-    </div>
+  <a
+    href="profile.html"
+    class="view-profile"
+  >
+    View Profile
+  </a>
 
-    <div class="view-profile">
-      View Profile
-    </div>
+  <div class="menu-links">
 
+    <a href="dashboard.html">
+      🏠 Dashboard
+    </a>
+
+  </div>
+
+  <div class="menu-title">
+    📶 BUY DATA
   </div>
 
   <div class="menu-links">
 
-    <a href="#">
-      🏠 Dashboard
-    </a>
-
-    <a href="#">
-      📶 BUY DATA
-    </a>
-
-    <a href="#">
+    <a href="mtn.html">
       💛 MTN Data
     </a>
 
-    <a href="#">
+    <a href="airteltigo.html">
       🔵 AirtelTigo Data
     </a>
 
-    <a href="#">
+    <a href="telecel.html">
       🔴 Telecel Data
     </a>
 
-    <a href="#">
+  </div>
+
+  <div class="menu-title">
+    ⚙️ MORE
+  </div>
+
+  <div class="menu-links">
+
+    <a href="results.html">
       ✅ Results Checkers
     </a>
 
-    <a href="#" id="darkModeBtn">
+    <a
+      href="#"
+      id="darkModeBtn"
+    >
       🌙 Dark Mode
     </a>
 
-    <a href="#">
+    <a
+      href="#"
+      onclick="logout()"
+    >
       🚪 Sign Out
     </a>
 
@@ -850,32 +894,21 @@ function closeMenu(){
 const darkBtn =
 document.getElementById("darkModeBtn");
 
-let dark = true;
-
 darkBtn.onclick = function(){
 
-  if(dark){
-
-    document.body.style.background =
-    "#f8fafc";
-
-    document.body.style.color =
-    "#111827";
-
-    dark = false;
-
-  }else{
-
-    document.body.style.background =
-    "#000b2c";
-
-    document.body.style.color =
-    "white";
-
-    dark = true;
-  }
+  document.body.classList.toggle(
+    "light-mode"
+  );
 
 };
+
+/* LOGOUT */
+
+function logout(){
+
+  window.location.href =
+  "index.html";
+}
 
 /* DRAG WHATSAPP */
 
