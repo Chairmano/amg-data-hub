@@ -453,190 +453,6 @@ body.dark .profile-modal{
 .network-card p{
   font-weight:bold;
 }
-/* DATA CARDS */
-
-.data-list{
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-}
-
-.data-card{
-  background:#facc15;
-  color:#000;
-  border-radius:36px;
-  padding:28px;
-  position:relative;
-  overflow:hidden;
-  transition:0.3s;
-  box-shadow:
-  0 10px 25px rgba(0,0,0,0.15);
-}
-
-.data-card:hover{
-  transform:translateY(-4px);
-}
-
-.data-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:40px;
-}
-
-.data-logo{
-  width:70px;
-  height:70px;
-  background:rgba(255,255,255,0.12);
-  border-radius:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-}
-
-.data-logo img{
-  width:50px;
-  object-fit:contain;
-}
-
-.expand-btn{
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:rgba(0,0,0,0.08);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:26px;
-  cursor:pointer;
-}
-
-.data-size{
-  font-size:70px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.data-title{
-  font-size:26px;
-  opacity:0.7;
-  margin-bottom:50px;
-}
-
-.data-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-}
-
-.data-price{
-  font-size:52px;
-  font-weight:bold;
-}
-
-.data-expiry{
-  font-size:20px;
-  opacity:0.7;
-}
-
-/* PURCHASE BOX */
-
-.purchase-box{
-  margin-top:22px;
-  background:white;
-  border-radius:30px;
-  padding:22px;
-  display:none;
-  animation:fadeIn 0.3s ease;
-}
-
-.purchase-box.active{
-  display:block;
-}
-
-.purchase-header{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:20px;
-}
-
-.purchase-header img{
-  width:55px;
-  background:#facc15;
-  border-radius:16px;
-  padding:8px;
-}
-
-.purchase-title{
-  font-size:22px;
-  font-weight:bold;
-  color:#000b2c;
-}
-
-.purchase-title span{
-  color:#d97706;
-}
-
-.purchase-form{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-}
-
-.purchase-input{
-  flex:1;
-  min-width:200px;
-  padding:18px;
-  border:none;
-  border-radius:20px;
-  background:#f3f4f6;
-  font-size:18px;
-  outline:none;
-}
-
-.purchase-btn{
-  padding:18px 30px;
-  border:none;
-  border-radius:20px;
-  background:#facc15;
-  color:#000;
-  font-size:22px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(-10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@media(max-width:768px){
-
-  .data-size{
-    font-size:54px;
-  }
-
-  .data-price{
-    font-size:42px;
-  }
-
-  .purchase-form{
-    flex-direction:column;
-  }
-
-  .purchase-btn{
-    width:100%;
-  }
-
-}
 
 /* TRANSACTIONS */
 
@@ -1339,6 +1155,9 @@ Results
 </p>
 
 </div>
+
+</div>
+
 </div>
 </div>
 
@@ -1362,153 +1181,13 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="data-list">
+<div class="simple-page">
 
-<!-- CARD 1 -->
+<i class="fa-solid fa-wifi"></i>
 
-<div class="data-card">
-
-<div class="data-top">
-
-<div class="data-logo">
-<img src="mtn.png">
-</div>
-
-<div
-class="expand-btn"
-onclick="togglePurchase('mtnBuy1',this)"
->
-⌄
-</div>
-
-</div>
-
-<div class="data-size">
-1GB
-</div>
-
-<div class="data-title">
-MTN Bundle
-</div>
-
-<div class="data-bottom">
-
-<div class="data-price">
-₵4.20
-</div>
-
-<div class="data-expiry">
-No Expiry
-</div>
-
-</div>
-
-<div
-class="purchase-box"
-id="mtnBuy1"
->
-
-<div class="purchase-header">
-
-<img src="mtn.png">
-
-<div class="purchase-title">
-1GB —
-<span>GH₵ 4.20</span>
-</div>
-
-</div>
-
-<div class="purchase-form">
-
-<input
-type="tel"
-placeholder="0XXXXXXXXX"
-class="purchase-input"
-/>
-
-<button class="purchase-btn">
-Buy ₵4.20
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD 2 -->
-
-<div class="data-card">
-
-<div class="data-top">
-
-<div class="data-logo">
-<img src="mtn.png">
-</div>
-
-<div
-class="expand-btn"
-onclick="togglePurchase('mtnBuy2',this)"
->
-⌄
-</div>
-
-</div>
-
-<div class="data-size">
-2GB
-</div>
-
-<div class="data-title">
-MTN Bundle
-</div>
-
-<div class="data-bottom">
-
-<div class="data-price">
-₵8.80
-</div>
-
-<div class="data-expiry">
-No Expiry
-</div>
-
-</div>
-
-<div
-class="purchase-box"
-id="mtnBuy2"
->
-
-<div class="purchase-header">
-
-<img src="mtn.png">
-
-<div class="purchase-title">
-2GB —
-<span>GH₵ 8.80</span>
-</div>
-
-</div>
-
-<div class="purchase-form">
-
-<input
-type="tel"
-placeholder="0XXXXXXXXX"
-class="purchase-input"
-/>
-
-<button class="purchase-btn">
-Buy ₵8.80
-</button>
-
-</div>
-
-</div>
-
-</div>
+<h1>
+MTN Data Bundles
+</h1>
 
 </div>
 
@@ -1534,78 +1213,13 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="data-list">
+<div class="simple-page">
 
-<div class="data-card">
+<i class="fa-solid fa-globe"></i>
 
-<div class="data-top">
-
-<div class="data-logo">
-<img src="telecel.png">
-</div>
-
-<div
-class="expand-btn"
-onclick="togglePurchase('telecelBuy1',this)"
->
-⌄
-</div>
-
-</div>
-
-<div class="data-size">
-1GB
-</div>
-
-<div class="data-title">
-Telecel Bundle
-</div>
-
-<div class="data-bottom">
-
-<div class="data-price">
-₵4.00
-</div>
-
-<div class="data-expiry">
-No Expiry
-</div>
-
-</div>
-
-<div
-class="purchase-box"
-id="telecelBuy1"
->
-
-<div class="purchase-header">
-
-<img src="telecel.png">
-
-<div class="purchase-title">
-1GB —
-<span>GH₵ 4.00</span>
-</div>
-
-</div>
-
-<div class="purchase-form">
-
-<input
-type="tel"
-placeholder="0XXXXXXXXX"
-class="purchase-input"
-/>
-
-<button class="purchase-btn">
-Buy ₵4.00
-</button>
-
-</div>
-
-</div>
-
-</div>
+<h1>
+Telecel Data Bundles
+</h1>
 
 </div>
 
@@ -1631,78 +1245,13 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="data-list">
+<div class="simple-page">
 
-<div class="data-card">
+<i class="fa-solid fa-signal"></i>
 
-<div class="data-top">
-
-<div class="data-logo">
-<img src="airteltigo.png">
-</div>
-
-<div
-class="expand-btn"
-onclick="togglePurchase('airtelBuy1',this)"
->
-⌄
-</div>
-
-</div>
-
-<div class="data-size">
-1GB
-</div>
-
-<div class="data-title">
-AirtelTigo Bundle
-</div>
-
-<div class="data-bottom">
-
-<div class="data-price">
-₵3.90
-</div>
-
-<div class="data-expiry">
-No Expiry
-</div>
-
-</div>
-
-<div
-class="purchase-box"
-id="airtelBuy1"
->
-
-<div class="purchase-header">
-
-<img src="airteltigo.png">
-
-<div class="purchase-title">
-1GB —
-<span>GH₵ 3.90</span>
-</div>
-
-</div>
-
-<div class="purchase-form">
-
-<input
-type="tel"
-placeholder="0XXXXXXXXX"
-class="purchase-input"
-/>
-
-<button class="purchase-btn">
-Buy ₵3.90
-</button>
-
-</div>
-
-</div>
-
-</div>
+<h1>
+AirtelTigo Data Bundles
+</h1>
 
 </div>
 
@@ -1940,482 +1489,201 @@ id="dragWhatsapp"
 
 <script>
 
-/* =========================================
-   SAFE USER LOAD
-========================================= */
+/* USER */
 
-const defaultUser = {
-  fullName: "Guest User",
-  email: "guest@gmail.com",
-  phone: "0240000000",
-  registrationDate: new Date().toLocaleDateString(),
-  activeDays: 0,
-  balance: 0,
-  transactions: []
+const currentUser = JSON.parse(
+localStorage.getItem("amgUser")
+) || {
+
+fullName:"Guest User",
+
+email:"guest@gmail.com",
+
+phone:"0240000000",
+
+registrationDate:
+new Date().toLocaleDateString(),
+
+activeDays:0
 };
 
-let currentUser;
+document.getElementById(
+"menuUserName"
+).innerHTML =
+currentUser.fullName;
 
-try{
-  currentUser =
-    JSON.parse(localStorage.getItem("amgUser")) ||
-    defaultUser;
-}catch{
-  currentUser = defaultUser;
+document.getElementById(
+"profileName"
+).innerHTML =
+currentUser.fullName;
+
+document.getElementById(
+"profileEmail"
+).innerHTML =
+currentUser.email;
+
+document.getElementById(
+"userPhone"
+).innerHTML =
+"📞 Phone: " +
+currentUser.phone;
+
+document.getElementById(
+"registeredDate"
+).innerHTML =
+"🗓 Registered: " +
+currentUser.registrationDate;
+
+document.getElementById(
+"walletUserName"
+).innerHTML =
+currentUser.fullName;
+
+/* ROLE */
+
+let role = "Customer";
+
+if(
+currentUser.email ===
+"chairmanoamg@gmail.com"
+){
+role = "Admin";
 }
 
-/* =========================================
-   ELEMENTS
-========================================= */
+document.getElementById(
+"userRole"
+).innerHTML =
+role;
 
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const profileModal = document.getElementById("profileModal");
+document.getElementById(
+"activeDays"
+).innerHTML =
+currentUser.activeDays;
 
-const balanceElements =
-document.querySelectorAll(".balance, .wallet-balance h1");
-
-/* =========================================
-   SAVE USER
-========================================= */
-
-function saveUser(){
-  localStorage.setItem(
-    "amgUser",
-    JSON.stringify(currentUser)
-  );
-}
-
-/* =========================================
-   FORMAT MONEY
-========================================= */
-
-function formatMoney(amount){
-  return "GH₵ " + Number(amount).toFixed(2);
-}
-
-/* =========================================
-   UPDATE UI
-========================================= */
-
-function updateUI(){
-
-  document.getElementById(
-    "menuUserName"
-  ).innerHTML = currentUser.fullName;
-
-  document.getElementById(
-    "profileName"
-  ).innerHTML = currentUser.fullName;
-
-  document.getElementById(
-    "profileEmail"
-  ).innerHTML = currentUser.email;
-
-  document.getElementById(
-    "userPhone"
-  ).innerHTML =
-  "📞 Phone: " + currentUser.phone;
-
-  document.getElementById(
-    "registeredDate"
-  ).innerHTML =
-  "🗓 Registered: " +
-  currentUser.registrationDate;
-
-  document.getElementById(
-    "walletUserName"
-  ).innerHTML =
-  currentUser.fullName;
-
-  document.getElementById(
-    "activeDays"
-  ).innerHTML =
-  currentUser.activeDays;
-
-  let role = "Customer";
-
-  if(
-    currentUser.email ===
-    "chairmanoamg@gmail.com"
-  ){
-    role = "Admin";
-  }
-
-  document.getElementById(
-    "userRole"
-  ).innerHTML = role;
-
-  balanceElements.forEach(el=>{
-    el.innerHTML =
-    formatMoney(currentUser.balance);
-  });
-
-}
-
-/* =========================================
-   MENU
-========================================= */
+/* MENU */
 
 function openMenu(){
 
-  sideMenu.classList.add("active");
+sideMenu.classList.add(
+"active"
+);
 
-  overlay.classList.add("active");
-
+overlay.classList.add(
+"active"
+);
 }
 
 function closeMenu(){
 
-  sideMenu.classList.remove("active");
+sideMenu.classList.remove(
+"active"
+);
 
-  overlay.classList.remove("active");
-
+overlay.classList.remove(
+"active"
+);
 }
 
-/* =========================================
-   PROFILE
-========================================= */
+/* PROFILE */
 
 function openProfile(){
 
-  profileModal.classList.add("active");
+profileModal.classList.add(
+"active"
+);
 
-  overlay.classList.add("active");
-
+overlay.classList.add(
+"active"
+);
 }
 
 function closeAll(){
 
-  closeMenu();
+closeMenu();
 
-  profileModal.classList.remove("active");
+profileModal.classList.remove(
+"active"
+);
 
-  overlay.classList.remove("active");
-
+overlay.classList.remove(
+"active"
+);
 }
 
-/* =========================================
-   PAGE NAVIGATION
-========================================= */
+/* PAGES */
 
 function showPage(pageId){
 
-  document.querySelectorAll(".page")
-  .forEach(page=>{
-    page.classList.remove("active");
-  });
+document
+.querySelectorAll(".page")
+.forEach(page=>{
 
-  const selectedPage =
-  document.getElementById(pageId);
-
-  if(selectedPage){
-
-    selectedPage.classList.add("active");
-
-    localStorage.setItem(
-      "activePage",
-      pageId
-    );
-
-  }
-
-  closeAll();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-/* =========================================
-   DARK MODE
-========================================= */
-
-function toggleDarkMode(){
-
-  document.body.classList.toggle("dark");
-
-  if(
-    document.body.classList.contains("dark")
-  ){
-    localStorage.setItem(
-      "darkMode",
-      "enabled"
-    );
-  }else{
-    localStorage.setItem(
-      "darkMode",
-      "disabled"
-    );
-  }
-
-}
-
-/* =========================================
-   RESTORE SETTINGS
-========================================= */
-
-window.onload = function(){
-
-  updateUI();
-
-  const savedPage =
-  localStorage.getItem("activePage");
-
-  if(savedPage &&
-    document.getElementById(savedPage)
-  ){
-    showPage(savedPage);
-  }else{
-    showPage("dashboardPage");
-  }
-
-  const darkMode =
-  localStorage.getItem("darkMode");
-
-  if(darkMode === "enabled"){
-    document.body.classList.add("dark");
-  }
-
-  renderTransactions();
-
-};
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-function logout(){
-
-  localStorage.removeItem("amgUser");
-
-  localStorage.removeItem("activePage");
-
-  window.location.href = "index.html";
-
-}
-
-/* =========================================
-   PURCHASE TOGGLE
-========================================= */
-
-function togglePurchase(id, btn){
-
-  const box =
-  document.getElementById(id);
-
-  if(!box) return;
-
-  box.classList.toggle("active");
-
-  btn.innerHTML =
-  box.classList.contains("active")
-  ? "⌃"
-  : "⌄";
-
-}
-
-/* =========================================
-   BUY DATA
-========================================= */
-
-const purchaseButtons =
-document.querySelectorAll(".purchase-btn");
-
-purchaseButtons.forEach(button=>{
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      const form =
-      this.closest(".purchase-form");
-
-      const input =
-      form.querySelector("input");
-
-      const phone =
-      input.value.trim();
-
-      if(
-        phone.length !== 10 ||
-        !phone.startsWith("0")
-      ){
-        alert(
-          "Enter valid phone number"
-        );
-        return;
-      }
-
-      const priceText =
-      this.innerText
-      .replace("Buy ₵","")
-      .trim();
-
-      const amount =
-      parseFloat(priceText);
-
-      if(
-        currentUser.balance < amount
-      ){
-        alert(
-          "Insufficient wallet balance"
-        );
-        return;
-      }
-
-      currentUser.balance -= amount;
-
-      currentUser.transactions.unshift({
-        type:"Data Purchase",
-        amount:amount,
-        phone:phone,
-        date:new Date().toLocaleString()
-      });
-
-      saveUser();
-
-      updateUI();
-
-      renderTransactions();
-
-      input.value = "";
-
-      alert(
-        "Purchase Successful"
-      );
-
-    }
-  );
+page.classList.remove(
+"active"
+);
 
 });
 
-/* =========================================
-   DEPOSIT
-========================================= */
+document
+.getElementById(pageId)
+.classList.add("active");
 
-const depositButton =
-document.querySelector(
-  "#depositPage .big-btn"
+localStorage.setItem(
+"activePage",
+pageId
 );
 
-depositButton.addEventListener(
-  "click",
-  function(){
+closeMenu();
+}
 
-    const amountInput =
-    document.querySelector(
-      '#depositPage input'
-    );
+/* RESTORE PAGE */
 
-    const amount =
-    parseFloat(amountInput.value);
+window.onload = function(){
 
-    if(
-      isNaN(amount) ||
-      amount <= 0
-    ){
-      alert(
-        "Enter valid amount"
-      );
-      return;
-    }
-
-    currentUser.balance += amount;
-
-    currentUser.transactions.unshift({
-      type:"Deposit",
-      amount:amount,
-      date:new Date().toLocaleString()
-    });
-
-    saveUser();
-
-    updateUI();
-
-    renderTransactions();
-
-    amountInput.value = "";
-
-    alert(
-      "Deposit Successful"
-    );
-
-  }
+const savedPage =
+localStorage.getItem(
+"activePage"
 );
 
-/* =========================================
-   TRANSACTION HISTORY
-========================================= */
+if(savedPage){
 
-function renderTransactions(){
-
-  const historyCard =
-  document.querySelector(
-    "#historyPage .card"
-  );
-
-  if(
-    currentUser.transactions.length === 0
-  ){
-
-    historyCard.innerHTML = `
-      <div class="transaction-card">
-        <div class="trans-left">
-          <div class="trans-icon">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-          </div>
-          <div>
-            <div>No transaction yet</div>
-            <div class="trans-date">
-              Transactions appear here
-            </div>
-          </div>
-        </div>
-        <div>GH₵0.00</div>
-      </div>
-    `;
-
-    return;
-  }
-
-  historyCard.innerHTML = "";
-
-  currentUser.transactions.forEach(tx=>{
-
-    historyCard.innerHTML += `
-      <div class="transaction-card"
-      style="margin-bottom:14px;">
-        <div class="trans-left">
-          <div class="trans-icon">
-            <i class="fa-solid fa-money-bill-wave"></i>
-          </div>
-          <div>
-            <div>${tx.type}</div>
-            <div class="trans-date">
-              ${tx.date}
-            </div>
-          </div>
-        </div>
-        <div>
-          ${formatMoney(tx.amount)}
-        </div>
-      </div>
-    `;
-
-  });
+showPage(savedPage);
 
 }
 
-/* =========================================
-   WHATSAPP DRAG
-========================================= */
+};
+
+/* DARK MODE */
+
+function toggleDarkMode(){
+
+document.body.classList.toggle(
+"dark"
+);
+
+}
+
+/* LOGOUT */
+
+function logout(){
+
+localStorage.removeItem(
+"amgUser"
+);
+
+localStorage.removeItem(
+"activePage"
+);
+
+window.location.href =
+"index.html";
+}
+
+/* DRAG WHATSAPP */
 
 const dragItem =
 document.getElementById(
-  "dragWhatsapp"
+"dragWhatsapp"
 );
 
 let active = false;
@@ -2427,112 +1695,64 @@ let initialX;
 let initialY;
 
 dragItem.addEventListener(
-  "touchstart",
-  dragStart,
-  false
+"touchstart",
+dragStart,
+false
 );
 
 dragItem.addEventListener(
-  "touchmove",
-  drag,
-  false
+"touchmove",
+drag,
+false
 );
 
 dragItem.addEventListener(
-  "touchend",
-  dragEnd,
-  false
-);
-
-dragItem.addEventListener(
-  "mousedown",
-  dragStart,
-  false
-);
-
-document.addEventListener(
-  "mousemove",
-  drag,
-  false
-);
-
-document.addEventListener(
-  "mouseup",
-  dragEnd,
-  false
+"touchend",
+dragEnd,
+false
 );
 
 function dragStart(e){
 
-  if(e.type === "touchstart"){
+initialX =
+e.touches[0].clientX -
+dragItem.offsetLeft;
 
-    initialX =
-    e.touches[0].clientX -
-    dragItem.offsetLeft;
+initialY =
+e.touches[0].clientY -
+dragItem.offsetTop;
 
-    initialY =
-    e.touches[0].clientY -
-    dragItem.offsetTop;
-
-  }else{
-
-    initialX =
-    e.clientX -
-    dragItem.offsetLeft;
-
-    initialY =
-    e.clientY -
-    dragItem.offsetTop;
-
-  }
-
-  active = true;
-
+active = true;
 }
 
 function drag(e){
 
-  if(!active) return;
+if(active){
 
-  e.preventDefault();
+e.preventDefault();
 
-  if(e.type === "touchmove"){
+currentX =
+e.touches[0].clientX -
+initialX;
 
-    currentX =
-    e.touches[0].clientX -
-    initialX;
+currentY =
+e.touches[0].clientY -
+initialY;
 
-    currentY =
-    e.touches[0].clientY -
-    initialY;
+dragItem.style.left =
+currentX + "px";
 
-  }else{
+dragItem.style.top =
+currentY + "px";
 
-    currentX =
-    e.clientX -
-    initialX;
-
-    currentY =
-    e.clientY -
-    initialY;
-
-  }
-
-  dragItem.style.left =
-  currentX + "px";
-
-  dragItem.style.top =
-  currentY + "px";
-
-  dragItem.style.bottom =
-  "auto";
+dragItem.style.bottom =
+"auto";
+}
 
 }
 
 function dragEnd(){
-
-  active = false;
-
+active = false;
 }
 
 </script>
