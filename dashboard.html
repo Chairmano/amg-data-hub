@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 
 <meta
 name="viewport"
@@ -41,27 +40,17 @@ body.dark{
 /* SIDE MENU */
 
 .side-menu{
-
   position:fixed;
-
   top:0;
   left:-300px;
-
   width:280px;
   height:100vh;
-
   background:#08143c;
-
   z-index:99999;
-
   padding:20px;
-
   overflow-y:auto;
-
   transition:0.3s;
-
-  border-right:
-  1px solid rgba(255,255,255,0.08);
+  border-right:1px solid rgba(255,255,255,0.08);
 }
 
 body.dark .side-menu{
@@ -91,15 +80,10 @@ body.dark .side-menu{
 }
 
 .profile-box{
-
   background:rgba(255,255,255,0.05);
-
   border-radius:22px;
-
   padding:18px;
-
   margin-bottom:25px;
-
   cursor:pointer;
 }
 
@@ -120,22 +104,14 @@ body.dark .side-menu{
 }
 
 .menu-item{
-
   background:rgba(255,255,255,0.04);
-
   padding:16px;
-
   border-radius:18px;
-
   margin-bottom:12px;
-
   display:flex;
   align-items:center;
-
   gap:12px;
-
   cursor:pointer;
-
   transition:0.3s;
 }
 
@@ -153,15 +129,10 @@ body.dark .side-menu{
 /* OVERLAY */
 
 .overlay{
-
   position:fixed;
-
   inset:0;
-
   background:rgba(0,0,0,0.6);
-
   display:none;
-
   z-index:9990;
 }
 
@@ -186,23 +157,15 @@ body.dark .side-menu{
 
 .menu-btn,
 .profile-btn{
-
   width:50px;
   height:50px;
-
   border-radius:16px;
-
   background:rgba(255,255,255,0.05);
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-
+  border:1px solid rgba(255,255,255,0.08);
   display:flex;
   justify-content:center;
   align-items:center;
-
   font-size:22px;
-
   cursor:pointer;
 }
 
@@ -222,30 +185,18 @@ body.dark .side-menu{
 /* PROFILE MODAL */
 
 .profile-modal{
-
   position:fixed;
-
   top:50%;
   left:50%;
-
-  transform:
-  translate(-50%,-50%) scale(0.9);
-
+  transform:translate(-50%,-50%) scale(0.9);
   width:92%;
   max-width:420px;
-
   background:#08143c;
-
   border-radius:28px;
-
   padding:22px;
-
   z-index:999999;
-
   opacity:0;
-
   pointer-events:none;
-
   transition:0.3s;
 }
 
@@ -256,8 +207,7 @@ body.dark .profile-modal{
 .profile-modal.active{
   opacity:1;
   pointer-events:auto;
-  transform:
-  translate(-50%,-50%) scale(1);
+  transform:translate(-50%,-50%) scale(1);
 }
 
 .profile-header{
@@ -266,23 +216,16 @@ body.dark .profile-modal{
 }
 
 .avatar{
-
   width:80px;
   height:80px;
-
   background:#facc15;
-
   color:#000b2c;
-
   border-radius:50%;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   margin:auto;
   margin-bottom:12px;
-
   font-size:34px;
 }
 
@@ -303,11 +246,8 @@ body.dark .profile-modal{
 }
 
 .profile-card{
-
   background:rgba(255,255,255,0.05);
-
   border-radius:20px;
-
   padding:16px;
 }
 
@@ -322,13 +262,9 @@ body.dark .profile-modal{
 }
 
 .extra-info{
-
   margin-top:18px;
-
   background:rgba(255,255,255,0.05);
-
   border-radius:20px;
-
   padding:16px;
 }
 
@@ -349,31 +285,20 @@ body.dark .profile-modal{
 /* CARD */
 
 .card{
-
   background:rgba(255,255,255,0.04);
-
-  border:
-  1px solid rgba(255,255,255,0.08);
-
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:28px;
-
   padding:22px;
-
   margin-bottom:22px;
 }
 
 /* WELCOME */
 
 .balance-box{
-
   background:#facc15;
-
   color:#111827;
-
   border-radius:22px;
-
   padding:18px;
-
   margin-top:18px;
 }
 
@@ -422,17 +347,11 @@ body.dark .profile-modal{
 }
 
 .network-card{
-
   background:rgba(255,255,255,0.04);
-
   border-radius:22px;
-
   padding:18px 10px;
-
   text-align:center;
-
   cursor:pointer;
-
   transition:0.3s;
 }
 
@@ -441,12 +360,9 @@ body.dark .profile-modal{
 }
 
 .network-card img{
-
   width:75px;
   height:75px;
-
   object-fit:contain;
-
   margin-bottom:10px;
 }
 
@@ -457,13 +373,9 @@ body.dark .profile-modal{
 /* TRANSACTIONS */
 
 .transaction-card{
-
   background:rgba(255,255,255,0.04);
-
   border-radius:22px;
-
   padding:18px;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -476,16 +388,11 @@ body.dark .profile-modal{
 }
 
 .trans-icon{
-
   width:50px;
   height:50px;
-
   background:#facc15;
-
   color:#111827;
-
   border-radius:16px;
-
   display:flex;
   justify-content:center;
   align-items:center;
@@ -505,33 +412,22 @@ body.dark .profile-modal{
 }
 
 .quick-card{
-
   background:rgba(255,255,255,0.04);
-
   border-radius:22px;
-
   padding:18px;
-
   text-align:center;
-
   cursor:pointer;
 }
 
 .quick-icon{
-
   width:55px;
   height:55px;
-
   background:#facc15;
-
   color:#111827;
-
   border-radius:18px;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   margin:auto;
   margin-bottom:12px;
 }
@@ -563,169 +459,218 @@ body.dark .profile-modal{
 }
 
 .back-btn{
-
   width:45px;
   height:45px;
-
   border:none;
-
   border-radius:14px;
-
   background:#facc15;
-
   color:#000b2c;
-
   font-size:20px;
-
   cursor:pointer;
-}
-
-/* WALLET */
-
-.wallet-card-ui{
-
-  background:
-  linear-gradient(
-  135deg,
-  #facc15,
-  #f59e0b
-  );
-
-  color:#111827;
-
-  border-radius:30px;
-
-  padding:24px;
-
-  margin-bottom:24px;
-}
-
-.wallet-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-
-.wallet-logo{
-  width:60px;
-}
-
-.wallet-flag{
-  font-size:38px;
-}
-
-.wallet-chip{
-
-  width:55px;
-  height:40px;
-
-  background:#fff3;
-
-  border-radius:10px;
-
-  margin-bottom:30px;
-}
-
-.wallet-number{
-
-  font-size:24px;
-
-  letter-spacing:2px;
-
-  margin-bottom:30px;
-
-  font-weight:bold;
-}
-
-.wallet-user{
-  margin-bottom:20px;
-}
-
-.wallet-balance h1{
-  font-size:34px;
 }
 
 /* INPUT */
 
 .input-field{
-
   width:100%;
-
   padding:18px;
-
   border:none;
-
   border-radius:18px;
-
-  background:
-  rgba(255,255,255,0.08);
-
+  background:rgba(255,255,255,0.08);
   color:white;
-
   margin-bottom:18px;
-
   outline:none;
-
   font-size:16px;
-}
-
-.input-field option{
-  color:black;
 }
 
 /* BUTTON */
 
 .big-btn{
-
   width:100%;
-
   padding:18px;
-
   border:none;
-
   border-radius:18px;
-
   background:#facc15;
-
   color:#000b2c;
-
   font-size:18px;
-
   font-weight:bold;
-
   cursor:pointer;
+}
+
+/* DATA BUNDLES */
+
+.bundle-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+
+.bundle-card{
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:26px;
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+  transition:0.35s ease;
+  cursor:pointer;
+}
+
+.bundle-card:hover{
+  transform:translateY(-8px);
+  border-color:#facc15;
+  box-shadow:0 15px 30px rgba(250,204,21,0.18);
+}
+
+.bundle-card.selected{
+  border:2px solid #facc15;
+  background:rgba(250,204,21,0.1);
+}
+
+.bundle-badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:#facc15;
+  color:#000b2c;
+  padding:6px 12px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.bundle-size{
+  font-size:32px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.bundle-price{
+  font-size:24px;
+  color:#facc15;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+
+.bundle-desc{
+  color:#cbd5e1;
+  font-size:14px;
+  margin-bottom:18px;
+  line-height:1.5;
+}
+
+.buy-btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:16px;
+  background:#facc15;
+  color:#000b2c;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.phone-label{
+  display:block;
+  margin-bottom:10px;
+  color:#facc15;
+  font-weight:bold;
+}
+
+/* CONFIRM MODAL */
+
+.confirm-modal{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.9);
+  width:90%;
+  max-width:400px;
+  background:#08143c;
+  border-radius:28px;
+  padding:24px;
+  z-index:9999999;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.confirm-modal.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+.confirm-title{
+  font-size:24px;
+  margin-bottom:15px;
+  color:#facc15;
+}
+
+.confirm-text{
+  color:#d1d5db;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+.confirm-actions{
+  display:flex;
+  gap:12px;
+}
+
+.confirm-actions button{
+  flex:1;
+  padding:15px;
+  border:none;
+  border-radius:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.cancel-btn{
+  background:rgba(255,255,255,0.08);
+  color:white;
+}
+
+.confirm-btn{
+  background:#facc15;
+  color:#000b2c;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-
   position:fixed;
-
   left:12px;
   bottom:18px;
-
   width:58px;
   height:58px;
-
   border-radius:50%;
-
   background:#25d366;
-
   color:white;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   font-size:28px;
-
   text-decoration:none;
-
   z-index:99999;
+}
 
-  cursor:grab;
+@media(max-width:768px){
+
+  .network-grid{
+    grid-template-columns:1fr;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
 }
 
 </style>
@@ -734,120 +679,6 @@ body.dark .profile-modal{
 
 <body>
 
-<!-- SIDE MENU -->
-
-<div
-class="side-menu"
-id="sideMenu"
->
-
-<div class="menu-header">
-
-<div class="menu-title">
-☰ Menu
-</div>
-
-<div
-class="close-btn"
-onclick="closeMenu()"
->
-✕
-</div>
-
-</div>
-
-<div
-class="profile-box"
-onclick="openProfile()"
->
-
-<h3 id="menuUserName">
-User Name
-</h3>
-
-<p>
-View Profile
-</p>
-
-</div>
-
-<div class="menu-section-title">
-DASHBOARD
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('dashboardPage')"
->
-🏠 Dashboard
-</div>
-
-<div class="menu-section-title">
-BUY DATA
-</div>
-
-<div class="sub-card">
-
-<div
-class="menu-item"
-onclick="showPage('mtnPage')"
->
-📶 MTN Data
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('airtelPage')"
->
-🔴 AirtelTigo Data
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('telecelPage')"
->
-🔺 Telecel Data
-</div>
-
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('resultsPage')"
->
-🎓 Results Checkers
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('walletPage')"
->
-💳 Wallet
-</div>
-
-<div
-class="menu-item"
-onclick="showPage('historyPage')"
->
-📜 History
-</div>
-
-<div
-class="menu-item"
-onclick="toggleDarkMode()"
->
-🌙 Dark Mode
-</div>
-
-<div
-class="menu-item"
-onclick="logout()"
->
-🚪 Sign Out
-</div>
-
-</div>
-
 <!-- OVERLAY -->
 
 <div
@@ -855,63 +686,6 @@ class="overlay"
 id="overlay"
 onclick="closeAll()"
 ></div>
-
-<!-- PROFILE -->
-
-<div
-class="profile-modal"
-id="profileModal"
->
-
-<div class="profile-header">
-
-<div class="avatar">
-<i class="fa-solid fa-user"></i>
-</div>
-
-<div
-class="profile-name"
-id="profileName"
->
-User Name
-</div>
-
-<div
-class="profile-email"
-id="profileEmail"
->
-user@gmail.com
-</div>
-
-</div>
-
-<div class="profile-grid">
-
-<div class="profile-card">
-<h3 id="userRole">Customer</h3>
-<p>Role</p>
-</div>
-
-<div class="profile-card">
-<h3 id="activeDays">0</h3>
-<p>Active Days</p>
-</div>
-
-</div>
-
-<div class="extra-info">
-
-<div id="userPhone">
-📞 Phone:
-</div>
-
-<div id="registeredDate">
-🗓 Registered:
-</div>
-
-</div>
-
-</div>
 
 <!-- DASHBOARD -->
 
@@ -931,72 +705,9 @@ onclick="openMenu()"
 <i class="fa-solid fa-bars"></i>
 </div>
 
-<img
-src="logo.png"
-class="logo"
->
-
 <div class="brand">
 AMG <span>DATA HUB</span>
 </div>
-
-</div>
-
-<div
-class="profile-btn"
-onclick="openProfile()"
->
-<i class="fa-regular fa-user"></i>
-</div>
-
-</div>
-
-<!-- WELCOME -->
-
-<div class="card">
-
-<h2>
-Welcome back 👋
-</h2>
-
-<p
-style="
-margin-top:10px;
-color:#cbd5e1;
-"
->
-Manage your wallet,
-buy affordable data bundles
-and track transactions.
-</p>
-
-<div class="balance-box">
-
-<div>
-Wallet Balance
-</div>
-
-<div class="balance">
-GH₵ 0.00
-</div>
-
-</div>
-
-<div class="action-buttons">
-
-<button
-class="deposit"
-onclick="showPage('depositPage')"
->
-Deposit
-</button>
-
-<button
-class="history"
-onclick="showPage('historyPage')"
->
-History
-</button>
 
 </div>
 
@@ -1016,149 +727,30 @@ Buy Data Bundles
 class="network-card"
 onclick="showPage('mtnPage')"
 >
-
 <img src="mtn.png">
-
 <p>MTN</p>
-
 </div>
 
 <div
 class="network-card"
 onclick="showPage('telecelPage')"
 >
-
 <img src="telecel.png">
-
 <p>Telecel</p>
-
 </div>
 
 <div
 class="network-card"
 onclick="showPage('airtelPage')"
 >
-
 <img src="airteltigo.png">
-
 <p>AirtelTigo</p>
-
 </div>
 
 </div>
 
 </div>
 
-<!-- RECENT ORDERS -->
-
-<div class="card">
-
-<div class="section-title">
-Recent Orders
-</div>
-
-<div class="transaction-card">
-
-<div class="trans-left">
-
-<div class="trans-icon">
-<i class="fa-solid fa-wifi"></i>
-</div>
-
-<div>
-
-<div>
-No order yet
-</div>
-
-<div class="trans-date">
-Orders placed today appear here
-</div>
-
-</div>
-
-</div>
-
-<div>
-GH₵0.00
-</div>
-
-</div>
-
-</div>
-<!-- QUICK ACTIONS -->
-
-<div class="card">
-
-<div class="section-title">
-Quick Actions
-</div>
-
-<div class="quick-grid">
-
-<div
-class="quick-card"
-onclick="showPage('walletPage')"
->
-
-<div class="quick-icon">
-<i class="fa-solid fa-wallet"></i>
-</div>
-
-<p>
-Wallet
-</p>
-
-</div>
-
-<div
-class="quick-card"
-onclick="showPage('historyPage')"
->
-
-<div class="quick-icon">
-<i class="fa-solid fa-clock-rotate-left"></i>
-</div>
-
-<p>
-History
-</p>
-
-</div>
-
-<div
-class="quick-card"
-onclick="showPage('depositPage')"
->
-
-<div class="quick-icon">
-<i class="fa-solid fa-money-bill-wave"></i>
-</div>
-
-<p>
-Deposit
-</p>
-
-</div>
-
-<div
-class="quick-card"
-onclick="showPage('resultsPage')"
->
-
-<div class="quick-icon">
-<i class="fa-solid fa-graduation-cap"></i>
-</div>
-
-<p>
-Results
-</p>
-
-</div>
-
-</div>
-
-</div>
 </div>
 
 <!-- MTN PAGE -->
@@ -1181,13 +773,72 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
+<div class="card">
 
-<i class="fa-solid fa-wifi"></i>
+<label class="phone-label">
+MTN Number
+</label>
 
-<h1>
-MTN Data Bundles
-</h1>
+<input
+type="tel"
+id="mtnNumber"
+class="input-field"
+placeholder="Enter MTN Number"
+/>
+
+<div class="bundle-grid">
+
+<div
+class="bundle-card"
+onclick="selectBundle(this,'MTN','1GB','6','mtnNumber')"
+>
+
+<div class="bundle-badge">
+Popular
+</div>
+
+<div class="bundle-size">
+1GB
+</div>
+
+<div class="bundle-price">
+GH₵6
+</div>
+
+<div class="bundle-desc">
+Valid for 3 Days
+</div>
+
+<button class="buy-btn">
+Buy Now
+</button>
+
+</div>
+
+<div
+class="bundle-card"
+onclick="selectBundle(this,'MTN','5GB','22','mtnNumber')"
+>
+
+<div class="bundle-size">
+5GB
+</div>
+
+<div class="bundle-price">
+GH₵22
+</div>
+
+<div class="bundle-desc">
+Valid for 7 Days
+</div>
+
+<button class="buy-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1213,13 +864,72 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
+<div class="card">
 
-<i class="fa-solid fa-globe"></i>
+<label class="phone-label">
+Telecel Number
+</label>
 
-<h1>
-Telecel Data Bundles
-</h1>
+<input
+type="tel"
+id="telecelNumber"
+class="input-field"
+placeholder="Enter Telecel Number"
+/>
+
+<div class="bundle-grid">
+
+<div
+class="bundle-card"
+onclick="selectBundle(this,'Telecel','2GB','7','telecelNumber')"
+>
+
+<div class="bundle-size">
+2GB
+</div>
+
+<div class="bundle-price">
+GH₵7
+</div>
+
+<div class="bundle-desc">
+Affordable daily bundle
+</div>
+
+<button class="buy-btn">
+Buy Now
+</button>
+
+</div>
+
+<div
+class="bundle-card"
+onclick="selectBundle(this,'Telecel','6GB','20','telecelNumber')"
+>
+
+<div class="bundle-badge">
+Best Deal
+</div>
+
+<div class="bundle-size">
+6GB
+</div>
+
+<div class="bundle-price">
+GH₵20
+</div>
+
+<div class="bundle-desc">
+Perfect for social media
+</div>
+
+<button class="buy-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1245,231 +955,110 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
-
-<i class="fa-solid fa-signal"></i>
-
-<h1>
-AirtelTigo Data Bundles
-</h1>
-
-</div>
-
-</div>
-
-<!-- RESULTS -->
-
-<div
-class="page"
-id="resultsPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Results Checkers</h2>
-
-</div>
-
-<div class="simple-page">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h1>
-Results Checkers
-</h1>
-
-</div>
-
-</div>
-
-<!-- WALLET -->
-
-<div
-class="page"
-id="walletPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Wallet</h2>
-
-</div>
-
-<div class="wallet-card-ui">
-
-<div class="wallet-top">
-
-<img
-src="logo.png"
-class="wallet-logo"
->
-
-<div class="wallet-flag">
-🇬🇭
-</div>
-
-</div>
-
-<div class="wallet-chip"></div>
-
-<div class="wallet-number">
-AMG-928374652
-</div>
-
-<div class="wallet-user">
-
-<small>
-Card Holder
-</small>
-
-<h3 id="walletUserName">
-User Name
-</h3>
-
-</div>
-
-<div class="wallet-balance">
-
-<small>
-Wallet Balance
-</small>
-
-<h1>
-GH₵0.00
-</h1>
-
-</div>
-
-</div>
-
-<button
-class="big-btn"
-onclick="showPage('depositPage')"
->
-Deposit Money
-</button>
-
-</div>
-
-<!-- DEPOSIT -->
-
-<div
-class="page"
-id="depositPage"
->
-
-<div class="simple-header">
-
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
-</button>
-
-<h2>Deposit</h2>
-
-</div>
-
 <div class="card">
+
+<label class="phone-label">
+AirtelTigo Number
+</label>
 
 <input
-type="number"
-placeholder="Enter Amount"
+type="tel"
+id="airtelNumber"
 class="input-field"
->
+placeholder="Enter AirtelTigo Number"
+/>
 
-<select class="input-field">
-
-<option>
-Select Payment Method
-</option>
-
-<option>
-MTN MOMO
-</option>
-
-<option>
-Telecel Cash
-</option>
-
-<option>
-AirtelTigo Money
-</option>
-
-</select>
-
-<button class="big-btn">
-Continue Deposit
-</button>
-
-</div>
-
-</div>
-
-<!-- HISTORY -->
+<div class="bundle-grid">
 
 <div
-class="page"
-id="historyPage"
+class="bundle-card"
+onclick="selectBundle(this,'AirtelTigo','1.5GB','5','airtelNumber')"
 >
 
-<div class="simple-header">
+<div class="bundle-badge">
+Cheap
+</div>
 
-<button
-class="back-btn"
-onclick="showPage('dashboardPage')"
->
-←
+<div class="bundle-size">
+1.5GB
+</div>
+
+<div class="bundle-price">
+GH₵5
+</div>
+
+<div class="bundle-desc">
+Budget friendly bundle
+</div>
+
+<button class="buy-btn">
+Buy Now
 </button>
 
-<h2>Transaction History</h2>
+</div>
+
+<div
+class="bundle-card"
+onclick="selectBundle(this,'AirtelTigo','8GB','30','airtelNumber')"
+>
+
+<div class="bundle-size">
+8GB
+</div>
+
+<div class="bundle-price">
+GH₵30
+</div>
+
+<div class="bundle-desc">
+Ideal for binge watching
+</div>
+
+<button class="buy-btn">
+Buy Now
+</button>
 
 </div>
 
-<div class="card">
-
-<div class="transaction-card">
-
-<div class="trans-left">
-
-<div class="trans-icon">
-<i class="fa-solid fa-clock-rotate-left"></i>
-</div>
-
-<div>
-
-<div>
-No transaction yet
-</div>
-
-<div class="trans-date">
-Transactions appear here
 </div>
 
 </div>
 
 </div>
 
-<div>
-GH₵0.00
+<!-- CONFIRM MODAL -->
+
+<div
+class="confirm-modal"
+id="confirmModal"
+>
+
+<div class="confirm-title">
+Confirm Purchase
 </div>
 
+<div
+class="confirm-text"
+id="confirmText"
+>
+Are you sure?
 </div>
+
+<div class="confirm-actions">
+
+<button
+class="cancel-btn"
+onclick="closeConfirm()"
+>
+Cancel
+</button>
+
+<button
+class="confirm-btn"
+onclick="confirmPurchase()"
+>
+Confirm
+</button>
 
 </div>
 
@@ -1480,7 +1069,6 @@ GH₵0.00
 <a
 href="https://wa.me/233241895999"
 class="whatsapp"
-id="dragWhatsapp"
 >
 
 <i class="fa-brands fa-whatsapp"></i>
@@ -1489,125 +1077,10 @@ id="dragWhatsapp"
 
 <script>
 
-/* USER */
-
-const currentUser = JSON.parse(
-localStorage.getItem("amgUser")
-) || {
-
-fullName:"Guest User",
-
-email:"guest@gmail.com",
-
-phone:"0240000000",
-
-registrationDate:
-new Date().toLocaleDateString(),
-
-activeDays:0
-};
-
-document.getElementById(
-"menuUserName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-"profileName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-"profileEmail"
-).innerHTML =
-currentUser.email;
-
-document.getElementById(
-"userPhone"
-).innerHTML =
-"📞 Phone: " +
-currentUser.phone;
-
-document.getElementById(
-"registeredDate"
-).innerHTML =
-"🗓 Registered: " +
-currentUser.registrationDate;
-
-document.getElementById(
-"walletUserName"
-).innerHTML =
-currentUser.fullName;
-
-/* ROLE */
-
-let role = "Customer";
-
-if(
-currentUser.email ===
-"chairmanoamg@gmail.com"
-){
-role = "Admin";
-}
-
-document.getElementById(
-"userRole"
-).innerHTML =
-role;
-
-document.getElementById(
-"activeDays"
-).innerHTML =
-currentUser.activeDays;
-
 /* MENU */
 
 function openMenu(){
-
-sideMenu.classList.add(
-"active"
-);
-
-overlay.classList.add(
-"active"
-);
-}
-
-function closeMenu(){
-
-sideMenu.classList.remove(
-"active"
-);
-
-overlay.classList.remove(
-"active"
-);
-}
-
-/* PROFILE */
-
-function openProfile(){
-
-profileModal.classList.add(
-"active"
-);
-
-overlay.classList.add(
-"active"
-);
-}
-
-function closeAll(){
-
-closeMenu();
-
-profileModal.classList.remove(
-"active"
-);
-
-overlay.classList.remove(
-"active"
-);
+  alert("Menu button clicked");
 }
 
 /* PAGES */
@@ -1618,9 +1091,7 @@ document
 .querySelectorAll(".page")
 .forEach(page=>{
 
-page.classList.remove(
-"active"
-);
+page.classList.remove("active");
 
 });
 
@@ -1628,131 +1099,109 @@ document
 .getElementById(pageId)
 .classList.add("active");
 
-localStorage.setItem(
-"activePage",
-pageId
-);
-
-closeMenu();
 }
 
-/* RESTORE PAGE */
+/* CLOSE ALL */
 
-window.onload = function(){
+function closeAll(){
 
-const savedPage =
-localStorage.getItem(
-"activePage"
+document
+.getElementById("confirmModal")
+.classList.remove("active");
+
+overlay.classList.remove(
+"active"
 );
-
-if(savedPage){
-
-showPage(savedPage);
 
 }
 
+/* DATA PURCHASE */
+
+let selectedData = {};
+
+function selectBundle(
+card,
+network,
+bundle,
+price,
+inputId
+){
+
+document
+.querySelectorAll(".bundle-card")
+.forEach(c=>{
+c.classList.remove("selected");
+});
+
+const number =
+document.getElementById(inputId).value;
+
+if(number === ""){
+
+alert(
+"Please enter phone number"
+);
+
+return;
+}
+
+card.classList.add("selected");
+
+selectedData = {
+network,
+bundle,
+price,
+number
 };
 
-/* DARK MODE */
-
-function toggleDarkMode(){
-
-document.body.classList.toggle(
-"dark"
-);
-
-}
-
-/* LOGOUT */
-
-function logout(){
-
-localStorage.removeItem(
-"amgUser"
-);
-
-localStorage.removeItem(
-"activePage"
-);
-
-window.location.href =
-"index.html";
-}
-
-/* DRAG WHATSAPP */
-
-const dragItem =
 document.getElementById(
-"dragWhatsapp"
+"confirmText"
+).innerHTML =
+`
+You are about to buy
+<b>${bundle}</b>
+for
+<b>${network}</b>
+number
+<b>${number}</b>
+for
+<b>GH₵${price}</b>.
+`;
+
+document.getElementById(
+"confirmModal"
+).classList.add(
+"active"
 );
 
-let active = false;
-
-let currentX;
-let currentY;
-
-let initialX;
-let initialY;
-
-dragItem.addEventListener(
-"touchstart",
-dragStart,
-false
+overlay.classList.add(
+"active"
 );
-
-dragItem.addEventListener(
-"touchmove",
-drag,
-false
-);
-
-dragItem.addEventListener(
-"touchend",
-dragEnd,
-false
-);
-
-function dragStart(e){
-
-initialX =
-e.touches[0].clientX -
-dragItem.offsetLeft;
-
-initialY =
-e.touches[0].clientY -
-dragItem.offsetTop;
-
-active = true;
-}
-
-function drag(e){
-
-if(active){
-
-e.preventDefault();
-
-currentX =
-e.touches[0].clientX -
-initialX;
-
-currentY =
-e.touches[0].clientY -
-initialY;
-
-dragItem.style.left =
-currentX + "px";
-
-dragItem.style.top =
-currentY + "px";
-
-dragItem.style.bottom =
-"auto";
-}
 
 }
 
-function dragEnd(){
-active = false;
+function closeConfirm(){
+
+document.getElementById(
+"confirmModal"
+).classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+
+function confirmPurchase(){
+
+closeConfirm();
+
+alert(
+`${selectedData.bundle} purchase successful for ${selectedData.number}`
+);
+
 }
 
 </script>
