@@ -1943,216 +1943,282 @@ id="dragWhatsapp"
 
 <script>
 
-/* USER */
+/* =========================
+   ELEMENTS
+========================= */
+
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const profileModal = document.getElementById("profileModal");
+
+/* =========================
+   USER
+========================= */
 
 const currentUser = JSON.parse(
-localStorage.getItem("amgUser")
+  localStorage.getItem("amgUser")
 ) || {
 
-fullName:"Guest User",
+  fullName: "Guest User",
 
-email:"guest@gmail.com",
+  email: "guest@gmail.com",
 
-phone:"0240000000",
+  phone: "0240000000",
 
-registrationDate:
-new Date().toLocaleDateString(),
+  registrationDate:
+  new Date().toLocaleDateString(),
 
-activeDays:0
+  activeDays: 0
 };
 
+/* =========================
+   SET USER INFO
+========================= */
+
 document.getElementById(
-"menuUserName"
+  "menuUserName"
 ).innerHTML =
 currentUser.fullName;
 
 document.getElementById(
-"profileName"
+  "profileName"
 ).innerHTML =
 currentUser.fullName;
 
 document.getElementById(
-"profileEmail"
+  "profileEmail"
 ).innerHTML =
 currentUser.email;
 
 document.getElementById(
-"userPhone"
+  "userPhone"
 ).innerHTML =
 "📞 Phone: " +
 currentUser.phone;
 
 document.getElementById(
-"registeredDate"
+  "registeredDate"
 ).innerHTML =
 "🗓 Registered: " +
 currentUser.registrationDate;
 
 document.getElementById(
-"walletUserName"
+  "walletUserName"
 ).innerHTML =
 currentUser.fullName;
 
-/* ROLE */
+/* =========================
+   ROLE
+========================= */
 
 let role = "Customer";
 
 if(
-currentUser.email ===
-"chairmanoamg@gmail.com"
+  currentUser.email ===
+  "chairmanoamg@gmail.com"
 ){
-role = "Admin";
+  role = "Admin";
 }
 
 document.getElementById(
-"userRole"
+  "userRole"
 ).innerHTML =
 role;
 
 document.getElementById(
-"activeDays"
+  "activeDays"
 ).innerHTML =
 currentUser.activeDays;
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 
 function openMenu(){
 
-sideMenu.classList.add(
-"active"
-);
+  sideMenu.classList.add(
+    "active"
+  );
 
-overlay.classList.add(
-"active"
-);
+  overlay.classList.add(
+    "active"
+  );
 }
 
 function closeMenu(){
 
-sideMenu.classList.remove(
-"active"
-);
+  sideMenu.classList.remove(
+    "active"
+  );
 
-overlay.classList.remove(
-"active"
-);
+  overlay.classList.remove(
+    "active"
+  );
 }
 
-/* PROFILE */
+/* =========================
+   PROFILE
+========================= */
 
 function openProfile(){
 
-profileModal.classList.add(
-"active"
-);
+  profileModal.classList.add(
+    "active"
+  );
 
-overlay.classList.add(
-"active"
-);
+  overlay.classList.add(
+    "active"
+  );
 }
 
 function closeAll(){
 
-closeMenu();
+  closeMenu();
 
-profileModal.classList.remove(
-"active"
-);
+  profileModal.classList.remove(
+    "active"
+  );
 
-overlay.classList.remove(
-"active"
-);
+  overlay.classList.remove(
+    "active"
+  );
 }
 
-/* PAGES */
+/* =========================
+   PAGE NAVIGATION
+========================= */
 
 function showPage(pageId){
 
-document
-.querySelectorAll(".page")
-.forEach(page=>{
+  const pages =
+  document.querySelectorAll(".page");
 
-page.classList.remove(
-"active"
-);
+  pages.forEach(page => {
 
-});
+    page.classList.remove(
+      "active"
+    );
 
-document
-.getElementById(pageId)
-.classList.add("active");
+  });
 
-localStorage.setItem(
-"activePage",
-pageId
-);
+  const selectedPage =
+  document.getElementById(pageId);
 
-closeMenu();
+  if(selectedPage){
+
+    selectedPage.classList.add(
+      "active"
+    );
+
+    localStorage.setItem(
+      "activePage",
+      pageId
+    );
+
+  }
+
+  closeMenu();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
 
-/* RESTORE PAGE */
+/* =========================
+   RESTORE PAGE
+========================= */
 
 window.onload = function(){
 
-const savedPage =
-localStorage.getItem(
-"activePage"
-);
+  const savedPage =
+  localStorage.getItem(
+    "activePage"
+  );
 
-if(savedPage){
+  if(
+    savedPage &&
+    document.getElementById(savedPage)
+  ){
 
-showPage(savedPage);
+    showPage(savedPage);
 
-}
+  }else{
+
+    showPage("dashboardPage");
+
+  }
 
 };
 
-/* DARK MODE */
+/* =========================
+   DARK MODE
+========================= */
 
 function toggleDarkMode(){
 
-document.body.classList.toggle(
-"dark"
-);
+  document.body.classList.toggle(
+    "dark"
+  );
 
 }
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+========================= */
 
 function logout(){
 
-localStorage.removeItem(
-"amgUser"
-);
+  localStorage.removeItem(
+    "amgUser"
+  );
 
-localStorage.removeItem(
-"activePage"
-);
+  localStorage.removeItem(
+    "activePage"
+  );
 
-window.location.href =
-"index.html";
-}
-/* PURCHASE TOGGLE */
-
-function togglePurchase(id,btn){
-
-const box =
-document.getElementById(id);
-
-box.classList.toggle("active");
-
-if(box.classList.contains("active")){
-btn.innerHTML = "⌃";
-}else{
-btn.innerHTML = "⌄";
+  window.location.href =
+  "index.html";
 }
 
+/* =========================
+   PURCHASE TOGGLE
+========================= */
+
+function togglePurchase(id, btn){
+
+  const box =
+  document.getElementById(id);
+
+  if(!box) return;
+
+  box.classList.toggle(
+    "active"
+  );
+
+  if(
+    box.classList.contains(
+      "active"
+    )
+  ){
+
+    btn.innerHTML = "⌃";
+
+  }else{
+
+    btn.innerHTML = "⌄";
+
+  }
+
 }
-/* DRAG WHATSAPP */
+
+/* =========================
+   DRAG WHATSAPP
+========================= */
 
 const dragItem =
 document.getElementById(
-"dragWhatsapp"
+  "dragWhatsapp"
 );
 
 let active = false;
@@ -2164,64 +2230,66 @@ let initialX;
 let initialY;
 
 dragItem.addEventListener(
-"touchstart",
-dragStart,
-false
+  "touchstart",
+  dragStart,
+  false
 );
 
 dragItem.addEventListener(
-"touchmove",
-drag,
-false
+  "touchmove",
+  drag,
+  false
 );
 
 dragItem.addEventListener(
-"touchend",
-dragEnd,
-false
+  "touchend",
+  dragEnd,
+  false
 );
 
 function dragStart(e){
 
-initialX =
-e.touches[0].clientX -
-dragItem.offsetLeft;
+  initialX =
+  e.touches[0].clientX -
+  dragItem.offsetLeft;
 
-initialY =
-e.touches[0].clientY -
-dragItem.offsetTop;
+  initialY =
+  e.touches[0].clientY -
+  dragItem.offsetTop;
 
-active = true;
+  active = true;
 }
 
 function drag(e){
 
-if(active){
+  if(active){
 
-e.preventDefault();
+    e.preventDefault();
 
-currentX =
-e.touches[0].clientX -
-initialX;
+    currentX =
+    e.touches[0].clientX -
+    initialX;
 
-currentY =
-e.touches[0].clientY -
-initialY;
+    currentY =
+    e.touches[0].clientY -
+    initialY;
 
-dragItem.style.left =
-currentX + "px";
+    dragItem.style.left =
+    currentX + "px";
 
-dragItem.style.top =
-currentY + "px";
+    dragItem.style.top =
+    currentY + "px";
 
-dragItem.style.bottom =
-"auto";
-}
+    dragItem.style.bottom =
+    "auto";
+  }
 
 }
 
 function dragEnd(){
-active = false;
+
+  active = false;
+
 }
 
 </script>
