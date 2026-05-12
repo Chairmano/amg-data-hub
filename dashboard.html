@@ -453,6 +453,190 @@ body.dark .profile-modal{
 .network-card p{
   font-weight:bold;
 }
+/* DATA CARDS */
+
+.data-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.data-card{
+  background:#facc15;
+  color:#000;
+  border-radius:36px;
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+  transition:0.3s;
+  box-shadow:
+  0 10px 25px rgba(0,0,0,0.15);
+}
+
+.data-card:hover{
+  transform:translateY(-4px);
+}
+
+.data-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.data-logo{
+  width:70px;
+  height:70px;
+  background:rgba(255,255,255,0.12);
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.data-logo img{
+  width:50px;
+  object-fit:contain;
+}
+
+.expand-btn{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:rgba(0,0,0,0.08);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.data-size{
+  font-size:70px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.data-title{
+  font-size:26px;
+  opacity:0.7;
+  margin-bottom:50px;
+}
+
+.data-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+}
+
+.data-price{
+  font-size:52px;
+  font-weight:bold;
+}
+
+.data-expiry{
+  font-size:20px;
+  opacity:0.7;
+}
+
+/* PURCHASE BOX */
+
+.purchase-box{
+  margin-top:22px;
+  background:white;
+  border-radius:30px;
+  padding:22px;
+  display:none;
+  animation:fadeIn 0.3s ease;
+}
+
+.purchase-box.active{
+  display:block;
+}
+
+.purchase-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+
+.purchase-header img{
+  width:55px;
+  background:#facc15;
+  border-radius:16px;
+  padding:8px;
+}
+
+.purchase-title{
+  font-size:22px;
+  font-weight:bold;
+  color:#000b2c;
+}
+
+.purchase-title span{
+  color:#d97706;
+}
+
+.purchase-form{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.purchase-input{
+  flex:1;
+  min-width:200px;
+  padding:18px;
+  border:none;
+  border-radius:20px;
+  background:#f3f4f6;
+  font-size:18px;
+  outline:none;
+}
+
+.purchase-btn{
+  padding:18px 30px;
+  border:none;
+  border-radius:20px;
+  background:#facc15;
+  color:#000;
+  font-size:22px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:768px){
+
+  .data-size{
+    font-size:54px;
+  }
+
+  .data-price{
+    font-size:42px;
+  }
+
+  .purchase-form{
+    flex-direction:column;
+  }
+
+  .purchase-btn{
+    width:100%;
+  }
+
+}
 
 /* TRANSACTIONS */
 
@@ -1181,13 +1365,153 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
+<div class="data-list">
 
-<i class="fa-solid fa-wifi"></i>
+<!-- CARD 1 -->
 
-<h1>
-MTN Data Bundles
-</h1>
+<div class="data-card">
+
+<div class="data-top">
+
+<div class="data-logo">
+<img src="mtn.png">
+</div>
+
+<div
+class="expand-btn"
+onclick="togglePurchase('mtnBuy1',this)"
+>
+⌄
+</div>
+
+</div>
+
+<div class="data-size">
+1GB
+</div>
+
+<div class="data-title">
+MTN Bundle
+</div>
+
+<div class="data-bottom">
+
+<div class="data-price">
+₵4.20
+</div>
+
+<div class="data-expiry">
+No Expiry
+</div>
+
+</div>
+
+<div
+class="purchase-box"
+id="mtnBuy1"
+>
+
+<div class="purchase-header">
+
+<img src="mtn.png">
+
+<div class="purchase-title">
+1GB —
+<span>GH₵ 4.20</span>
+</div>
+
+</div>
+
+<div class="purchase-form">
+
+<input
+type="tel"
+placeholder="0XXXXXXXXX"
+class="purchase-input"
+/>
+
+<button class="purchase-btn">
+Buy ₵4.20
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="data-card">
+
+<div class="data-top">
+
+<div class="data-logo">
+<img src="mtn.png">
+</div>
+
+<div
+class="expand-btn"
+onclick="togglePurchase('mtnBuy2',this)"
+>
+⌄
+</div>
+
+</div>
+
+<div class="data-size">
+2GB
+</div>
+
+<div class="data-title">
+MTN Bundle
+</div>
+
+<div class="data-bottom">
+
+<div class="data-price">
+₵8.80
+</div>
+
+<div class="data-expiry">
+No Expiry
+</div>
+
+</div>
+
+<div
+class="purchase-box"
+id="mtnBuy2"
+>
+
+<div class="purchase-header">
+
+<img src="mtn.png">
+
+<div class="purchase-title">
+2GB —
+<span>GH₵ 8.80</span>
+</div>
+
+</div>
+
+<div class="purchase-form">
+
+<input
+type="tel"
+placeholder="0XXXXXXXXX"
+class="purchase-input"
+/>
+
+<button class="purchase-btn">
+Buy ₵8.80
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1213,13 +1537,78 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
+<div class="data-list">
 
-<i class="fa-solid fa-globe"></i>
+<div class="data-card">
 
-<h1>
-Telecel Data Bundles
-</h1>
+<div class="data-top">
+
+<div class="data-logo">
+<img src="telecel.png">
+</div>
+
+<div
+class="expand-btn"
+onclick="togglePurchase('telecelBuy1',this)"
+>
+⌄
+</div>
+
+</div>
+
+<div class="data-size">
+1GB
+</div>
+
+<div class="data-title">
+Telecel Bundle
+</div>
+
+<div class="data-bottom">
+
+<div class="data-price">
+₵4.00
+</div>
+
+<div class="data-expiry">
+No Expiry
+</div>
+
+</div>
+
+<div
+class="purchase-box"
+id="telecelBuy1"
+>
+
+<div class="purchase-header">
+
+<img src="telecel.png">
+
+<div class="purchase-title">
+1GB —
+<span>GH₵ 4.00</span>
+</div>
+
+</div>
+
+<div class="purchase-form">
+
+<input
+type="tel"
+placeholder="0XXXXXXXXX"
+class="purchase-input"
+/>
+
+<button class="purchase-btn">
+Buy ₵4.00
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1245,13 +1634,78 @@ onclick="showPage('dashboardPage')"
 
 </div>
 
-<div class="simple-page">
+<div class="data-list">
 
-<i class="fa-solid fa-signal"></i>
+<div class="data-card">
 
-<h1>
-AirtelTigo Data Bundles
-</h1>
+<div class="data-top">
+
+<div class="data-logo">
+<img src="airteltigo.png">
+</div>
+
+<div
+class="expand-btn"
+onclick="togglePurchase('airtelBuy1',this)"
+>
+⌄
+</div>
+
+</div>
+
+<div class="data-size">
+1GB
+</div>
+
+<div class="data-title">
+AirtelTigo Bundle
+</div>
+
+<div class="data-bottom">
+
+<div class="data-price">
+₵3.90
+</div>
+
+<div class="data-expiry">
+No Expiry
+</div>
+
+</div>
+
+<div
+class="purchase-box"
+id="airtelBuy1"
+>
+
+<div class="purchase-header">
+
+<img src="airteltigo.png">
+
+<div class="purchase-title">
+1GB —
+<span>GH₵ 3.90</span>
+</div>
+
+</div>
+
+<div class="purchase-form">
+
+<input
+type="tel"
+placeholder="0XXXXXXXXX"
+class="purchase-input"
+/>
+
+<button class="purchase-btn">
+Buy ₵3.90
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1678,7 +2132,22 @@ localStorage.removeItem(
 window.location.href =
 "index.html";
 }
+/* PURCHASE TOGGLE */
 
+function togglePurchase(id,btn){
+
+const box =
+document.getElementById(id);
+
+box.classList.toggle("active");
+
+if(box.classList.contains("active")){
+btn.innerHTML = "⌃";
+}else{
+btn.innerHTML = "⌄";
+}
+
+}
 /* DRAG WHATSAPP */
 
 const dragItem =
