@@ -1343,6 +1343,7 @@ Results
 </div>
 
 </div>
+
 <!-- MTN PAGE -->
 
 <div
@@ -1941,162 +1942,170 @@ id="dragWhatsapp"
 
 <script>
 
-/* =========================
+/* =========================================
+   SAFE USER LOAD
+========================================= */
+
+const defaultUser = {
+  fullName: "Guest User",
+  email: "guest@gmail.com",
+  phone: "0240000000",
+  registrationDate: new Date().toLocaleDateString(),
+  activeDays: 0,
+  balance: 0,
+  transactions: []
+};
+
+let currentUser;
+
+try{
+  currentUser =
+    JSON.parse(localStorage.getItem("amgUser")) ||
+    defaultUser;
+}catch{
+  currentUser = defaultUser;
+}
+
+/* =========================================
    ELEMENTS
-========================= */
+========================================= */
 
 const sideMenu = document.getElementById("sideMenu");
 const overlay = document.getElementById("overlay");
 const profileModal = document.getElementById("profileModal");
 
-/* =========================
-   USER
-========================= */
+const balanceElements =
+document.querySelectorAll(".balance, .wallet-balance h1");
 
-const currentUser = JSON.parse(
-  localStorage.getItem("amgUser")
-) || {
+/* =========================================
+   SAVE USER
+========================================= */
 
-  fullName: "Guest User",
-
-  email: "guest@gmail.com",
-
-  phone: "0240000000",
-
-  registrationDate:
-  new Date().toLocaleDateString(),
-
-  activeDays: 0
-};
-
-/* =========================
-   SET USER INFO
-========================= */
-
-document.getElementById(
-  "menuUserName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-  "profileName"
-).innerHTML =
-currentUser.fullName;
-
-document.getElementById(
-  "profileEmail"
-).innerHTML =
-currentUser.email;
-
-document.getElementById(
-  "userPhone"
-).innerHTML =
-"📞 Phone: " +
-currentUser.phone;
-
-document.getElementById(
-  "registeredDate"
-).innerHTML =
-"🗓 Registered: " +
-currentUser.registrationDate;
-
-document.getElementById(
-  "walletUserName"
-).innerHTML =
-currentUser.fullName;
-
-/* =========================
-   ROLE
-========================= */
-
-let role = "Customer";
-
-if(
-  currentUser.email ===
-  "chairmanoamg@gmail.com"
-){
-  role = "Admin";
+function saveUser(){
+  localStorage.setItem(
+    "amgUser",
+    JSON.stringify(currentUser)
+  );
 }
 
-document.getElementById(
-  "userRole"
-).innerHTML =
-role;
+/* =========================================
+   FORMAT MONEY
+========================================= */
 
-document.getElementById(
-  "activeDays"
-).innerHTML =
-currentUser.activeDays;
+function formatMoney(amount){
+  return "GH₵ " + Number(amount).toFixed(2);
+}
 
-/* =========================
+/* =========================================
+   UPDATE UI
+========================================= */
+
+function updateUI(){
+
+  document.getElementById(
+    "menuUserName"
+  ).innerHTML = currentUser.fullName;
+
+  document.getElementById(
+    "profileName"
+  ).innerHTML = currentUser.fullName;
+
+  document.getElementById(
+    "profileEmail"
+  ).innerHTML = currentUser.email;
+
+  document.getElementById(
+    "userPhone"
+  ).innerHTML =
+  "📞 Phone: " + currentUser.phone;
+
+  document.getElementById(
+    "registeredDate"
+  ).innerHTML =
+  "🗓 Registered: " +
+  currentUser.registrationDate;
+
+  document.getElementById(
+    "walletUserName"
+  ).innerHTML =
+  currentUser.fullName;
+
+  document.getElementById(
+    "activeDays"
+  ).innerHTML =
+  currentUser.activeDays;
+
+  let role = "Customer";
+
+  if(
+    currentUser.email ===
+    "chairmanoamg@gmail.com"
+  ){
+    role = "Admin";
+  }
+
+  document.getElementById(
+    "userRole"
+  ).innerHTML = role;
+
+  balanceElements.forEach(el=>{
+    el.innerHTML =
+    formatMoney(currentUser.balance);
+  });
+
+}
+
+/* =========================================
    MENU
-========================= */
+========================================= */
 
 function openMenu(){
 
-  sideMenu.classList.add(
-    "active"
-  );
+  sideMenu.classList.add("active");
 
-  overlay.classList.add(
-    "active"
-  );
+  overlay.classList.add("active");
+
 }
 
 function closeMenu(){
 
-  sideMenu.classList.remove(
-    "active"
-  );
+  sideMenu.classList.remove("active");
 
-  overlay.classList.remove(
-    "active"
-  );
+  overlay.classList.remove("active");
+
 }
 
-/* =========================
+/* =========================================
    PROFILE
-========================= */
+========================================= */
 
 function openProfile(){
 
-  profileModal.classList.add(
-    "active"
-  );
+  profileModal.classList.add("active");
 
-  overlay.classList.add(
-    "active"
-  );
+  overlay.classList.add("active");
+
 }
 
 function closeAll(){
 
   closeMenu();
 
-  profileModal.classList.remove(
-    "active"
-  );
+  profileModal.classList.remove("active");
 
-  overlay.classList.remove(
-    "active"
-  );
+  overlay.classList.remove("active");
+
 }
 
-/* =========================
+/* =========================================
    PAGE NAVIGATION
-========================= */
+========================================= */
 
 function showPage(pageId){
 
-  const pages =
-  document.querySelectorAll(".page");
-
-  pages.forEach(page => {
-
-    page.classList.remove(
-      "active"
-    );
-
+  document.querySelectorAll(".page")
+  .forEach(page=>{
+    page.classList.remove("active");
   });
 
   const selectedPage =
@@ -2104,9 +2113,7 @@ function showPage(pageId){
 
   if(selectedPage){
 
-    selectedPage.classList.add(
-      "active"
-    );
+    selectedPage.classList.add("active");
 
     localStorage.setItem(
       "activePage",
@@ -2115,73 +2122,86 @@ function showPage(pageId){
 
   }
 
-  closeMenu();
+  closeAll();
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 }
 
-/* =========================
-   RESTORE PAGE
-========================= */
-
-window.onload = function(){
-
-  const savedPage =
-  localStorage.getItem(
-    "activePage"
-  );
-
-  if(
-    savedPage &&
-    document.getElementById(savedPage)
-  ){
-
-    showPage(savedPage);
-
-  }else{
-
-    showPage("dashboardPage");
-
-  }
-
-};
-
-/* =========================
+/* =========================================
    DARK MODE
-========================= */
+========================================= */
 
 function toggleDarkMode(){
 
-  document.body.classList.toggle(
-    "dark"
-  );
+  document.body.classList.toggle("dark");
+
+  if(
+    document.body.classList.contains("dark")
+  ){
+    localStorage.setItem(
+      "darkMode",
+      "enabled"
+    );
+  }else{
+    localStorage.setItem(
+      "darkMode",
+      "disabled"
+    );
+  }
 
 }
 
-/* =========================
+/* =========================================
+   RESTORE SETTINGS
+========================================= */
+
+window.onload = function(){
+
+  updateUI();
+
+  const savedPage =
+  localStorage.getItem("activePage");
+
+  if(savedPage &&
+    document.getElementById(savedPage)
+  ){
+    showPage(savedPage);
+  }else{
+    showPage("dashboardPage");
+  }
+
+  const darkMode =
+  localStorage.getItem("darkMode");
+
+  if(darkMode === "enabled"){
+    document.body.classList.add("dark");
+  }
+
+  renderTransactions();
+
+};
+
+/* =========================================
    LOGOUT
-========================= */
+========================================= */
 
 function logout(){
 
-  localStorage.removeItem(
-    "amgUser"
-  );
+  localStorage.removeItem("amgUser");
 
-  localStorage.removeItem(
-    "activePage"
-  );
+  localStorage.removeItem("activePage");
 
-  window.location.href =
-  "index.html";
+  window.location.href = "index.html";
+
 }
 
-/* =========================
+/* =========================================
    PURCHASE TOGGLE
-========================= */
+========================================= */
 
 function togglePurchase(id, btn){
 
@@ -2190,29 +2210,210 @@ function togglePurchase(id, btn){
 
   if(!box) return;
 
-  box.classList.toggle(
-    "active"
-  );
+  box.classList.toggle("active");
 
-  if(
-    box.classList.contains(
-      "active"
-    )
-  ){
-
-    btn.innerHTML = "⌃";
-
-  }else{
-
-    btn.innerHTML = "⌄";
-
-  }
+  btn.innerHTML =
+  box.classList.contains("active")
+  ? "⌃"
+  : "⌄";
 
 }
 
-/* =========================
-   DRAG WHATSAPP
-========================= */
+/* =========================================
+   BUY DATA
+========================================= */
+
+const purchaseButtons =
+document.querySelectorAll(".purchase-btn");
+
+purchaseButtons.forEach(button=>{
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const form =
+      this.closest(".purchase-form");
+
+      const input =
+      form.querySelector("input");
+
+      const phone =
+      input.value.trim();
+
+      if(
+        phone.length !== 10 ||
+        !phone.startsWith("0")
+      ){
+        alert(
+          "Enter valid phone number"
+        );
+        return;
+      }
+
+      const priceText =
+      this.innerText
+      .replace("Buy ₵","")
+      .trim();
+
+      const amount =
+      parseFloat(priceText);
+
+      if(
+        currentUser.balance < amount
+      ){
+        alert(
+          "Insufficient wallet balance"
+        );
+        return;
+      }
+
+      currentUser.balance -= amount;
+
+      currentUser.transactions.unshift({
+        type:"Data Purchase",
+        amount:amount,
+        phone:phone,
+        date:new Date().toLocaleString()
+      });
+
+      saveUser();
+
+      updateUI();
+
+      renderTransactions();
+
+      input.value = "";
+
+      alert(
+        "Purchase Successful"
+      );
+
+    }
+  );
+
+});
+
+/* =========================================
+   DEPOSIT
+========================================= */
+
+const depositButton =
+document.querySelector(
+  "#depositPage .big-btn"
+);
+
+depositButton.addEventListener(
+  "click",
+  function(){
+
+    const amountInput =
+    document.querySelector(
+      '#depositPage input'
+    );
+
+    const amount =
+    parseFloat(amountInput.value);
+
+    if(
+      isNaN(amount) ||
+      amount <= 0
+    ){
+      alert(
+        "Enter valid amount"
+      );
+      return;
+    }
+
+    currentUser.balance += amount;
+
+    currentUser.transactions.unshift({
+      type:"Deposit",
+      amount:amount,
+      date:new Date().toLocaleString()
+    });
+
+    saveUser();
+
+    updateUI();
+
+    renderTransactions();
+
+    amountInput.value = "";
+
+    alert(
+      "Deposit Successful"
+    );
+
+  }
+);
+
+/* =========================================
+   TRANSACTION HISTORY
+========================================= */
+
+function renderTransactions(){
+
+  const historyCard =
+  document.querySelector(
+    "#historyPage .card"
+  );
+
+  if(
+    currentUser.transactions.length === 0
+  ){
+
+    historyCard.innerHTML = `
+      <div class="transaction-card">
+        <div class="trans-left">
+          <div class="trans-icon">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <div>
+            <div>No transaction yet</div>
+            <div class="trans-date">
+              Transactions appear here
+            </div>
+          </div>
+        </div>
+        <div>GH₵0.00</div>
+      </div>
+    `;
+
+    return;
+  }
+
+  historyCard.innerHTML = "";
+
+  currentUser.transactions.forEach(tx=>{
+
+    historyCard.innerHTML += `
+      <div class="transaction-card"
+      style="margin-bottom:14px;">
+        <div class="trans-left">
+          <div class="trans-icon">
+            <i class="fa-solid fa-money-bill-wave"></i>
+          </div>
+          <div>
+            <div>${tx.type}</div>
+            <div class="trans-date">
+              ${tx.date}
+            </div>
+          </div>
+        </div>
+        <div>
+          ${formatMoney(tx.amount)}
+        </div>
+      </div>
+    `;
+
+  });
+
+}
+
+/* =========================================
+   WHATSAPP DRAG
+========================================= */
 
 const dragItem =
 document.getElementById(
@@ -2245,24 +2446,59 @@ dragItem.addEventListener(
   false
 );
 
+dragItem.addEventListener(
+  "mousedown",
+  dragStart,
+  false
+);
+
+document.addEventListener(
+  "mousemove",
+  drag,
+  false
+);
+
+document.addEventListener(
+  "mouseup",
+  dragEnd,
+  false
+);
+
 function dragStart(e){
 
-  initialX =
-  e.touches[0].clientX -
-  dragItem.offsetLeft;
+  if(e.type === "touchstart"){
 
-  initialY =
-  e.touches[0].clientY -
-  dragItem.offsetTop;
+    initialX =
+    e.touches[0].clientX -
+    dragItem.offsetLeft;
+
+    initialY =
+    e.touches[0].clientY -
+    dragItem.offsetTop;
+
+  }else{
+
+    initialX =
+    e.clientX -
+    dragItem.offsetLeft;
+
+    initialY =
+    e.clientY -
+    dragItem.offsetTop;
+
+  }
 
   active = true;
+
 }
 
 function drag(e){
 
-  if(active){
+  if(!active) return;
 
-    e.preventDefault();
+  e.preventDefault();
+
+  if(e.type === "touchmove"){
 
     currentX =
     e.touches[0].clientX -
@@ -2272,15 +2508,26 @@ function drag(e){
     e.touches[0].clientY -
     initialY;
 
-    dragItem.style.left =
-    currentX + "px";
+  }else{
 
-    dragItem.style.top =
-    currentY + "px";
+    currentX =
+    e.clientX -
+    initialX;
 
-    dragItem.style.bottom =
-    "auto";
+    currentY =
+    e.clientY -
+    initialY;
+
   }
+
+  dragItem.style.left =
+  currentX + "px";
+
+  dragItem.style.top =
+  currentY + "px";
+
+  dragItem.style.bottom =
+  "auto";
 
 }
 
