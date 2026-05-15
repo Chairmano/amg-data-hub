@@ -1171,7 +1171,7 @@ id="mtnPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1203,7 +1203,7 @@ id="telecelPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1235,7 +1235,7 @@ id="airtelPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1267,7 +1267,7 @@ id="resultsPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1299,7 +1299,7 @@ id="walletPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1375,7 +1375,7 @@ id="depositPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1431,7 +1431,7 @@ id="historyPage"
 
 <button
 class="back-btn"
-onclick="showPage('dashboardPage')"
+onclick="goBack()"
 >
 ←
 </button>
@@ -1611,7 +1611,16 @@ overlay.classList.remove(
 
 /* PAGES */
 
+let lastScrollPosition = 0;
+
 function showPage(pageId){
+
+/* SAVE CURRENT SCROLL */
+
+lastScrollPosition =
+window.scrollY;
+
+/* HIDE ALL PAGES */
 
 document
 .querySelectorAll(".page")
@@ -1623,6 +1632,8 @@ page.classList.remove(
 
 });
 
+/* SHOW SELECTED PAGE */
+
 document
 .getElementById(pageId)
 .classList.add("active");
@@ -1633,6 +1644,29 @@ pageId
 );
 
 closeMenu();
+
+/* GO TOP FOR NEW PAGE */
+
+window.scrollTo(0,0);
+}
+
+/* BACK FUNCTION */
+
+function goBack(){
+
+showPage('dashboardPage');
+
+/* RETURN TO OLD POSITION */
+
+setTimeout(()=>{
+
+window.scrollTo(
+0,
+lastScrollPosition
+);
+
+},50);
+
 }
 
 /* RESTORE PAGE */
