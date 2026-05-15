@@ -519,21 +519,27 @@ body.dark .profile-modal{
 
 .quick-icon{
 
-  width:55px;
-  height:55px;
+  width:72px;
+  height:72px;
 
   background:#facc15;
 
   color:#111827;
 
-  border-radius:18px;
+  border-radius:22px;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
   margin:auto;
-  margin-bottom:12px;
+  margin-bottom:14px;
+
+  font-size:34px;
+
+  line-height:1;
+
+  overflow:hidden;
 }
 
 /* SIMPLE PAGE */
@@ -1088,12 +1094,6 @@ GH₵0.00
 </div>
 <!-- QUICK ACTIONS -->
 
-<div class="card">
-
-<div class="section-title">
-Quick Actions
-</div>
-
 <div class="quick-grid">
 
 <div
@@ -1101,8 +1101,8 @@ class="quick-card"
 onclick="showPage('walletPage')"
 >
 
-<div class="quick-icon"> 
-🪪
+<div class="quick-icon">
+<i class="fa-solid fa-wallet"></i>
 </div>
 
 <p>
@@ -1117,7 +1117,7 @@ onclick="showPage('historyPage')"
 >
 
 <div class="quick-icon">
-📋
+<i class="fa-solid fa-clock-rotate-left"></i>
 </div>
 
 <p>
@@ -1132,7 +1132,7 @@ onclick="showPage('depositPage')"
 >
 
 <div class="quick-icon">
-💰
+<i class="fa-solid fa-money-bill-wave"></i>
 </div>
 
 <p>
@@ -1147,7 +1147,7 @@ onclick="showPage('resultsPage')"
 >
 
 <div class="quick-icon">
-🎓
+<i class="fa-solid fa-graduation-cap"></i>
 </div>
 
 <p>
@@ -1156,9 +1156,6 @@ Results
 
 </div>
 
-</div>
-
-</div>
 </div>
 
 <!-- MTN PAGE -->
